@@ -1,0 +1,286 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-21.00.46 RELr427 198590
+# Run by Administrator on Fri May  8 20:21:36 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=213.427062988281, 
+    height=129.362701416016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('project.cae')
+#: 模型数据库 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae" 已打开.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, 
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.91, 
+    farPlane=68.0202, width=28.8489, height=13.1564, viewOffsetX=3.38924, 
+    viewOffsetY=2.0836)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].view.setValues(width=27.226, height=12.9148, 
+    viewOffsetX=3.66433, viewOffsetY=2.20011)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Press')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+del mdb.models['Model-1'].loads['aqueous']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.6095, 
+    farPlane=67.3207, width=26.8994, height=12.2329, viewOffsetX=3.57704, 
+    viewOffsetY=2.107)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.4185, 
+    farPlane=67.5117, width=26.8146, height=12.1944, viewOffsetX=3.69748, 
+    viewOffsetY=5.00825)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.481, 
+    farPlane=66.4492, width=17.6946, height=8.04686, viewOffsetX=4.20258, 
+    viewOffsetY=5.05375)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['front-sclera-1'].faces
+faces1 = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+f2 = a.instances['vitreous-1'].faces
+faces2 = f2.getSequenceFromMask(mask=('[#3 ]', ), )
+pickedRegions = faces1+faces2
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['front-sclera-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[0], sketchPlaneSide=SIDE1, origin=(
+    9.514513, 2.868479, 0.0))
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=45.33, gridSpacing=1.13, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['Model-1'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=19.0303, 
+    farPlane=21.7403, width=9.62802, height=4.5671, cameraPosition=(9.67157, 
+    4.09353, 20.3853), cameraTarget=(9.67157, 4.09353, 0))
+s.ArcByStartEndTangent(point1=(-0.365833543367435, 0.350417622431192), point2=(
+    -2.69027496997746, 3.18682614734243), entity=g[29])
+s.ArcByStartEndTangent(point1=(-0.365833543367435, 0.350417622431192), point2=(
+    -4.54252289435071, 0.220989947333877), entity=g[29])
+s.CoincidentConstraint(entity1=v[30], entity2=g[24], addUndoState=False)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['front-sclera-1'].faces
+faces1 = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+f2 = a.instances['vitreous-1'].faces
+faces2 = f2.getSequenceFromMask(mask=('[#2 ]', ), )
+pickedFaces = faces1+faces2
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s)
+s.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.7505, 
+    farPlane=66.1797, width=17.7721, height=8.08213, viewOffsetX=4.97723, 
+    viewOffsetY=4.86578)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=85.3776, 
+    farPlane=91.9501, width=24.5721, height=11.1745, cameraPosition=(3.68009, 
+    -2.39637, 88.6638), cameraTarget=(3.68009, -2.39637, 0), 
+    viewOffsetX=6.88162, viewOffsetY=6.72754)
+a = mdb.models['Model-1'].rootAssembly
+s1 = a.instances['crystalline-1'].edges
+side1Edges1 = s1.getSequenceFromMask(mask=('[#9 ]', ), )
+s2 = a.instances['vitreous-1'].edges
+side1Edges2 = s2.getSequenceFromMask(mask=('[#44 ]', ), )
+s3 = a.instances['front-sclera-1'].edges
+side1Edges3 = s3.getSequenceFromMask(mask=('[#10 ]', ), )
+s4 = a.instances['cornea-1'].edges
+side1Edges4 = s4.getSequenceFromMask(mask=('[#4 ]', ), )
+region = a.Surface(side1Edges=side1Edges1+side1Edges2+side1Edges3+side1Edges4, 
+    name='Surf-6')
+mdb.models['Model-1'].Pressure(name='aqueous', createStepName='Press', 
+    region=region, distributionType=UNIFORM, field='', magnitude=0.0024, 
+    amplitude=UNSET)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=84.7678, 
+    farPlane=92.5598, width=31.2477, height=14.2104, viewOffsetX=8.52978, 
+    viewOffsetY=6.18209)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(width=29.2864, height=13.3559, 
+    viewOffsetX=8.21462, viewOffsetY=6.12456)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+#: 
+#: 部件实例: vitreous-1
+#:  四边形 elements:  206
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  78.72,  最差 min angle on quad faces:  36.73
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  102.16,  最差 max angle on quad faces:  143.39
+#:    长宽比 > 10:  3 (1.45631%)
+#:    平均 长宽比:  4.12,  最差 长宽比:  313.6
+#:  三角形 elements:  10
+#:    Min angle on Tri Faces < 5:  5 (50%)
+#:    平均 min angle on tri faces:  24.31,  最差 min angle on tri faces:  0.0684
+#:    Max angle on Tri faces > 170:  1 (10%)
+#:    平均 max angle on tri faces:  111.55,  最差 max angle on tri faces:  174.41
+#:    长宽比 > 10:  5 (50%)
+#:    平均 长宽比:  75.13,  最差 长宽比:  413.0
+#:    形状因子 < 0.01:  5 (50%)
+#:    平均 形状因子:  0.458796,  最差 形状因子:  0.000017
+#:   Number of elements :  216,   Analysis errors:  0 (0%),  Analysis warnings:  8 (3.7037%)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  216,   Analysis errors:  0 (0%),  Analysis warnings:  8 (3.7037%)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  216,   Analysis errors:  0 (0%),  Analysis warnings:  8 (3.7037%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=86.3849, 
+    farPlane=90.9427, width=16.1225, height=7.35257, viewOffsetX=8.03531, 
+    viewOffsetY=6.24525)
+a = mdb.models['Model-1'].rootAssembly
+del a.features['Partition face-2']
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+a = mdb.models['Model-1'].rootAssembly
+del a.features['Partition face-1']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=86.65, 
+    farPlane=90.6776, width=14.2895, height=6.51667, viewOffsetX=7.32277, 
+    viewOffsetY=6.17329)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF, loads=ON, 
+    bcs=ON, predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=86.0929, 
+    farPlane=91.2347, width=20.6381, height=9.3855, viewOffsetX=9.29944, 
+    viewOffsetY=5.96556)
+del mdb.models['Model-1'].loads['aqueous']
+session.viewports['Viewport: 1'].view.setValues(width=19.3639, height=8.80604, 
+    viewOffsetX=8.69719, viewOffsetY=6.06607)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=86.0971, 
+    farPlane=91.2305, width=19.4008, height=8.8228, viewOffsetX=6.44011, 
+    viewOffsetY=7.12278)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=87.0832, 
+    farPlane=90.2444, width=11.2439, height=5.11332, viewOffsetX=5.45472, 
+    viewOffsetY=6.83684)
+a = mdb.models['Model-1'].rootAssembly
+f11 = a.instances['front-sclera-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f11[0], sketchPlaneSide=SIDE1, origin=(
+    9.514513, 2.868479, 0.0))
+s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=20.38, gridSpacing=0.5, transform=t)
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['Model-1'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s1, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=18.2958, 
+    farPlane=22.4748, width=14.8471, height=7.0428, cameraPosition=(9.48072, 
+    3.1385, 20.3853), cameraTarget=(9.48072, 3.1385, 0))
+s1.ArcByStartEndTangent(point1=(-0.365833543367431, 0.350417622431194), 
+    point2=(-2.69027496997746, 3.18682614734243), entity=g[24])
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['front-sclera-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s1)
+s1.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=84.716, 
+    farPlane=92.6116, width=31.5733, height=14.3584, viewOffsetX=11.9357, 
+    viewOffsetY=5.9489)
+a = mdb.models['Model-1'].rootAssembly
+s1 = a.instances['front-sclera-1'].edges
+side1Edges1 = s1.getSequenceFromMask(mask=('[#10 ]', ), )
+s2 = a.instances['vitreous-1'].edges
+side1Edges2 = s2.getSequenceFromMask(mask=('[#10 ]', ), )
+s3 = a.instances['crystalline-1'].edges
+side1Edges3 = s3.getSequenceFromMask(mask=('[#9 ]', ), )
+s4 = a.instances['cornea-1'].edges
+side1Edges4 = s4.getSequenceFromMask(mask=('[#4 ]', ), )
+region = regionToolset.Region(side1Edges=side1Edges1+side1Edges2+side1Edges3+\
+    side1Edges4)
+mdb.models['Model-1'].Pressure(name='aqueous', createStepName='Press', 
+    region=region, distributionType=UNIFORM, field='', magnitude=0.0024, 
+    amplitude='len-press')
+session.viewports['Viewport: 1'].view.setValues(nearPlane=85.9221, 
+    farPlane=91.4055, width=19.5201, height=8.87705, viewOffsetX=8.58294, 
+    viewOffsetY=7.83555)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=85.1583, 
+    farPlane=92.1693, width=28.0438, height=12.7892, viewOffsetX=10.8681, 
+    viewOffsetY=7.95506)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=86.2253, 
+    farPlane=91.1023, width=17.3088, height=7.8936, viewOffsetX=8.3734, 
+    viewOffsetY=7.82813)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+del a.features['Partition face-1']
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=85.7457, 
+    farPlane=91.5819, width=20.7234, height=9.45082, viewOffsetX=9.76457, 
+    viewOffsetY=8.28971)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=85.9092, 
+    farPlane=91.4184, width=20.7629, height=9.46884, viewOffsetX=6.07186, 
+    viewOffsetY=6.0767)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=86.6284, 
+    farPlane=90.6992, width=14.4436, height=6.58695, viewOffsetX=5.99302, 
+    viewOffsetY=6.31465)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[0], sketchPlaneSide=SIDE1, origin=(
+    5.047343, -4.173423, 0.0))
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=39.64, gridSpacing=0.99, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['Model-1'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.0111, 
+    farPlane=44.2701, width=32.8955, height=15.6042, cameraPosition=(6.10245, 
+    -3.31255, 39.6406), cameraTarget=(6.10245, -3.31255, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(8.29548, 
+    1.12934, 39.6406), cameraTarget=(8.29548, 1.12934, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=36.9879, 
+    farPlane=42.2933, width=18.849, height=8.9411, cameraPosition=(9.58398, 
+    1.82536, 39.6406), cameraTarget=(9.58398, 1.82536, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(9.65011, 
+    2.27373, 39.6406), cameraTarget=(9.65011, 2.27373, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=37.5695, 
+    farPlane=41.7117, width=14.7163, height=6.98075, cameraPosition=(10.0142, 
+    2.56077, 39.6406), cameraTarget=(10.0142, 2.56077, 0))
+s.Line(point1=(4.3916373177597, 6.83585510008512), point2=(2.0463411633, 
+    6.2510072961))
+s.CoincidentConstraint(entity1=v[28], entity2=g[24], addUndoState=False)
+s.Line(point1=(2.0463411633, 6.2510072961), point2=(0.377401417416587, 
+    7.90634301621347))
+s.CoincidentConstraint(entity1=v[29], entity2=g[26], addUndoState=False)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s)
+s.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)

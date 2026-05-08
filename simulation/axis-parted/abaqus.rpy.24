@@ -1,0 +1,719 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-21.00.46 RELr427 198590
+# Run by Administrator on Fri May  8 19:53:41 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=213.427062988281, 
+    height=129.362701416016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('project.cae')
+#: 模型数据库 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae" 已打开.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, 
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.4159, 
+    farPlane=68.5143, width=32.38, height=14.7667, viewOffsetX=4.088, 
+    viewOffsetY=0.747113)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.6512, 
+    farPlane=68.279, width=32.5082, height=14.8252, viewOffsetX=4.74474, 
+    viewOffsetY=2.59752)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.7113, 
+    farPlane=66.2189, width=16.0056, height=7.29929, viewOffsetX=4.40753, 
+    viewOffsetY=3.60604)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#3 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[1], sketchPlaneSide=SIDE1, origin=(
+    5.047039, -4.174795, 0.0))
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=39.64, gridSpacing=0.99, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['Model-1'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.0023, 
+    farPlane=44.2579, width=32.8835, height=15.5984, cameraPosition=(6.08693, 
+    -3.36134, 39.6301), cameraTarget=(6.08693, -3.36134, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(9.5945, 
+    1.88415, 39.6301), cameraTarget=(9.5945, 1.88415, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=37.4276, 
+    farPlane=41.8326, width=15.6499, height=7.42361, cameraPosition=(10.4407, 
+    3.62536, 39.6301), cameraTarget=(10.4407, 3.62536, 0))
+s.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.4148, 
+    farPlane=66.5154, width=20.4019, height=9.30417, viewOffsetX=6.12047, 
+    viewOffsetY=3.36466)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.2654, 
+    farPlane=66.6648, width=20.3522, height=9.28154, viewOffsetX=1.594, 
+    viewOffsetY=4.38458)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=51.8039, 
+    farPlane=75.0595, width=17.2091, height=7.84815, cameraPosition=(46.8355, 
+    -22.8326, 42.7566), cameraUpVector=(0.138775, 0.926755, 0.349093), 
+    cameraTarget=(5.452, -0.334495, -0.518994), viewOffsetX=1.34783, 
+    viewOffsetY=3.70745)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=52.2025, 
+    farPlane=74.6609, width=17.3416, height=7.90853, viewOffsetX=0.455121, 
+    viewOffsetY=3.79681)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=52.2032, 
+    farPlane=74.6602, width=17.3418, height=7.90866, viewOffsetX=0.455128, 
+    viewOffsetY=3.79686)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=52.2032, 
+    farPlane=74.6602, width=17.3419, height=7.90867, cameraPosition=(46.0664, 
+    -22.7323, 43.5442), cameraUpVector=(0.311942, 0.931703, 0.186069), 
+    cameraTarget=(4.68295, -0.234203, 0.268576), viewOffsetX=0.455128, 
+    viewOffsetY=3.79686)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.2207, 
+    farPlane=71.5642, width=18.3443, height=8.36584, cameraPosition=(18.8369, 
+    -19.6811, 58.9638), cameraUpVector=(0.377658, 0.902158, 0.208532), 
+    cameraTarget=(4.49322, -0.0042932, -0.185333), viewOffsetX=0.481436, 
+    viewOffsetY=4.01633)
+session.viewports['Viewport: 1'].view.fitView()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=53.6248, 
+    farPlane=82.4413, width=56.7373, height=25.8748, cameraPosition=(21.3734, 
+    -22.291, 62.4988), cameraUpVector=(0.107962, 0.950875, 0.29014), 
+    cameraTarget=(6.11752, -1.36282, -0.411922))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.0075, 
+    farPlane=76.0585, width=15.2985, height=6.97683, viewOffsetX=2.8358, 
+    viewOffsetY=3.83325)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.setMeshControls(regions=pickedRegions, elemShape=QUAD)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.2501, 
+    farPlane=75.8159, width=13.5724, height=6.18965, viewOffsetX=2.49181, 
+    viewOffsetY=3.9629)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9046, 
+    farPlane=75.1614, width=10.0691, height=4.59195, viewOffsetX=2.3374, 
+    viewOffsetY=4.10735)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.deleteSeeds(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.seedPartInstance(regions=partInstances, size=0.94, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  186,   Analysis errors:  0 (0%),  Analysis warnings:  9 (4.83871%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9815, 
+    farPlane=75.0845, width=8.37377, height=3.81882, viewOffsetX=2.25098, 
+    viewOffsetY=4.12809)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#3 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges2 = e1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end2Edges=pickedEdges2, ratio=2.0, 
+    number=10, constraint=FINER)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  203,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.1143, 
+    farPlane=74.9517, width=8.392, height=3.82713, viewOffsetX=2.25588, 
+    viewOffsetY=4.13708)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges2 = e1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end2Edges=pickedEdges2, ratio=4.0, 
+    number=8, constraint=FINER)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.setMeshControls(regions=pickedRegions, elemShape=QUAD_DOMINATED)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#3 ]', ), )
+a.generateMesh(regions=pickedRegions, seedConstraintOverride=ON)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#3 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges = e1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.deleteSeeds(regions=pickedEdges)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+v11 = a.instances['vitreous-1'].vertices
+e1 = a.instances['vitreous-1'].edges
+a.PartitionFaceByShortestPath(point1=v11[0], faces=pickedFaces, 
+    point2=a.instances['vitreous-1'].InterestingPoint(edge=e1[0], rule=CENTER))
+#* 特征创建失败.
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.7426, 
+    farPlane=75.3234, width=11.3652, height=5.18305, viewOffsetX=2.2995, 
+    viewOffsetY=4.39338)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.6563, 
+    farPlane=75.4097, width=11.3491, height=5.17568, viewOffsetX=3.32651, 
+    viewOffsetY=3.15293)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9078, 
+    farPlane=75.1582, width=8.89753, height=4.05768, viewOffsetX=2.41926, 
+    viewOffsetY=3.15474)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+f11 = a.instances['vitreous-1'].faces
+a.PartitionFaceByExtendFace(extendFace=f11[1], faces=pickedFaces)
+#* 特征创建失败.
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9047, 
+    farPlane=75.1613, width=10.0691, height=4.59198, viewOffsetX=2.69905, 
+    viewOffsetY=2.97452)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.setMeshControls(regions=pickedRegions, algorithm=MEDIAL_AXIS)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.seedPartInstance(regions=partInstances, size=0.9, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.setMeshControls(regions=pickedRegions, algorithm=ADVANCING_FRONT)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[1], sketchPlaneSide=SIDE1, origin=(
+    5.047039, -4.174795, 0.0))
+s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=39.64, gridSpacing=0.99, transform=t)
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['Model-1'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s1, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.5242, 
+    farPlane=43.7359, width=29.1747, height=13.8392, cameraPosition=(6.93331, 
+    -3.08862, 39.6301), cameraTarget=(6.93331, -3.08862, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(8.05935, 
+    2.3409, 39.6301), cameraTarget=(8.05935, 2.3409, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=37.4186, 
+    farPlane=41.8416, width=15.7139, height=7.45398, cameraPosition=(9.30758, 
+    2.78756, 39.6301), cameraTarget=(9.30758, 2.78756, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(9.37374, 
+    2.22686, 39.6301), cameraTarget=(9.37374, 2.22686, 0))
+s1.rectangle(point1=(0.99, 6.93), point2=(3.2175, 6.93))
+#* 不能创建矩形.
+s1.rectangle(point1=(0.99, 6.93), point2=(3.2175, 5.445))
+s1.EqualDistanceConstraint(entity1=g[38], entity2=g[36], midpoint=v[20])
+s1.EqualDistanceConstraint(entity1=g[37], entity2=g[39], midpoint=v[20])
+#: 警告: 选择两条或更多的直线.
+#: 警告: 选择两条或更多的直线.
+#: 警告: 选择两条或更多的直线.
+s1.EqualLengthConstraint(entity1=g[37], entity2=g[38])
+s1.EqualLengthConstraint(entity1=g[36], entity2=g[38])
+s1.dragEntity(entity=v[29], points=((0.93390284462338, 7.35643371335671), (
+    0.99, 7.425), (0.7425, 7.1775), (0.7425, 6.93), (0.7425, 6.93), (0.495, 
+    6.6825), (0.495, 6.6825)))
+s1.undo()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=37.5428, 
+    farPlane=41.7174, width=14.8315, height=7.0354, cameraPosition=(9.36997, 
+    2.30897, 39.6301), cameraTarget=(9.36997, 2.30897, 0))
+s1.dragEntity(entity=v[31], points=((3.16140284462338, 5.12893371335671), (
+    3.2175, 5.1975), (3.465, 5.1975), (3.465, 5.445), (3.465, 5.445)))
+s1.undo()
+s1.Line(point1=(0.93390284462338, 7.35643371335671), point2=(
+    -0.319259034126844, 8.6625))
+s1.CoincidentConstraint(entity1=v[33], entity2=g[15], addUndoState=False)
+s1.Line(point1=(3.16140284462338, 7.35643371335671), point2=(5.1975, 9.405))
+s1.Line(point1=(0.93390284462338, 5.12893371335671), point2=(-2.22750000003725, 
+    5.12893371335671))
+s1.HorizontalConstraint(entity=g[42], addUndoState=False)
+s1.PerpendicularConstraint(entity1=g[36], entity2=g[42], addUndoState=False)
+s1.Line(point1=(3.16140284462338, 5.12893371335671), point2=(7.67250000010245, 
+    5.12893371335671))
+s1.HorizontalConstraint(entity=g[43], addUndoState=False)
+s1.ParallelConstraint(entity1=g[37], entity2=g[43], addUndoState=False)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s1)
+s1.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.5247, 
+    farPlane=73.7122, width=10.1716, height=4.63872, cameraPosition=(13.4291, 
+    -20.9092, 64.0084), cameraUpVector=(-0.0852291, 0.953451, 0.289253), 
+    cameraTarget=(6.69041, -1.8079, -0.939385), viewOffsetX=2.72653, 
+    viewOffsetY=3.0048)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.0316, 
+    farPlane=74.2052, width=14.6261, height=6.67016, viewOffsetX=4.00248, 
+    viewOffsetY=2.56657)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9219, 
+    farPlane=74.3148, width=14.5998, height=6.65818, viewOffsetX=3.26582, 
+    viewOffsetY=3.59654)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.144, 
+    farPlane=74.0927, width=12.1706, height=5.55034, viewOffsetX=2.80862, 
+    viewOffsetY=3.965)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges = e1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.seedEdgeByNumber(edges=pickedEdges, number=6, constraint=FINER)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#4000 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, ratio=2.0, 
+    number=2, constraint=FINER)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges2 = e1.getSequenceFromMask(mask=('[#8000 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end2Edges=pickedEdges2, ratio=2.0, 
+    number=4, constraint=FINER)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#40 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, ratio=2.0, 
+    number=1, constraint=FINER)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#20 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, ratio=2.0, 
+    number=4, constraint=FINER)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#88 ]', ), )
+pickedEdges2 = e1.getSequenceFromMask(mask=('[#2100 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, 
+    end2Edges=pickedEdges2, ratio=2.0, number=4, constraint=FINER)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#11 ]', ), )
+a.generateMesh(regions=pickedRegions, seedConstraintOverride=ON)
+session.viewports['Viewport: 1'].view.setValues(width=11.4591, height=5.22586, 
+    viewOffsetX=2.80473, viewOffsetY=4.06335)
+a = mdb.models['Model-1'].rootAssembly
+a.deleteFeatures(('Partition face-1', 'Partition face-2', ))
+#: 警告: 附加网格到几何体实例化失败'front-sclera-1'.
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['front-sclera-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+f11 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f11[0], sketchPlaneSide=SIDE1, origin=(
+    5.047343, -4.173423, 0.0))
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=39.64, gridSpacing=0.99, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['Model-1'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=33.711, 
+    farPlane=45.5701, width=47.6837, height=22.619, cameraPosition=(3.30282, 
+    -5.63138, 39.6406), cameraTarget=(3.30282, -5.63138, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(7.7533, 
+    2.27525, 39.6406), cameraTarget=(7.7533, 2.27525, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=38.1206, 
+    farPlane=41.1606, width=10.8004, height=5.12321, cameraPosition=(9.46053, 
+    3.94321, 39.6406), cameraTarget=(9.46053, 3.94321, 0))
+s.Line(point1=(4.10133645663257, 7.39231962243119), point2=(2.0463411633, 
+    6.2510072961))
+s.Line(point1=(2.0463411633, 6.2510072961), point2=(0.391058838135621, 7.92))
+s.CoincidentConstraint(entity1=v[28], entity2=g[26], addUndoState=False)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s)
+s.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+session.viewports['Viewport: 1'].view.setValues(width=10.7881, height=4.91988, 
+    viewOffsetX=2.78022, viewOffsetY=4.04884)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  201,   Analysis errors:  0 (0%),  Analysis warnings:  1 (0.497512%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.5823, 
+    farPlane=73.6544, width=10.2228, height=4.66207, viewOffsetX=2.8608, 
+    viewOffsetY=3.67226)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.5042, 
+    farPlane=73.7325, width=10.2099, height=4.65616, viewOffsetX=3.34575, 
+    viewOffsetY=4.39827)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.3356, 
+    farPlane=72.9011, width=3.70823, height=1.69112, viewOffsetX=3.64632, 
+    viewOffsetY=4.87526)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.3665, 
+    farPlane=72.8703, width=3.71006, height=1.69196, viewOffsetX=3.44187, 
+    viewOffsetY=4.62779)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.5184, 
+    farPlane=72.7183, width=2.41176, height=1.09987, viewOffsetX=3.39459, 
+    viewOffsetY=4.7262)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.5386, 
+    farPlane=72.6981, width=2.41254, height=1.10023, viewOffsetX=3.21742, 
+    viewOffsetY=4.60924)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.0993, 
+    farPlane=73.1374, width=6.10225, height=2.77509, viewOffsetX=3.43695, 
+    viewOffsetY=4.40198)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+p = mdb.models['Model-1'].parts['front-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].view.setValues(width=23.2086, height=10.5545, 
+    viewOffsetX=-0.0608154, viewOffsetY=0.197961)
+mdb.models['Model-1'].parts['front-sclera'].setValues(
+    geometryRefinement=EXTRA_FINE)
+p = mdb.models['Model-1'].parts['vitreous']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.models['Model-1'].parts['vitreous'].setValues(
+    geometryRefinement=EXTRA_FINE)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.6075, 
+    farPlane=72.6292, width=1.78479, height=0.811661, viewOffsetX=3.33101, 
+    viewOffsetY=4.63905)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.6225, 
+    farPlane=72.6142, width=1.78522, height=0.811854, viewOffsetX=3.14765, 
+    viewOffsetY=4.53274)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.7389, 
+    farPlane=72.4978, width=0.851202, height=0.387097, viewOffsetX=2.90363, 
+    viewOffsetY=4.61889)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.746, 
+    farPlane=72.4907, width=0.851299, height=0.387141, viewOffsetX=2.8962, 
+    viewOffsetY=4.55509)
+session.viewports['Viewport: 1'].view.setValues(viewOffsetX=2.90636, 
+    viewOffsetY=4.46694)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.1264, 
+    farPlane=73.1103, width=5.88434, height=2.67599, viewOffsetX=-0.365532, 
+    viewOffsetY=5.02603)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.0808, 
+    farPlane=73.1559, width=5.88002, height=2.67403, viewOffsetX=0.0680016, 
+    viewOffsetY=3.95273)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9239, 
+    farPlane=74.3128, width=15.5297, height=7.06238, viewOffsetX=-1.90952, 
+    viewOffsetY=3.1037)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.8083, 
+    farPlane=74.4285, width=15.5003, height=7.04898, viewOffsetX=1.58574, 
+    viewOffsetY=3.33639)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.631, 
+    farPlane=72.6057, width=1.6177, height=0.735673, viewOffsetX=3.34967, 
+    viewOffsetY=4.59865)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.6446, 
+    farPlane=72.5921, width=1.61805, height=0.735832, viewOffsetX=3.17553, 
+    viewOffsetY=4.49889)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.615, 
+    farPlane=74.6217, width=18.0038, height=8.1875, viewOffsetX=-1.86671, 
+    viewOffsetY=3.70349)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.4824, 
+    farPlane=74.7543, width=17.9644, height=8.16958, viewOffsetX=1.66723, 
+    viewOffsetY=4.49978)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.3505, 
+    farPlane=75.572, width=15.8387, height=7.2029, cameraPosition=(22.135, 
+    -20.3383, 62.8878), cameraUpVector=(-0.0283283, 0.957688, 0.28641), 
+    cameraTarget=(6.38157, -1.80297, -0.64766), viewOffsetX=1.8431, 
+    viewOffsetY=4.61711)
+a = mdb.models['Model-1'].rootAssembly
+del a.features['Partition face-1']
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.2842, 
+    farPlane=74.143, width=14.2116, height=6.48114, viewOffsetX=2.13446, 
+    viewOffsetY=4.7529)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[0], sketchPlaneSide=SIDE1, origin=(
+    5.047343, -4.173423, 0.0))
+s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=39.64, gridSpacing=0.99, transform=t)
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['Model-1'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s1, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.5542, 
+    farPlane=43.7375, width=29.074, height=13.7914, cameraPosition=(6.94691, 
+    -2.83527, 39.6459), cameraTarget=(6.94691, -2.83527, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(8.19148, 
+    1.74152, 39.6459), cameraTarget=(8.19148, 1.74152, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=38.1255, 
+    farPlane=41.1663, width=12.2263, height=5.79961, cameraPosition=(10.8755, 
+    2.59728, 39.6459), cameraTarget=(10.8755, 2.59728, 0))
+s1.Line(point1=(4.30854348397711, 7.00363459902717), point2=(2.0463411633, 
+    6.2510072961))
+s1.CoincidentConstraint(entity1=v[28], entity2=g[24], addUndoState=False)
+s1.Line(point1=(2.0463411633, 6.2510072961), point2=(0.391058838135621, 7.92))
+s1.CoincidentConstraint(entity1=v[29], entity2=g[26], addUndoState=False)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s1)
+s1.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.7123, 
+    farPlane=73.7149, width=11.1732, height=5.09549, viewOffsetX=2.42068, 
+    viewOffsetY=5.05322)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=63.0642, 
+    farPlane=72.3629, width=1.57645, height=0.718933, viewOffsetX=3.25948, 
+    viewOffsetY=4.76881)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=63.0774, 
+    farPlane=72.3497, width=1.57678, height=0.719084, viewOffsetX=2.98498, 
+    viewOffsetY=4.55519)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  209,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  209,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.4979, 
+    farPlane=73.9292, width=14.3195, height=6.53035, viewOffsetX=2.99404, 
+    viewOffsetY=4.17247)
+mdb.save()
+#: 模型数据库已保存到 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae".
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.4011, 
+    farPlane=76.0261, width=34.3307, height=15.6563, viewOffsetX=0.242146, 
+    viewOffsetY=3.24332)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.7835, 
+    farPlane=76.6436, width=33.9738, height=15.4936, viewOffsetX=2.77391, 
+    viewOffsetY=4.04387)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.7799, 
+    farPlane=76.6472, width=33.9718, height=15.4927, viewOffsetX=4.06471, 
+    viewOffsetY=4.80634)
+session.viewports['Viewport: 1'].view.setValues(width=39.9669, height=18.2267, 
+    viewOffsetX=5.81765, viewOffsetY=4.01137)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.0563, 
+    farPlane=77.3708, width=39.4749, height=18.0023, cameraPosition=(13.2498, 
+    -18.2824, 64.8855), cameraUpVector=(0.0554078, 0.966425, 0.250905), 
+    cameraTarget=(5.98678, -0.894044, -0.485559), viewOffsetX=5.74604, 
+    viewOffsetY=3.96199)
+#: 
+#: 部件实例: back-sclera-1
+#:   Number of elements :  28,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: cornea-1
+#:   Number of elements :  371,   Analysis errors:  0 (0%),  Analysis warnings:  1 (0.269542%)
+#: 
+#: 部件实例: front-sclera-1
+#:   Number of elements :  32,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: touch-len-1
+#:   Number of elements :  63,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: crystalline-1
+#:   Number of elements :  403,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  209,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.9889, 
+    farPlane=73.4382, width=9.20707, height=4.19884, viewOffsetX=3.1986, 
+    viewOffsetY=5.58033)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.0637, 
+    farPlane=73.3634, width=9.21817, height=4.2039, viewOffsetX=2.76782, 
+    viewOffsetY=6.40844)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.6648, 
+    farPlane=75.7623, width=28.9496, height=13.2023, viewOffsetX=9.16178, 
+    viewOffsetY=7.01726)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.4602, 
+    farPlane=75.9669, width=28.8503, height=13.157, viewOffsetX=5.11041, 
+    viewOffsetY=4.68566)
+#: 
+#: 部件实例: back-sclera-1
+#:  四边形 elements:  28
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  83.32,  最差 min angle on quad faces:  81.02
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  95.83,  最差 max angle on quad faces:  98.14
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.20,  最差 长宽比:  1.44
+#:   Number of elements :  28,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: cornea-1
+#:  四边形 elements:  371
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  66.22,  最差 min angle on quad faces:  44.85
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  114.07,  最差 max angle on quad faces:  135.72
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.14,  最差 长宽比:  1.26
+#:   Number of elements :  371,   Analysis errors:  0 (0%),  Analysis warnings:  1 (0.269542%)
+#: 
+#: 部件实例: front-sclera-1
+#:  四边形 elements:  32
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  72.79,  最差 min angle on quad faces:  64.31
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  107.15,  最差 max angle on quad faces:  116.43
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.25,  最差 长宽比:  1.53
+#:   Number of elements :  32,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: touch-len-1
+#:  四边形 elements:  63
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  71.57,  最差 min angle on quad faces:  54.01
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  108.43,  最差 max angle on quad faces:  125.99
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.09,  最差 长宽比:  1.09
+#:   Number of elements :  63,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: crystalline-1
+#:  四边形 elements:  399
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  81.54,  最差 min angle on quad faces:  57.68
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  99.06,  最差 max angle on quad faces:  129.22
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.20,  最差 长宽比:  1.86
+#:  三角形 elements:  4
+#:    Min angle on Tri Faces < 5:  0 (0%)
+#:    平均 min angle on tri faces:  50.44,  最差 min angle on tri faces:  43.97
+#:    Max angle on Tri faces > 170:  0 (0%)
+#:    平均 max angle on tri faces:  67.96,  最差 max angle on tri faces:  77.53
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.21,  最差 长宽比:  1.41
+#:    形状因子 < 0.01:  0 (0%)
+#:    平均 形状因子:  0.952907,  最差 形状因子:  0.889895
+#:   Number of elements :  403,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: vitreous-1
+#:  四边形 elements:  203
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  76.99,  最差 min angle on quad faces:  51.18
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  103.82,  最差 max angle on quad faces:  140.42
+#:    长宽比 > 10:  1 (0.492611%)
+#:    平均 长宽比:  1.58,  最差 长宽比:  55.05
+#:  三角形 elements:  6
+#:    Min angle on Tri Faces < 5:  0 (0%)
+#:    平均 min angle on tri faces:  51.87,  最差 min angle on tri faces:  44.17
+#:    Max angle on Tri faces > 170:  0 (0%)
+#:    平均 max angle on tri faces:  68.41,  最差 max angle on tri faces:  71.97
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.19,  最差 长宽比:  1.36
+#:    形状因子 < 0.01:  0 (0%)
+#:    平均 形状因子:  0.964347,  最差 形状因子:  0.916520
+#:   Number of elements :  209,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.53, 
+    farPlane=72.8971, width=5.36528, height=2.44681, viewOffsetX=3.41374, 
+    viewOffsetY=4.30304)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.5743, 
+    farPlane=72.8528, width=5.36908, height=2.44854, viewOffsetX=3.33682, 
+    viewOffsetY=3.79001)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=63.1239, 
+    farPlane=72.3032, width=1.15317, height=0.525898, viewOffsetX=2.95311, 
+    viewOffsetY=4.01913)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=63.1336, 
+    farPlane=72.2935, width=1.15335, height=0.525979, viewOffsetX=2.8586, 
+    viewOffsetY=3.92912)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.7562, 
+    farPlane=72.6709, width=3.76051, height=1.71496, viewOffsetX=3.27587, 
+    viewOffsetY=4.20779)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.7875, 
+    farPlane=72.6396, width=3.76239, height=1.71582, viewOffsetX=3.29339, 
+    viewOffsetY=4.08582)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.6284, 
+    farPlane=73.7987, width=13.2754, height=6.05417, viewOffsetX=4.62244, 
+    viewOffsetY=3.33366)
+a = mdb.models['Model-1'].rootAssembly
+del a.features['Partition face-1']
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+a = mdb.models['Model-1'].rootAssembly
+f11 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f11[0], sketchPlaneSide=SIDE1, origin=(
+    5.047343, -4.173423, 0.0))
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=39.64, gridSpacing=0.99, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['Model-1'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.293, 
+    farPlane=43.9987, width=30.9298, height=14.6717, cameraPosition=(6.17873, 
+    -2.96383, 39.6459), cameraTarget=(6.17873, -2.96383, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(8.45777, 
+    2.70577, 39.6459), cameraTarget=(8.45777, 2.70577, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=38.1411, 
+    farPlane=41.1507, width=12.1012, height=5.74028, cameraPosition=(9.83519, 
+    2.48954, 39.6459), cameraTarget=(9.83519, 2.48954, 0))
+s.Line(point1=(4.48021454211763, 6.64820486971154), point2=(2.0463411633, 
+    6.2510072961))
+s.CoincidentConstraint(entity1=v[28], entity2=g[17], addUndoState=False)
+s.EqualDistanceConstraint(entity1=v[10], entity2=v[0], midpoint=v[28], 
+    addUndoState=False)
+s.Line(point1=(2.0463411633, 6.2510072961), point2=(0.2475, 7.76417175870495))
+s.CoincidentConstraint(entity1=v[29], entity2=g[26], addUndoState=False)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s)
+s.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
