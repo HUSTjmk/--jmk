@@ -1,0 +1,624 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models.changeKey(fromName='Model-1', toName='porcine-eye')
+mdb.openDxf('E:/study/research/porcine-eye.DXF', scaleFromFile=OFF)
+mdb.models['porcine-eye'].ConstrainedSketchFromGeometryFile(geometryFile=
+    mdb.acis, name='porcine-eye')
+mdb.models['porcine-eye'].ConstrainedSketch(name='__profile__', sheetSize=
+    200.0)
+mdb.models['porcine-eye'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['porcine-eye'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['porcine-eye'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[2])
+del mdb.models['porcine-eye'].sketches['__profile__']
+mdb.models['porcine-eye'].ConstrainedSketch(name='__profile__', sheetSize=
+    200.0)
+mdb.models['porcine-eye'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['porcine-eye'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['porcine-eye'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[2])
+mdb.models['porcine-eye'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['porcine-eye'].sketches['porcine-eye'])
+mdb.models['porcine-eye'].Part(dimensionality=AXISYMMETRIC, name='eye', type=
+    DEFORMABLE_BODY)
+mdb.models['porcine-eye'].parts['eye'].BaseShell(sketch=
+    mdb.models['porcine-eye'].sketches['__profile__'])
+del mdb.models['porcine-eye'].sketches['__profile__']
+mdb.models['porcine-eye'].parts['eye'].setValues(geometryRefinement=EXTRA_FINE)
+mdb.models['porcine-eye'].ConstrainedSketch(gridSpacing=1.32, name=
+    '__profile__', sheetSize=52.9, transform=
+    mdb.models['porcine-eye'].parts['eye'].MakeSketchTransform(
+    sketchPlane=mdb.models['porcine-eye'].parts['eye'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(4.914021, -2.03196, 
+    0.0)))
+mdb.models['porcine-eye'].parts['eye'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['porcine-eye'].sketches['__profile__'])
+mdb.models['porcine-eye'].sketches['__profile__'].ArcByStartEndTangent(entity=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[10], point1=(
+    -0.0643811140840311, 5.15936772025235), point2=(-4.914021, 
+    2.75810908218384))
+mdb.models['porcine-eye'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['porcine-eye'].sketches['__profile__'].vertices[18], entity2=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[2])
+mdb.models['porcine-eye'].sketches['__profile__'].VerticalDimension(textPoint=(
+    -10.1744103280029, 3.04709051986694), value=7.4, vertex1=
+    mdb.models['porcine-eye'].sketches['__profile__'].vertices[0], vertex2=
+    mdb.models['porcine-eye'].sketches['__profile__'].vertices[18])
+mdb.models['porcine-eye'].sketches['__profile__'].ArcByStartEndTangent(entity=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[9], point1=(
+    4.2290132382241, 5.61091140303793), point2=(-4.914021, -10.0130682474))
+mdb.models['porcine-eye'].sketches['__profile__'].Line(point1=(
+    6.39848184367656, 0.0), point2=(5.56246226583607, 0.0))
+mdb.models['porcine-eye'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[16])
+mdb.models['porcine-eye'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['porcine-eye'].sketches['__profile__'].vertices[20], entity2=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[5])
+mdb.models['porcine-eye'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['porcine-eye'].sketches['__profile__'].vertices[21], entity2=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[15])
+mdb.models['porcine-eye'].sketches['__profile__'].Line(point1=(
+    2.24097899995944, 9.61352226415712), point2=(1.9102170301201, 
+    8.43725894712538))
+mdb.models['porcine-eye'].parts['eye'].PartitionFaceBySketch(faces=
+    mdb.models['porcine-eye'].parts['eye'].faces.getSequenceFromMask(('[#1 ]', 
+    ), ), sketch=mdb.models['porcine-eye'].sketches['__profile__'])
+del mdb.models['porcine-eye'].sketches['__profile__']
+mdb.models['porcine-eye'].ConstrainedSketch(gridSpacing=1.32, name=
+    '__profile__', sheetSize=52.9, transform=
+    mdb.models['porcine-eye'].parts['eye'].MakeSketchTransform(
+    sketchPlane=mdb.models['porcine-eye'].parts['eye'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(3.845152, 9.54744, 
+    0.0)))
+mdb.models['porcine-eye'].parts['eye'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['porcine-eye'].sketches['__profile__'])
+del mdb.models['porcine-eye'].sketches['__profile__']
+mdb.models['porcine-eye'].ConstrainedSketch(gridSpacing=1.32, name=
+    '__profile__', sheetSize=52.9, transform=
+    mdb.models['porcine-eye'].parts['eye'].MakeSketchTransform(
+    sketchPlane=mdb.models['porcine-eye'].parts['eye'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(3.845152, 9.54744, 
+    0.0)))
+mdb.models['porcine-eye'].parts['eye'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['porcine-eye'].sketches['__profile__'])
+del mdb.models['porcine-eye'].sketches['__profile__']
+# Save by Administrator on 2026_05_07-20.22.51; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['porcine-eye'].parts['eye'].setValues(geometryRefinement=EXTRA_FINE)
+# Save by Administrator on 2026_05_07-20.33.43; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['porcine-eye'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['porcine-eye'].parts['eye'].features['Shell planar-1'].sketch)
+mdb.models['porcine-eye'].parts['eye'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['porcine-eye'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['porcine-eye'].parts['eye'].features['Shell planar-1'])
+mdb.models['porcine-eye'].sketches['__edit__'].ArcByCenterEnds(center=(0.0, 
+    11.7813968658447), direction=CLOCKWISE, point1=(0.0, 15.0), point2=(
+    1.90171480178833, 13.7193098068237))
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[20], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[2])
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[18], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[2])
+mdb.models['porcine-eye'].sketches['__edit__'].Line(point1=(0.0, 15.0), point2=
+    (0.0, 14.1791524887085))
+mdb.models['porcine-eye'].sketches['__edit__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['porcine-eye'].sketches['__edit__'].geometry[17])
+mdb.models['porcine-eye'].sketches['__edit__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[16], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[17])
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[21], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[2])
+mdb.models['porcine-eye'].sketches['__edit__'].Line(point1=(2.25433988439387, 
+    14.0786469220696), point2=(2.25433988439387, 13.42369556427))
+mdb.models['porcine-eye'].sketches['__edit__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['porcine-eye'].sketches['__edit__'].geometry[18])
+mdb.models['porcine-eye'].sketches['__edit__'].ObliqueDimension(textPoint=(
+    3.713707447052, 14.1298847198486), value=1.0, vertex1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[19], vertex2=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[22])
+mdb.models['porcine-eye'].sketches['__edit__'].ObliqueDimension(textPoint=(
+    -2.03525114059448, 13.9984998703003), value=1.0, vertex1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[18], vertex2=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[21])
+mdb.models['porcine-eye'].sketches['__edit__'].RadialDimension(curve=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[16], radius=10.0, 
+    textPoint=(2.77476644515991, 15.5586843490601))
+mdb.models['porcine-eye'].sketches['__edit__'].DistanceDimension(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[19], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[2], textPoint=(
+    1.04350852966309, 16.9212760925293), value=6.0)
+mdb.models['porcine-eye'].sketches['__edit__'].Arc3Points(point1=(0.0, 
+    20.7813968658447), point2=(6.0, 18.7813968658447), point3=(2.5, 20.0))
+mdb.models['porcine-eye'].sketches['__edit__'].RadialDimension(curve=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[19], radius=10.0, 
+    textPoint=(-4.07404899597168, 12.2193174362183))
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[21], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[2])
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].FixedConstraint(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[2])
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[2], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[21])
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[21], points=((0.0, 
+    20.7813968658447), (0.0, 20.7813968658447), (0.0, 21.25), (0.0, 21.25), (
+    0.0, 21.5189018249512), (0.0, 21.6412010192871), (0.0, 21.25), (0.0, 
+    21.25), (0.0, 21.25), (0.377045631408691, 21.25), (0.359521865844727, 
+    21.25), (0.27190113067627, 20.7326946258545), (0.0, 20.4531536102295), (
+    0.0, 20.4356822967529), (0.341997146606445, 20.5754528045654), (
+    0.359521865844727, 20.6278667449951)))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[21], points=((0.0, 
+    20.6278667449951), (0.0, 20.6278667449951), (0.0, 20.9074077606201), (0.0, 
+    21.25), (0.0, 21.25), (0.0, 20.7676372528076), (0.0, 20.5230388641357), (
+    0.0, 20.4182109832764), (0.0, 20.6453380584717), (0.0, 20.8375225067139), (
+    0.0, 21.25), (0.306949615478516, 21.25), (0.377045631408691, 21.25), (
+    0.341997146606445, 21.25), (0.341997146606445, 20.8200511932373), (
+    0.341997146606445, 20.592924118042), (0.341997146606445, 20.4007396697998), 
+    (0.341997146606445, 20.3832683563232)))
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[18], points=((0.0, 
+    21.6278667449951), (0.0, 21.6278667449951), (0.0, 22.00364112854), (0.0, 
+    22.5), (0.0, 22.5)))
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].delete(objectList=(
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[2], 
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[16], 
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[17], 
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[18], 
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[19], 
+    mdb.models['porcine-eye'].sketches['__edit__'].dimensions[1], 
+    mdb.models['porcine-eye'].sketches['__edit__'].dimensions[2], 
+    mdb.models['porcine-eye'].sketches['__edit__'].dimensions[3], 
+    mdb.models['porcine-eye'].sketches['__edit__'].dimensions[4], 
+    mdb.models['porcine-eye'].sketches['__edit__'].constraints[39], 
+    mdb.models['porcine-eye'].sketches['__edit__'].constraints[40], 
+    mdb.models['porcine-eye'].sketches['__edit__'].constraints[41], 
+    mdb.models['porcine-eye'].sketches['__edit__'].constraints[44]))
+mdb.models['porcine-eye'].sketches['__edit__'].ArcByCenterEnds(center=(
+    -0.012336254119873, 14.5272455215454), direction=CLOCKWISE, point1=(
+    0.0753521919250488, 18.2864952087402), point2=(2.35526084899902, 
+    17.2519721984863))
+mdb.models['porcine-eye'].sketches['__edit__'].delete(objectList=(
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[20], ))
+mdb.models['porcine-eye'].sketches['__edit__'].rectangle(point1=(0.0, 
+    11.3398206853892), point2=(0.846285939216614, 11.8063068389893))
+mdb.models['porcine-eye'].sketches['__edit__'].delete(objectList=(
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[23], ))
+mdb.models['porcine-eye'].sketches['__edit__'].delete(objectList=(
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[22], ))
+mdb.models['porcine-eye'].sketches['__edit__'].delete(objectList=(
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[24], ))
+mdb.models['porcine-eye'].sketches['__edit__'].delete(objectList=(
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[21], ))
+mdb.models['porcine-eye'].sketches['__edit__'].ArcByCenterEnds(center=(
+    0.00151455402374268, 11.5181884765625), direction=CLOCKWISE, point1=(0.0, 
+    12.5), point2=(0.620532035827637, 12.2410163879395))
+mdb.models['porcine-eye'].sketches['__edit__'].Line(point1=(0.640143035890557, 
+    12.2639161906627), point2=(0.640143035890557, 12.0837144851685))
+mdb.models['porcine-eye'].sketches['__edit__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['porcine-eye'].sketches['__edit__'].geometry[26])
+mdb.models['porcine-eye'].sketches['__edit__'].Line(point1=(0.0, 12.5), point2=
+    (0.0, 12.3081331253052))
+mdb.models['porcine-eye'].sketches['__edit__'].VerticalConstraint(addUndoState=
+    False, entity=mdb.models['porcine-eye'].sketches['__edit__'].geometry[27])
+mdb.models['porcine-eye'].sketches['__edit__'].ObliqueDimension(textPoint=(
+    0.970795392990112, 12.17942237854), value=1.0, vertex1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[31], vertex2=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[33])
+mdb.models['porcine-eye'].sketches['__edit__'].ObliqueDimension(textPoint=(
+    -0.445994019508362, 12.3444366455078), value=1.0, vertex1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[30], vertex2=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[34])
+mdb.models['porcine-eye'].sketches['__edit__'].RadialDimension(curve=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[25], radius=10.0, 
+    textPoint=(0.835074901580811, 12.5490531921387))
+mdb.models['porcine-eye'].sketches['__edit__'].DistanceDimension(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[31], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27], textPoint=(
+    0.158933281898499, 12.1390733718872), value=6.0)
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[30], points=((0.0, 
+    12.5), (0.0, 12.5), (0.0, 12.9947643280029), (0.0, 13.1570177078247), (0.0, 
+    13.3192710876465), (0.0, 13.5110244750977), (0.0, 13.75), (0.0, 
+    14.2337894439697), (0.0, 15.0), (-0.233970880508423, 15.4285621643066), (
+    -0.233970880508423, 15.7530689239502), (0.0, 15.6793174743652), (0.0, 
+    15.5760650634766), (0.0, 15.5760650634766), (0.239466428756714, 
+    15.6498165130615), (0.0, 15.5908164978027), (0.0, 15.5318145751953), (0.0, 
+    15.6203155517578), (0.0, 15.7973194122314), (0.0, 15.9300727844238)))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[31], points=((6.0, 
+    7.79862417872368), (6.0, 7.79862417872368), (6.25, 8.20531272888184), (
+    6.25, 8.40930557250977), (6.25, 8.75), (6.00507354736328, 8.75), (
+    5.97359466552734, 9.00559425354004), (5.95785427093506, 9.22527980804443), 
+    (5.95785427093506, 9.39788913726807), (5.95785427093506, 9.58619117736816), 
+    (6.25, 10.0), (6.25, 10.0), (6.25, 10.4335479736328), (6.25, 
+    10.6846170425415), (6.25, 10.919994354248), (6.25, 11.25), (6.25, 11.25), (
+    6.25, 11.25), (6.60316467285156, 11.5319747924805), (6.729079246521, 
+    11.6261253356934), (6.88647174835205, 11.7516593933105), (6.96516799926758, 
+    11.8458108901978), (7.01238536834717, 11.9870367050171), (7.05960273742676, 
+    12.0968799591064), (6.68186092376709, 11.9085779190063), (6.25, 
+    11.7830429077148), (6.25, 11.7045841217041), (6.25, 11.5476665496826), (
+    6.00507354736328, 11.25), (6.25, 11.5633583068848), (6.25, 
+    11.7359676361084), (6.25, 11.8458108901978), (5.94211578369141, 
+    11.8771934509277), (5.989333152771, 11.8144273757935), (5.989333152771, 
+    11.7359676361084), (5.95785427093506, 11.6418170928955)))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[34], points=((
+    -0.0421457290649396, 15.3359721971318), (0.0, 15.3359721971318), (0.0, 
+    15.0), (0.0, 15.0)))
+mdb.models['porcine-eye'].sketches['__edit__'].Arc3Points(point1=(0.0, 15.0), 
+    point2=(6.0, 10.3058448957637), point3=(3.36651921272278, 
+    13.6056251525879))
+mdb.models['porcine-eye'].sketches['__edit__'].RadialDimension(curve=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[28], radius=10.0, 
+    textPoint=(3.71278214454651, 16.4458427429199))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[28], points=((
+    1.41715991743249, 14.4849729895532), (1.25, 14.5293045043945), (
+    1.52623534202576, 15.0), (1.54404902458191, 15.0), (1.54404902458191, 
+    15.3106985092163), (1.54404902458191, 15.5238056182861), (1.25, 
+    15.70139503479), (1.25, 15.8079490661621), (1.25, 15.8257074356079), (
+    0.974043607711792, 15.736912727356), (0.724666357040405, 15.6126003265381), 
+    (0.564352750778198, 15.4705286026001), (0.404038190841675, 15.0), (
+    0.653415441513062, 15.3462162017822), (0.867168188095093, 
+    15.3994932174683), (1.25, 15.4705286026001), (1.25, 15.3994932174683), (
+    1.25, 15.0), (1.25, 15.0), (0.920605421066284, 15.0), (0.84935450553894, 
+    14.4582691192627), (0.920605421066284, 14.3517150878906), (
+    0.93841814994812, 14.1563663482666), (1.25, 13.75), (1.25, 13.75), (1.25, 
+    13.4104909896851), (1.25, 13.161865234375), (1.25, 12.9132404327393), (
+    1.63311171531677, 12.5), (1.82905077934265, 12.5), (1.9537398815155, 12.5), 
+    (2.07842898368835, 12.5), (2.5, 12.1318464279175), (2.5, 11.9542570114136), 
+    (2.91562342643738, 11.7766666412354), (3.07593703269958, 11.7411499023438), 
+    (3.21843791007996, 11.6523551940918), (3.75, 11.25), (3.75, 11.25), (
+    4.05563449859619, 11.25), (3.75, 11.25), (3.75, 11.25), (3.41437792778015, 
+    11.7056312561035), (3.18281435966492, 11.8832206726074), (2.89781069755554, 
+    12.0075340270996), (2.87999892234802, 12.0963287353516), (3.09374976158142, 
+    12.2028818130493), (3.25406336784363, 12.5), (3.43219065666199, 12.5)))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27], points=((
+    -0.213277228033456, 13.7123928070068), (0.0, 13.75), (0.0, 13.75), (0.0, 
+    14.0853309631348), (0.0, 14.2806797027588), (0.0, 14.3161964416504)))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[28], points=((
+    3.90236641886405, 12.2727879392438), (3.75, 12.5), (3.75, 
+    12.0963287353516), (3.75, 11.9187393188477), (3.75, 11.8832206726074), (
+    3.75, 12.0785694122314), (3.75, 12.5), (3.75, 12.5), (3.75, 12.5), (3.75, 
+    12.8066864013672), (4.07344627380371, 12.966516494751), (4.35844993591309, 
+    13.161865234375), (4.44751262664795, 13.250659942627), (4.59001350402832, 
+    13.446008682251), (5.0, 13.75), (5.0, 14.0853309631348), (5.49845886230469, 
+    14.4405097961426), (5.87252521514893, 15.0), (6.25, 15.3284568786621), (
+    6.25, 15.5238056182861), (6.25, 15.70139503479), (6.25, 15.8257074356079), 
+    (6.25, 16.25), (5.94377613067627, 16.25), (5.9081506729126, 16.25), (6.25, 
+    16.5893421173096), (6.25, 16.7491722106934), (6.62065696716309, 
+    16.8734855651855), (6.76315879821777, 16.9445209503174), (6.97691059112549, 
+    16.9800395965576), (7.15503787994385, 16.9977989196777), (7.5, 
+    16.9977989196777), (7.5, 16.9977989196777), (7.5, 16.9445209503174), (7.5, 
+    16.8379669189453), (7.17284870147705, 16.7846908569336), (6.94128513336182, 
+    16.6426200866699), (6.65628242492676, 16.25), (6.25, 16.25), (6.25, 16.25), 
+    (6.25, 16.25), (6.25, 16.25), (6.58503150939941, 16.5183067321777), (
+    6.7275333404541, 16.5893421173096), (6.56721878051758, 16.25), (6.25, 
+    16.25), (6.25, 16.25), (5.83689975738525, 16.25), (5.73002433776855, 
+    16.25), (5.56971073150635, 15.9677791595459), (5.28470706939697, 
+    15.8257074356079), (5.0, 15.7724313735962), (5.0, 15.6836357116699), (5.0, 
+    15.6303596496582), (4.59001350402832, 15.5770826339722), (4.25157260894775, 
+    15.5593233108521), (3.75, 15.6126003265381), (3.75, 15.70139503479), (
+    3.21843791007996, 15.8079490661621), (3.02249979972839, 15.9500198364258), 
+    (2.77312254905701, 16.25), (2.5, 16.25), (2.5, 16.553825378418), (
+    1.98936533927917, 16.6958961486816), (1.81123805046082, 16.7491722106934), 
+    (1.61529898643494, 16.8734855651855), (1.25, 16.9800395965576), (1.25, 
+    17.033317565918), (1.25, 17.0688343048096), (1.25, 17.0155563354492), (
+    1.57967448234558, 16.9445209503174), (1.73998808860779, 16.7846908569336), 
+    (1.88248896598816, 16.6603775024414), (1.77561354637146, 16.5893421173096), 
+    (1.59748721122742, 16.6248607635498), (1.25, 16.7491722106934), (
+    1.61529898643494, 16.7136554718018), (1.54404902458191, 16.6603775024414), 
+    (1.63311171531677, 16.6603775024414)))
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[32], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27])
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[28], points=((
+    1.13041105394115, 12.7611152310275), (1.25, 12.5), (1.68887805938721, 
+    13.1036777496338), (2.00950622558594, 13.4410972595215), (2.20544528961182, 
+    13.75), (2.5, 13.75), (2.5, 13.75), (2.5, 13.75), (2.5, 13.75), (
+    1.97388172149658, 13.75), (1.70669078826904, 13.4410972595215), (
+    1.528564453125, 13.3523025512695), (1.25, 13.2812671661377), (1.25, 
+    13.1747131347656), (0.922934532165527, 13.1036777496338), (1.25, 
+    13.1747131347656), (0.833870887756348, 13.42333984375), (0.816058158874512, 
+    13.75), (0.887309074401855, 13.75), (0.976371765136719, 13.75), (
+    0.86949634552002, 13.75), (1.25, 13.75), (1.25, 13.75), (1.25, 
+    13.3523025512695), (1.25, 13.2102317810059), (0.887309074401855, 
+    13.032642364502), (1.25, 13.1036777496338), (1.25, 13.1036777496338)))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27], points=((
+    0.11958894605885, 13.4410982131958), (0.0, 13.4410972595215), (0.0, 
+    13.75)))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[35], points=((
+    5.29261871334786, 11.6523598971727), (5.0, 11.6523598971727), (5.0, 
+    11.8821887969971), (4.53951025009155, 11.9851570129395), (4.38458776473999, 
+    12.5), (4.33294725418091, 12.5), (3.75, 12.5), (3.75, 12.5), (
+    3.3259539604187, 12.5), (3.09357213973999, 12.937629699707), (
+    2.88700914382935, 13.0405988693237), (2.5, 13.2722816467285), (
+    2.88700914382935, 13.75), (3.14521169662476, 13.75), (3.75, 13.75), (3.75, 
+    13.75), (3.75, 13.1950540542603), (3.75, 13.1435689926147), (3.75, 
+    13.0663414001465), (3.75, 13.0405988693237)))
+mdb.models['porcine-eye'].sketches['__edit__'].dimensions[8].setValues(
+    textPoint=(0.0, 12.9118871688843))
+mdb.models['porcine-eye'].sketches['__edit__'].dragEntity(entity=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27], points=((
+    0.114944862275509, 14.199010848999), (0.0, 14.1990098953247), (0.0, 
+    13.75)))
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[6])
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[25], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[33])
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[6])
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[6], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27])
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[6])
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[32], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[6])
+mdb.models['porcine-eye'].sketches['__edit__'].CoincidentConstraint(entity1=
+    mdb.models['porcine-eye'].sketches['__edit__'].geometry[27], entity2=
+    mdb.models['porcine-eye'].sketches['__edit__'].vertices[2])
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+mdb.models['porcine-eye'].sketches['__edit__'].undo()
+#* 没有可撤销的操作.
+del mdb.models['porcine-eye'].sketches['__edit__']
+mdb.models['porcine-eye'].rootAssembly.DatumCsysByThreePoints(coordSysType=
+    CYLINDRICAL, origin=(0.0, 0.0, 0.0), point1=(1.0, 0.0, 0.0), point2=(0.0, 
+    0.0, -1.0))
+mdb.models['porcine-eye'].rootAssembly.Instance(dependent=OFF, name='eye-1', 
+    part=mdb.models['porcine-eye'].parts['eye'])
+mdb.models['porcine-eye'].rootAssembly.seedPartInstance(deviationFactor=0.1, 
+    minSizeFactor=0.1, regions=(
+    mdb.models['porcine-eye'].rootAssembly.instances['eye-1'], ), size=0.77)
+mdb.models['porcine-eye'].rootAssembly.generateMesh(regions=(
+    mdb.models['porcine-eye'].rootAssembly.instances['eye-1'], ))
+mdb.models['porcine-eye'].rootAssembly.deleteMesh(regions=(
+    mdb.models['porcine-eye'].rootAssembly.instances['eye-1'], ))
+mdb.openDxf('E:/study/research/touch-len.DXF', scaleFromFile=OFF)
+mdb.models['porcine-eye'].ConstrainedSketchFromGeometryFile(geometryFile=
+    mdb.acis, name='touch-len')
+mdb.models['porcine-eye'].ConstrainedSketch(name='__profile__', sheetSize=
+    200.0)
+mdb.models['porcine-eye'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['porcine-eye'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['porcine-eye'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[2])
+mdb.models['porcine-eye'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['porcine-eye'].sketches['touch-len'])
+mdb.models['porcine-eye'].Part(dimensionality=AXISYMMETRIC, name='touch-len', 
+    type=DEFORMABLE_BODY)
+mdb.models['porcine-eye'].parts['touch-len'].BaseShell(sketch=
+    mdb.models['porcine-eye'].sketches['__profile__'])
+del mdb.models['porcine-eye'].sketches['__profile__']
+mdb.models['porcine-eye'].rootAssembly.Instance(dependent=OFF, name=
+    'touch-len-1', part=mdb.models['porcine-eye'].parts['touch-len'])
+mdb.models['porcine-eye'].rootAssembly.instances['touch-len-1'].translate(
+    vector=(0.0, 7.38982068537817, 0.0))
+mdb.models['porcine-eye'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['porcine-eye'].rootAssembly.instances['touch-len-1'].vertices[2]
+    , movablePoint=
+    mdb.models['porcine-eye'].rootAssembly.instances['eye-1'].vertices[2])
+mdb.models['porcine-eye'].Material(name='cornea')
+mdb.models['porcine-eye'].materials['cornea'].Elastic(table=((0.25, 0.49), ))
+mdb.models['porcine-eye'].Material(name='front-sclera')
+mdb.models['porcine-eye'].materials['front-sclera'].Elastic(table=((4.3, 0.49), 
+    ))
+mdb.models['porcine-eye'].Material(name='back-sclera')
+mdb.models['porcine-eye'].materials['back-sclera'].Elastic(table=((8.2, 0.49), 
+    ))
+mdb.models['porcine-eye'].Material(name='crystalline')
+mdb.models['porcine-eye'].materials['crystalline'].Elastic(table=((0.16, 0.49), 
+    ))
+mdb.models['porcine-eye'].Material(name='vitreous')
+mdb.models['porcine-eye'].materials['vitreous'].Elastic(table=((0.42, 0.49), ))
+del mdb.models['porcine-eye'].parts['touch-len']
+mdb.models['porcine-eye'].rootAssembly.regenerate()
+#* FeatureError: 重生成失败
+mdb.models['porcine-eye'].rootAssembly.regenerate()
+del mdb.models['porcine-eye'].rootAssembly.features['touch-len-1']
+mdb.models['porcine-eye'].ConstrainedSketch(name='__profile__', sheetSize=
+    200.0)
+mdb.models['porcine-eye'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['porcine-eye'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['porcine-eye'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['porcine-eye'].sketches['__profile__'].geometry[2])
+mdb.models['porcine-eye'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['porcine-eye'].sketches['touch-len'])
+mdb.models['porcine-eye'].Part(dimensionality=AXISYMMETRIC, name='Part-2', 
+    type=DISCRETE_RIGID_SURFACE)
+mdb.models['porcine-eye'].parts['Part-2'].BaseWire(sketch=
+    mdb.models['porcine-eye'].sketches['__profile__'])
+del mdb.models['porcine-eye'].sketches['__profile__']
+mdb.models['porcine-eye'].parts['Part-2'].setValues(geometryRefinement=
+    EXTRA_FINE)
+mdb.models['porcine-eye'].parts.changeKey(fromName='Part-2', toName=
+    'touch-len')
+mdb.models['porcine-eye'].rootAssembly.Instance(dependent=OFF, name=
+    'touch-len-1', part=mdb.models['porcine-eye'].parts['touch-len'])
+mdb.models['porcine-eye'].rootAssembly.instances['touch-len-1'].translate(
+    vector=(0.0, 7.38982068537817, 0.0))
+mdb.models['porcine-eye'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['porcine-eye'].rootAssembly.instances['eye-1'].vertices[2], 
+    movablePoint=
+    mdb.models['porcine-eye'].rootAssembly.instances['touch-len-1'].vertices[3])
+# Save by Administrator on 2026_05_07-21.15.03; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['porcine-eye'].HomogeneousSolidSection(material='cornea', name=
+    'cornea-section', thickness=None)
+mdb.models['porcine-eye'].parts['eye'].Set(faces=
+    mdb.models['porcine-eye'].parts['eye'].faces.getSequenceFromMask(('[#1 ]', 
+    ), ), name='cornea-sec')
+mdb.models['porcine-eye'].parts['eye'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['porcine-eye'].parts['eye'].sets['cornea-sec'], sectionName=
+    'cornea-section', thicknessAssignment=FROM_SECTION)
+mdb.models['porcine-eye'].HomogeneousSolidSection(material='front-sclera', 
+    name='front-sclera-section', thickness=None)
+mdb.models['porcine-eye'].HomogeneousSolidSection(material='back-sclera', name=
+    'back-sclera-section', thickness=None)
+mdb.models['porcine-eye'].HomogeneousSolidSection(material='crystalline', name=
+    'crystalline-section', thickness=None)
+mdb.models['porcine-eye'].HomogeneousSolidSection(material='vitreous', name=
+    'vitreous', thickness=None)
+mdb.models['porcine-eye'].rootAssembly.regenerate()
+mdb.models['porcine-eye'].parts['eye'].Set(faces=
+    mdb.models['porcine-eye'].parts['eye'].faces.getSequenceFromMask(('[#8 ]', 
+    ), ), name='front-sclera-set')
+mdb.models['porcine-eye'].parts['eye'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['porcine-eye'].parts['eye'].sets['front-sclera-set'], 
+    sectionName='front-sclera-section', thicknessAssignment=FROM_SECTION)
+mdb.models['porcine-eye'].parts['eye'].Set(faces=
+    mdb.models['porcine-eye'].parts['eye'].faces.getSequenceFromMask(('[#2 ]', 
+    ), ), name='back-sclera-set')
+mdb.models['porcine-eye'].parts['eye'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['porcine-eye'].parts['eye'].sets['back-sclera-set'], 
+    sectionName='back-sclera-section', thicknessAssignment=FROM_SECTION)
+mdb.models['porcine-eye'].parts['eye'].Set(faces=
+    mdb.models['porcine-eye'].parts['eye'].faces.getSequenceFromMask(('[#4 ]', 
+    ), ), name='crystalline')
+mdb.models['porcine-eye'].parts['eye'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['porcine-eye'].parts['eye'].sets['crystalline'], sectionName=
+    'crystalline-section', thicknessAssignment=FROM_SECTION)
+mdb.models['porcine-eye'].sections.changeKey(fromName='vitreous', toName=
+    'vitreous-section')
+mdb.models['porcine-eye'].parts['eye'].Set(faces=
+    mdb.models['porcine-eye'].parts['eye'].faces.getSequenceFromMask(('[#10 ]', 
+    ), ), name='vitreous-set')
+mdb.models['porcine-eye'].parts['eye'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['porcine-eye'].parts['eye'].sets['vitreous-set'], sectionName=
+    'vitreous-section', thicknessAssignment=FROM_SECTION)
+mdb.models['porcine-eye'].rootAssembly.regenerate()
+mdb.models['porcine-eye'].ExplicitDynamicsStep(improvedDtMethod=ON, name=
+    'Press', previous='Initial', scaleFactor=1.0, timePeriod=0.01)
+mdb.models['porcine-eye'].ExplicitDynamicsStep(improvedDtMethod=ON, name=
+    'Resume', previous='Press', timePeriod=1e-05)
+mdb.models['porcine-eye'].steps['Resume'].setValues(improvedDtMethod=ON, 
+    timePeriod=0.001)
+mdb.models['porcine-eye'].fieldOutputRequests['F-Output-1'].setValues(
+    timeMarks=ON, variables=('S', 'SVAVG', 'E', 'LE', 'UT', 'RF', 'CSTRESS', 
+    'CDISP'))
+mdb.models['porcine-eye'].historyOutputRequests['H-Output-1'].setValues(
+    variables=('ALLAE', 'ALLCD', 'ALLDC', 'ALLDMD', 'ALLFD', 'ALLIE', 'ALLKE', 
+    'ALLPD', 'ALLSE', 'ALLVD', 'ALLWK', 'ALLCW', 'ALLMW', 'ALLPW', 'ETOTAL'))
+mdb.models['porcine-eye'].ContactProperty('global')
+mdb.models['porcine-eye'].interactionProperties['global'].TangentialBehavior(
+    formulation=FRICTIONLESS)
+mdb.models['porcine-eye'].interactionProperties['global'].NormalBehavior(
+    allowSeparation=ON, constraintEnforcementMethod=DEFAULT, 
+    pressureOverclosure=HARD)
+mdb.models['porcine-eye'].interactionProperties.changeKey(fromName='global', 
+    toName='eye-inside')
+mdb.models['porcine-eye'].interactionProperties.changeKey(fromName='eye-inside'
+    , toName='global')
+mdb.models['porcine-eye'].ContactExp(createStepName='Press', name='global')
+mdb.models['porcine-eye'].interactions['global'].includedPairs.setValuesInStep(
+    stepName='Press', useAllstar=ON)
+mdb.models['porcine-eye'].interactions['global'].contactPropertyAssignments.appendInStep(
+    assignments=((GLOBAL, SELF, ''), ), stepName='Press')
+mdb.models['porcine-eye'].interactions['global'].wearSurfacePropertyAssignments.appendInStep(
+    assignments=((GLOBAL, ''), ), stepName='Press')
+# Save by Administrator on 2026_05_07-21.52.42; build 2025 2024_09_20-21.00.46 RELr427 198590

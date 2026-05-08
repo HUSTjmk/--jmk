@@ -1,0 +1,398 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-21.00.46 RELr427 198590
+# Run by Administrator on Thu May  7 16:47:45 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=213.629180908203, 
+    height=129.362701416016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('initial.cae')
+#: 模型数据库 "E:\study\research\articles\眼睛力学参数\simulation\init\initial.cae" 已打开.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=76.1186, 
+    farPlane=144.52, width=81.0214, height=36.8198, cameraPosition=(98.8683, 
+    -35.0648, 70.0624), cameraUpVector=(-0.366132, 0.0692538, 0.927982), 
+    cameraTarget=(-4.86118, -0.247768, 65.8696))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Press')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, optimizationTasks=OFF, 
+    geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=150.805, 
+    farPlane=276.666, width=157.943, height=71.7767, cameraPosition=(44.0315, 
+    204.594, -1.13998), cameraUpVector=(-0.182351, -0.443379, -0.877589), 
+    cameraTarget=(-8.11753, -2.2556, 32.1924))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=160.11, 
+    farPlane=267.36, width=90.3197, height=41.0454, viewOffsetX=2.80478, 
+    viewOffsetY=-9.66903)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=73.6922, 
+    farPlane=147.136, width=78.4387, height=35.6462, cameraPosition=(45.6469, 
+    -96.0888, 48.3941), cameraUpVector=(-0.0778037, 0.162581, 0.983623), 
+    cameraTarget=(-5.25773, -0.702454, 65.7081))
+session.viewports['Viewport: 1'].view.setValues(width=74.2045, height=33.7219, 
+    viewOffsetX=0.0398579, viewOffsetY=0.26823)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=74.3304, 
+    farPlane=146.451, width=74.371, height=33.7976, cameraPosition=(78.3077, 
+    -69.1443, 85.232), cameraUpVector=(-0.325685, 0.379857, 0.865816), 
+    cameraTarget=(-4.90984, -0.621205, 66.0216), viewOffsetX=0.0399474, 
+    viewOffsetY=0.268832)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=74.5122, 
+    farPlane=146.299, width=74.5529, height=33.8802, cameraPosition=(78.0614, 
+    -71.4308, 75.1878), cameraUpVector=(-0.298966, 0.284088, 0.910996), 
+    cameraTarget=(-4.92306, -0.596569, 65.9301), viewOffsetX=0.0400451, 
+    viewOffsetY=0.269489)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=79.9385, 
+    farPlane=141.07, width=79.9822, height=36.4498, cameraPosition=(102.63, 
+    20.4215, 58.3157), cameraUpVector=(-0.292816, 0.100951, 0.950825), 
+    cameraTarget=(-4.70487, 0.10741, 65.8041), viewOffsetX=0.0429614, 
+    viewOffsetY=0.289114)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=79.3086, 
+    farPlane=141.699, width=79.352, height=36.1626, cameraPosition=(102.613, 
+    20.5026, 58.2984), cameraUpVector=(-0.255401, -0.0924752, 0.962403), 
+    cameraTarget=(-4.72143, 0.188526, 65.7868), viewOffsetX=0.0426229, 
+    viewOffsetY=0.286836)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF, mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['cornea']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.4939, 
+    farPlane=99.4846, width=56.3774, height=25.6926, cameraPosition=(-6.27306, 
+    67.7599, 66.0429), cameraUpVector=(0.226511, 0.192112, -0.954875), 
+    cameraTarget=(0.531898, -0.332804, 26.3392))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=52.8942, 
+    farPlane=105.616, width=51.8672, height=23.6371, cameraPosition=(59.6924, 
+    51.1141, 18.7395), cameraUpVector=(-0.184298, -0.436469, -0.880641), 
+    cameraTarget=(0.00531864, -0.199925, 26.7168))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.9425, 
+    farPlane=102.25, width=54.8563, height=24.9994, cameraPosition=(23.652, 
+    72.189, 5.19074), cameraUpVector=(-0.164809, -0.553174, -0.816601), 
+    cameraTarget=(-0.0579991, -0.162899, 26.693))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.4482, 
+    farPlane=99.5147, width=57.3134, height=26.1191, cameraPosition=(4.32424, 
+    78.5904, 20.54), cameraUpVector=(-0.0568347, -0.403024, -0.913423), 
+    cameraTarget=(-0.0532646, -0.164467, 26.6892))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=166.424, 
+    farPlane=259.833, width=93.8814, height=42.7841, cameraPosition=(-0.941468, 
+    211.998, 10.2477), cameraUpVector=(-0.0419454, -0.424773, -0.904328), 
+    cameraTarget=(-6.83667, -2.75236, 31.8077), viewOffsetX=2.91539, 
+    viewOffsetY=-10.0503)
+a = mdb.models['Model-1'].rootAssembly
+a.makeDependent(instances=(a.instances['cornea-1'], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=168.048, 
+    farPlane=258.208, width=74.0131, height=33.7296, viewOffsetX=1.74732, 
+    viewOffsetY=-10.1477)
+p = mdb.models['Model-1'].parts['cornea']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a = mdb.models['Model-1'].rootAssembly
+a.makeIndependent(instances=(a.instances['cornea-1'], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=168.601, 
+    farPlane=257.655, width=74.2569, height=33.8407, cameraPosition=(-1.9287, 
+    212.049, 10.49), cameraUpVector=(-0.1152, -0.42224, -0.899134), 
+    cameraTarget=(-7.8239, -2.70093, 32.05), viewOffsetX=1.75307, 
+    viewOffsetY=-10.1811)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=168.603, 
+    farPlane=257.653, width=74.2577, height=33.841, cameraPosition=(-1.63312, 
+    212.033, 10.4089), cameraUpVector=(-0.093162, -0.423062, -0.901299), 
+    cameraTarget=(-7.52832, -2.71719, 31.9689), viewOffsetX=1.75309, 
+    viewOffsetY=-10.1812)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=168.603, 
+    width=74.2577, height=33.841, cameraPosition=(-2.59482, 212.089, 10.7007), 
+    cameraUpVector=(-0.165208, -0.420178, -0.892276), cameraTarget=(-8.49002, 
+    -2.6615, 32.2607), viewOffsetX=1.75309, viewOffsetY=-10.1812)
+session.viewports['Viewport: 1'].assemblyDisplay.hideInstances(instances=(
+    'front-sclera-1', ))
+session.viewports['Viewport: 1'].assemblyDisplay.hideInstances(instances=(
+    'crystalline-lens-1', ))
+session.viewports['Viewport: 1'].assemblyDisplay.hideInstances(instances=(
+    'vitreous-1', ))
+session.viewports['Viewport: 1'].assemblyDisplay.hideInstances(instances=(
+    'back-sclera-1', ))
+session.viewports['Viewport: 1'].assemblyDisplay.hideInstances(instances=(
+    'touch-len-1', ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=188.12, 
+    farPlane=250.911, width=82.8534, height=37.7583, cameraPosition=(-93.6403, 
+    193.474, 67.677), cameraUpVector=(0.0673257, -0.153234, -0.985894), 
+    cameraTarget=(-5.41001, -0.103029, 30.7895), viewOffsetX=1.95602, 
+    viewOffsetY=-11.3597)
+p = mdb.models['Model-1'].parts['cornea']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=191.364, 
+    farPlane=247.667, width=54.6552, height=24.9077, viewOffsetX=5.64958, 
+    viewOffsetY=-9.76568)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=190.551, 
+    farPlane=245.44, width=54.423, height=24.8019, cameraPosition=(-119.611, 
+    179.963, 52.5283), cameraUpVector=(0.300674, -0.0825016, -0.950152), 
+    cameraTarget=(-3.12461, -0.338808, 29.3001), viewOffsetX=5.62557, 
+    viewOffsetY=-9.72419)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=188.45, 
+    farPlane=241.143, width=53.8231, height=24.5285, cameraPosition=(-124.242, 
+    175.769, 19.348), cameraUpVector=(0.170742, -0.344168, -0.923253), 
+    cameraTarget=(-4.74544, -3.71837, 30.4033), viewOffsetX=5.56355, 
+    viewOffsetY=-9.61699)
+session.viewports['Viewport: 1'].assemblyDisplay.hideInstances(instances=(
+    'cornea-1', ))
+session.viewports['Viewport: 1'].assemblyDisplay.showInstances(instances=(
+    'crystalline-lens-1', ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=195.072, 
+    farPlane=234.117, width=55.7145, height=25.3904, cameraPosition=(-115.129, 
+    182.832, 29.2657), cameraUpVector=(0.157407, -0.298204, -0.941434), 
+    cameraTarget=(-5.00182, -2.87967, 30.0567), viewOffsetX=5.75905, 
+    viewOffsetY=-9.95493)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=195.442, 
+    farPlane=233.747, width=49.3227, height=22.4776, viewOffsetX=6.84832, 
+    viewOffsetY=-11.1172)
+elemType1 = mesh.ElemType(elemCode=C3D20R, elemLibrary=STANDARD)
+elemType2 = mesh.ElemType(elemCode=C3D15, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D10, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+elemType1 = mesh.ElemType(elemCode=C3D20R, elemLibrary=STANDARD)
+elemType2 = mesh.ElemType(elemCode=C3D15, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D10, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+elemType1 = mesh.ElemType(elemCode=C3D20R, elemLibrary=STANDARD)
+elemType2 = mesh.ElemType(elemCode=C3D15, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D10, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+elemType1 = mesh.ElemType(elemCode=C3D20R, elemLibrary=STANDARD)
+elemType2 = mesh.ElemType(elemCode=C3D15, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D10, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+elemType1 = mesh.ElemType(elemCode=C3D20R, elemLibrary=STANDARD)
+elemType2 = mesh.ElemType(elemCode=C3D15, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D10, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+pickedRegions = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.setMeshControls(regions=pickedRegions, elemShape=TET, technique=FREE)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.seedPartInstance(regions=partInstances, size=1.4, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+pickedRegions = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.generateMesh(regions=pickedRegions)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=194.122, 
+    farPlane=233.808, width=48.9895, height=22.3257, cameraPosition=(-104.721, 
+    188.112, 18.9201), cameraUpVector=(0.118457, -0.370567, -0.921221), 
+    cameraTarget=(-5.56056, -3.32789, 30.5542), viewOffsetX=6.80205, 
+    viewOffsetY=-11.0421)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=184.529, 
+    farPlane=234.565, width=46.5685, height=21.2224, cameraPosition=(-124.826, 
+    162.275, -27.2518), cameraUpVector=(0.28601, -0.504289, -0.814795), 
+    cameraTarget=(-3.13308, -6.15968, 31.3827), viewOffsetX=6.4659, 
+    viewOffsetY=-10.4964)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=187.101, 
+    farPlane=233.915, width=47.2176, height=21.5182, cameraPosition=(-129.755, 
+    163.23, -14.8028), cameraUpVector=(0.273838, -0.450024, -0.849995), 
+    cameraTarget=(-3.13715, -5.6281, 30.7187), viewOffsetX=6.55602, 
+    viewOffsetY=-10.6427)
+session.viewports['Viewport: 1'].view.setValues(width=44.3666, height=20.219, 
+    viewOffsetX=7.60688, viewOffsetY=-11.101)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+pickedRegions = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.generateMesh(regions=pickedRegions)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.deleteMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=183.942, 
+    farPlane=235.035, width=43.6351, height=19.8856, cameraPosition=(15.754, 
+    192.981, -55.5126), cameraUpVector=(-0.259355, -0.656972, -0.707901), 
+    cameraTarget=(-12.2702, -1.62961, 33.698), viewOffsetX=7.48146, 
+    viewOffsetY=-10.918)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=184.394, 
+    farPlane=234.582, width=38.6508, height=17.6141, viewOffsetX=7.92959, 
+    viewOffsetY=-11.3328)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=185.379, 
+    farPlane=235.596, width=38.8573, height=17.7082, cameraPosition=(59.0518, 
+    188.09, -47.8276), cameraUpVector=(-0.340502, -0.574235, -0.744522), 
+    cameraTarget=(-13.2733, 1.26199, 32.6809), viewOffsetX=7.97197, 
+    viewOffsetY=-11.3934)
+elemType1 = mesh.ElemType(elemCode=C3D8R, elemLibrary=STANDARD)
+elemType2 = mesh.ElemType(elemCode=C3D6, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D4, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.generateMesh(regions=partInstances)
+elemType1 = mesh.ElemType(elemCode=C3D20R, elemLibrary=STANDARD)
+elemType2 = mesh.ElemType(elemCode=C3D15, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D10, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['crystalline-lens-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells1, )
+a.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=181.44, 
+    farPlane=233.257, width=38.0316, height=17.3319, cameraPosition=(-18.4846, 
+    181.681, -74.3496), cameraUpVector=(-0.0298149, -0.761522, -0.647452), 
+    cameraTarget=(-9.4838, -5.03671, 33.6914), viewOffsetX=7.80257, 
+    viewOffsetY=-11.1513)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.deleteSeeds(regions=partInstances)
+p = mdb.models['Model-1'].parts['cornea']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.seedPartInstance(regions=partInstances, size=3.0, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.seedPartInstance(regions=partInstances, size=2.5, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.seedPartInstance(regions=partInstances, size=2.3, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.seedPartInstance(regions=partInstances, size=2.0, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.seedPartInstance(regions=partInstances, size=1.9, deviationFactor=0.1, 
+    minSizeFactor=0.1)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['crystalline-lens-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=181.554, 
+    farPlane=233.143, width=35.7723, height=16.3023, viewOffsetX=8.42183, 
+    viewOffsetY=-11.2217)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=186.536, 
+    farPlane=232.779, width=36.7537, height=16.7496, cameraPosition=(-5.72079, 
+    194.619, -53.5504), cameraUpVector=(0.0312947, -0.676392, -0.735877), 
+    cameraTarget=(-8.8909, -3.99328, 31.0703), viewOffsetX=8.65289, 
+    viewOffsetY=-11.5296)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=186.977, 
+    farPlane=232.339, width=30.5992, height=13.9448, viewOffsetX=8.9931, 
+    viewOffsetY=-12.2653)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=194.719, 
+    farPlane=231.863, width=31.8663, height=14.5223, cameraPosition=(-1.76883, 
+    209.717, -15.0256), cameraUpVector=(-0.0267201, -0.520287, -0.853573), 
+    cameraTarget=(-9.76872, -1.38364, 29.583), viewOffsetX=9.3655, 
+    viewOffsetY=-12.7732)
+mdb.save()
+#: 模型数据库已保存到 "E:\study\research\articles\眼睛力学参数\simulation\init\initial.cae".

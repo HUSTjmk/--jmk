@@ -1,0 +1,69 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-21.00.46 RELr427 198590
+# Run by Administrator on Fri May  8 13:13:17 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=213.427062988281, 
+    height=129.362701416016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('project.cae')
+#: 模型数据库 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae" 已打开.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+del mdb.jobs['Job-1']
+mdb.Job(name='Job-1', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=70, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=1, activateLoadBalancing=False, numCpus=1)
+mdb.jobs['Job-1'].setValues(numDomains=8, activateLoadBalancing=False, 
+    numCpus=8)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-1.inp" 已提交分析.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+#: Job Job-1: Abaqus/Explicit Packager completed successfully.
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-1.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-1.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       2
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    DEFORMED, ))
+#* There is no valid step data available on the database. If the analysis is 
+#* running, the database must be closed and reopened once the results have been 
+#* initialized. The requested operation has been cancelled.
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+#* There is no valid step data available on the database. If the analysis is 
+#* running, the database must be closed and reopened once the results have been 
+#* initialized. The requested operation has been cancelled.
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['Job-1'].kill()
+del mdb.jobs['Job-1']

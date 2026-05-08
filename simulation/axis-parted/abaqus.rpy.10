@@ -1,0 +1,580 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-21.00.46 RELr427 198590
+# Run by Administrator on Fri May  8 11:05:59 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=213.427062988281, 
+    height=129.362701416016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('project.cae')
+#: 模型数据库 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae" 已打开.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, 
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.7986, 
+    farPlane=66.0419, width=15.0651, height=6.87035, viewOffsetX=0.966472, 
+    viewOffsetY=9.40493)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p1 = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p1 = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['Model-1'].parts['touch-len'].setValues(space=AXISYMMETRIC, 
+    type=DEFORMABLE_BODY)
+p1 = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+a = mdb.models['Model-1'].rootAssembly
+a.deleteFeatures(('touch-len-1', 'RP-2', 'Coincident Point-5', ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.2158, 
+    farPlane=66.6246, width=21.6925, height=9.865, viewOffsetX=3.73774, 
+    viewOffsetY=9.49087)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(interactions=ON, 
+    constraints=ON, connectors=ON, engineeringFeatures=ON)
+del mdb.models['Model-1'].constraints['touch-len']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.0583, 
+    farPlane=66.7822, width=21.6367, height=9.83961, viewOffsetX=1.42021, 
+    viewOffsetY=8.70955)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.models['Model-1'].Material(name='touch-len')
+mdb.models['Model-1'].materials['touch-len'].Elastic(table=((0.5, 0.49), ))
+mdb.models['Model-1'].HomogeneousSolidSection(name='touch-len', 
+    material='touch-len', thickness=None)
+p = mdb.models['Model-1'].parts['touch-len']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#d ]', ), )
+region = regionToolset.Region(edges=edges)
+p = mdb.models['Model-1'].parts['touch-len']
+p.SectionAssignment(region=region, sectionName='touch-len', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=12.7908, 
+    farPlane=15.1977, width=8.598, height=3.91007, viewOffsetX=0.326265, 
+    viewOffsetY=0.148394)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(interactions=OFF, 
+    constraints=OFF, connectors=OFF, engineeringFeatures=OFF)
+a1 = mdb.models['Model-1'].rootAssembly
+p = mdb.models['Model-1'].parts['touch-len']
+a1.Instance(name='touch-len-1', part=p, dependent=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.7906, 
+    farPlane=66.574, width=34.934, height=15.8867, viewOffsetX=0.516302, 
+    viewOffsetY=2.84332)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.0389, 
+    farPlane=66.3257, width=35.0867, height=15.9562, viewOffsetX=3.74408, 
+    viewOffsetY=8.20722)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.0989, 
+    farPlane=64.2657, width=18.4059, height=8.37036, viewOffsetX=-0.422956, 
+    viewOffsetY=9.51268)
+a1 = mdb.models['Model-1'].rootAssembly
+v1 = a1.instances['touch-len-1'].vertices
+v2 = a1.instances['cornea-1'].vertices
+a1.CoincidentPoint(movablePoint=v1[3], fixedPoint=v2[1])
+#: 实例 "touch-len-1"  是完全约束的
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.086, 
+    farPlane=64.2786, width=20.826, height=9.47095, viewOffsetX=-0.601207, 
+    viewOffsetY=9.4916)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.9347, 
+    farPlane=64.43, width=20.7727, height=9.44669, viewOffsetX=1.74728, 
+    viewOffsetY=8.29009)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p1 = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a = mdb.models['Model-1'].rootAssembly
+a.deleteFeatures(('touch-len-1', 'Coincident Point-5', ))
+p1 = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+del mdb.models['Model-1'].parts['touch-len']
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.sketchOptions.setValues(viewStyle=AXISYM)
+s.setPrimaryObject(option=STANDALONE)
+s.ConstructionLine(point1=(0.0, -100.0), point2=(0.0, 100.0))
+s.FixedConstraint(entity=g[2])
+s.retrieveSketch(sketch=mdb.models['Model-1'].sketches['touch-len'])
+session.viewports['Viewport: 1'].view.fitView()
+#: 提示: 4 个实体已从 touch-len 复制.
+p = mdb.models['Model-1'].Part(name='touch-len', dimensionality=AXISYMMETRIC, 
+    type=DEFORMABLE_BODY)
+p = mdb.models['Model-1'].parts['touch-len']
+p.BaseShell(sketch=s)
+s.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+del mdb.models['Model-1'].sketches['__profile__']
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['touch-len']
+f = p.faces
+faces = f.getSequenceFromMask(mask=('[#1 ]', ), )
+region = regionToolset.Region(faces=faces)
+p = mdb.models['Model-1'].parts['touch-len']
+p.SectionAssignment(region=region, sectionName='touch-len', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a1 = mdb.models['Model-1'].rootAssembly
+p = mdb.models['Model-1'].parts['touch-len']
+a1.Instance(name='touch-len-1', part=p, dependent=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.561, 
+    farPlane=65.8037, width=29.4092, height=13.3743, viewOffsetX=2.09871, 
+    viewOffsetY=4.62019)
+a1 = mdb.models['Model-1'].rootAssembly
+v11 = a1.instances['touch-len-1'].vertices
+v12 = a1.instances['cornea-1'].vertices
+a1.CoincidentPoint(movablePoint=v11[2], fixedPoint=v12[1])
+#: 实例 "touch-len-1"  是完全约束的
+a1 = mdb.models['Model-1'].rootAssembly
+a1.makeIndependent(instances=(a1.instances['touch-len-1'], ))
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(interactions=ON, 
+    constraints=ON, connectors=ON, engineeringFeatures=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.021, 
+    farPlane=66.3437, width=37.3146, height=16.9694, viewOffsetX=3.07133, 
+    viewOffsetY=3.19928)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.7698, 
+    farPlane=66.5948, width=37.1502, height=16.8946, viewOffsetX=6.08196, 
+    viewOffsetY=8.43552)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.0106, 
+    farPlane=65.3541, width=26.1889, height=11.9098, viewOffsetX=2.69576, 
+    viewOffsetY=9.5231)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['touch-len-1'].edges
+a.ReferencePoint(point=a.instances['touch-len-1'].InterestingPoint(edge=e1[1], 
+    rule=MIDDLE))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.414, 
+    farPlane=64.9506, width=23.3015, height=10.5967, viewOffsetX=1.86041, 
+    viewOffsetY=9.82748)
+a = mdb.models['Model-1'].rootAssembly
+del a.features['RP-1']
+a = mdb.models['Model-1'].rootAssembly
+e11 = a.instances['touch-len-1'].edges
+a.ReferencePoint(point=a.instances['touch-len-1'].InterestingPoint(edge=e11[1], 
+    rule=MIDDLE))
+mdb.models['Model-1'].rootAssembly.features.changeKey(fromName='RP-1', 
+    toName='touchc-len-center')
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.7755, 
+    farPlane=64.5891, width=20.7166, height=9.42119, viewOffsetX=1.77811, 
+    viewOffsetY=10.1823)
+mdb.models['Model-1'].rootAssembly.features.changeKey(
+    fromName='touchc-len-center', toName='touch-len-center')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, interactions=OFF, constraints=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, interactions=ON, constraints=ON, 
+    engineeringFeatures=ON)
+a = mdb.models['Model-1'].rootAssembly
+r1 = a.referencePoints
+refPoints1=(r1[72], )
+region1=regionToolset.Region(referencePoints=refPoints1)
+a = mdb.models['Model-1'].rootAssembly
+s1 = a.instances['touch-len-1'].edges
+side1Edges1 = s1.getSequenceFromMask(mask=('[#f ]', ), )
+region2=regionToolset.Region(side1Edges=side1Edges1)
+mdb.models['Model-1'].Coupling(name='touch-len', controlPoint=region1, 
+    surface=region2, influenceRadius=WHOLE_SURFACE, couplingType=KINEMATIC, 
+    alpha=0.0, localCsys=None, u1=ON, u2=ON, ur3=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, interactions=OFF, constraints=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Press')
+del mdb.models['Model-1'].boundaryConditions['len-press']
+a = mdb.models['Model-1'].rootAssembly
+r1 = a.referencePoints
+refPoints1=(r1[72], )
+region = regionToolset.Region(referencePoints=refPoints1)
+mdb.models['Model-1'].DisplacementBC(name='len-press', createStepName='Press', 
+    region=region, u1=0.0, u2=-0.06, ur3=0.0, amplitude='len-press', fixed=OFF, 
+    distributionType=UNIFORM, fieldName='', localCsys=None)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.0855, 
+    farPlane=64.2791, width=20.8259, height=9.47088, viewOffsetX=1.9559, 
+    viewOffsetY=10.309)
+del mdb.models['Model-1'].boundaryConditions['axis-fixed']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.9849, 
+    farPlane=65.3797, width=29.6258, height=13.4728, viewOffsetX=4.90188, 
+    viewOffsetY=10.8311)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.7781, 
+    farPlane=65.5865, width=29.5202, height=13.4247, viewOffsetX=4.80153, 
+    viewOffsetY=5.38125)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.7772, 
+    farPlane=65.5874, width=29.5197, height=13.4245, viewOffsetX=4.71859, 
+    viewOffsetY=-0.236489)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.5394, 
+    farPlane=63.0253, width=28.3764, height=12.9046, cameraPosition=(5.86686, 
+    -0.969997, 59.2823), cameraTarget=(5.86686, -0.969997, 0), 
+    viewOffsetX=4.53583, viewOffsetY=-0.227329)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.5291, 
+    farPlane=63.0354, width=28.3712, height=12.9022, viewOffsetX=3.57933, 
+    viewOffsetY=-5.09043)
+session.viewports['Viewport: 1'].view.setValues(viewOffsetX=4.19653, 
+    viewOffsetY=3.50444)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.9242, 
+    farPlane=66.9229, width=30.1059, height=13.6911, cameraPosition=(5.59168, 
+    -1.1998, 62.9236), cameraTarget=(5.59168, -1.1998, 0), viewOffsetX=4.45311, 
+    viewOffsetY=3.71871)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.9398, 
+    farPlane=66.9074, width=30.1139, height=13.6947, viewOffsetX=4.79241, 
+    viewOffsetY=8.88155)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.6867, 
+    farPlane=67.1605, width=33.9346, height=15.4323, viewOffsetX=5.82932, 
+    viewOffsetY=9.45416)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.4537, 
+    farPlane=67.3935, width=33.7998, height=15.371, viewOffsetX=7.13445, 
+    viewOffsetY=0.406864)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.4523, 
+    farPlane=67.3948, width=33.7991, height=15.3706, viewOffsetX=6.58876, 
+    viewOffsetY=5.65652)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.1278, 
+    farPlane=65.7194, width=19.9219, height=9.05976, viewOffsetX=2.17061, 
+    viewOffsetY=8.17736)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.2811, 
+    farPlane=65.5661, width=19.9726, height=9.08286, viewOffsetX=1.97992, 
+    viewOffsetY=0.624504)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.2814, 
+    farPlane=65.5658, width=19.9727, height=9.08291, viewOffsetX=2.14812, 
+    viewOffsetY=-6.79553)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['touch-len-1'].edges
+edges1 = e1.getSequenceFromMask(mask=('[#2 ]', ), )
+e2 = a.instances['cornea-1'].edges
+edges2 = e2.getSequenceFromMask(mask=('[#2 ]', ), )
+e3 = a.instances['crystalline-1'].edges
+edges3 = e3.getSequenceFromMask(mask=('[#2 ]', ), )
+e4 = a.instances['vitreous-1'].edges
+edges4 = e4.getSequenceFromMask(mask=('[#10 ]', ), )
+e5 = a.instances['back-sclera-1'].edges
+edges5 = e5.getSequenceFromMask(mask=('[#2 ]', ), )
+region = regionToolset.Region(edges=edges1+edges2+edges3+edges4+edges5)
+mdb.models['Model-1'].XsymmBC(name='axis-fixed', createStepName='Press', 
+    region=region, localCsys=None)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.5923, 
+    farPlane=68.2549, width=42.6537, height=19.3974, viewOffsetX=6.12511, 
+    viewOffsetY=-6.12704)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.3115, 
+    farPlane=68.5357, width=42.4458, height=19.3028, viewOffsetX=9.78877, 
+    viewOffsetY=6.13787)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.4709, 
+    farPlane=67.3763, width=31.7813, height=14.453, viewOffsetX=6.89928, 
+    viewOffsetY=5.26639)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.7014, 
+    farPlane=67.1458, width=31.9066, height=14.51, viewOffsetX=4.06048, 
+    viewOffsetY=4.52816)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.1685, 
+    farPlane=67.6787, width=33.635, height=15.296, viewOffsetX=3.8827, 
+    viewOffsetY=4.38822)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.4507, 
+    farPlane=67.3965, width=33.7982, height=15.3702, viewOffsetX=4.30475, 
+    viewOffsetY=6.72686)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF, 
+    interactions=ON, constraints=ON, connectors=ON, engineeringFeatures=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.6845, 
+    farPlane=67.1627, width=33.9334, height=15.4317, viewOffsetX=4.03647, 
+    viewOffsetY=6.87812)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, 
+    interactions=OFF, constraints=OFF, connectors=OFF, engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.9441, 
+    farPlane=66.9031, width=28.3092, height=12.9103, viewOffsetX=3.55942, 
+    viewOffsetY=7.75815)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['touch-len-1'], )
+a.seedPartInstance(regions=partInstances, size=0.5, deviationFactor=0.05, 
+    minSizeFactor=0.05)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['touch-len-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.38, 
+    farPlane=66.4672, width=25.199, height=11.4919, viewOffsetX=3.10802, 
+    viewOffsetY=8.30228)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['touch-len-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['touch-len-1'], )
+a.seedPartInstance(regions=partInstances, size=0.5, deviationFactor=0.01, 
+    minSizeFactor=0.01)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['touch-len-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['touch-len-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['touch-len-1'], )
+a.seedPartInstance(regions=partInstances, size=0.3, deviationFactor=0.01, 
+    minSizeFactor=0.01)
+a = mdb.models['Model-1'].rootAssembly
+partInstances =(a.instances['touch-len-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(width=23.7671, height=10.8389, 
+    viewOffsetX=4.58663, viewOffsetY=8.94408)
+mdb.save()
+#: 模型数据库已保存到 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae".
+#: 
+#: 部件实例: touch-len-1
+#:   Number of elements :  63,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.7137, 
+    farPlane=69.1334, width=54.318, height=24.7715, viewOffsetX=13.156, 
+    viewOffsetY=12.0777)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.8442, 
+    farPlane=70.003, width=53.4853, height=24.3917, viewOffsetX=10.7712, 
+    viewOffsetY=2.39855)
+#: 
+#: 部件实例: back-sclera-1
+#:   Number of elements :  28,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: cornea-1
+#:   Number of elements :  371,   Analysis errors:  0 (0%),  Analysis warnings:  1 (0.269542%)
+#: 
+#: 部件实例: front-sclera-1
+#:   Number of elements :  32,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: touch-len-1
+#:   Number of elements :  63,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: crystalline-1
+#:   Number of elements :  403,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: vitreous-1
+#:   Number of elements :  354,   Analysis errors:  0 (0%),  Analysis warnings:  12 (3.38983%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.1996, 
+    farPlane=69.6476, width=47.9678, height=21.8755, viewOffsetX=9.32547, 
+    viewOffsetY=1.73673)
+mdb.save()
+#: 模型数据库已保存到 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae".
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.7218, 
+    farPlane=70.1254, width=57.2609, height=26.1135, viewOffsetX=10.2279, 
+    viewOffsetY=1.57844)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.8336, 
+    farPlane=70.0136, width=50.6972, height=23.1202, viewOffsetX=9.5646, 
+    viewOffsetY=1.98927)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.Job(name='Job-1', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=80, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=12, activateLoadBalancing=False, 
+    numThreadsPerMpiProcess=0, numCpus=12)
+#* The number of cpus (12) exceeds the number of cpus available (8).
+mdb.Job(name='Job-1', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=80, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=6, activateLoadBalancing=False, 
+    numThreadsPerMpiProcess=0, numCpus=6)
+mdb.jobs['Job-1'].writeInput(consistencyChecking=OFF)
+#: 作业输入文件已写入到 "Job-1.inp".
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-1.inp" 已提交分析.
+#: Error in job Job-1: AN INVALID POISSONS RATIO VALUE HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5
+#: Error in job Job-1: AN INVALID POISSONS RATIO VALUE HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5
+#: Error in job Job-1: AN INVALID POISSONS RATIO VALUE HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5
+#: Error in job Job-1: AN INVALID POISSONS RATIO VALUE OF 4.9000 HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5
+#: Error in job Job-1: AN INVALID POISSONS RATIO VALUE OF 4.9000 HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5
+#: Error in job Job-1: AN INVALID POISSONS RATIO VALUE OF 4.9000 HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5
+#: Job Job-1: Analysis Input File Processor aborted due to errors.
+#: Error in job Job-1: Analysis Input File Processor exited with an error - Please see the  Job-1.dat file for possible error messages if the file exists.
+#: Job Job-1 aborted due to errors.
+p1 = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['Model-1'].materials['crystalline'].elastic.setValues(table=((0.16, 
+    0.49), ))
+mdb.models['Model-1'].materials['cornea'].elastic.setValues(table=((0.25, 
+    0.49), ))
+mdb.models['Model-1'].materials['vitreous'].elastic.setValues(table=((0.42, 
+    0.49), ))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-1.inp" 已提交分析.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+#: Error in job Job-1: No density has been specified for material BACK-SCLERA.
+#: Error in job Job-1: No density has been specified for material CORNEA.
+#: Error in job Job-1: No density has been specified for material CRYSTALLINE.
+#: Error in job Job-1: No density has been specified for material FRONT-SCLERA.
+#: Error in job Job-1: No density has been specified for material TOUCH-LEN.
+#: Error in job Job-1: No density has been specified for material VITREOUS.
+#: Job Job-1: Abaqus/Explicit Packager aborted due to errors.
+#: Error in job Job-1: Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job Job-1 aborted due to errors.
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-1.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-1.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       2
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.9538, 
+    farPlane=97.8154, width=43.5403, height=20.6536, viewOffsetX=0.45112, 
+    viewOffsetY=0.0795968)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.8447, 
+    farPlane=96.9246, width=44.2214, height=20.9766, viewOffsetX=4.55447, 
+    viewOffsetY=-0.104793)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.2049, 
+    farPlane=96.5644, width=39.3173, height=18.6504, viewOffsetX=4.49565, 
+    viewOffsetY=0.267798)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    DEFORMED, ))
+#* There is no valid step data available on the database. If the analysis is 
+#* running, the database must be closed and reopened once the results have been 
+#* initialized. The requested operation has been cancelled.
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    DEFORMED, ))
+#* There is no valid step data available on the database. If the analysis is 
+#* running, the database must be closed and reopened once the results have been 
+#* initialized. The requested operation has been cancelled.
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-1.inp" 已提交分析.
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-1.odb')
+#* OdbError: 输出数据库 
+#* E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-1.odb 的 
+#* .lck 文件显示 Analysis Input File Processor 目前正在修改数据库. 
+#* 这时数据库无法打开.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+#: Error in job Job-1: No density has been specified for material BACK-SCLERA.
+#: Error in job Job-1: No density has been specified for material CORNEA.
+#: Error in job Job-1: No density has been specified for material CRYSTALLINE.
+#: Error in job Job-1: No density has been specified for material FRONT-SCLERA.
+#: Error in job Job-1: No density has been specified for material TOUCH-LEN.
+#: Error in job Job-1: No density has been specified for material VITREOUS.
+#: Job Job-1: Abaqus/Explicit Packager aborted due to errors.
+#: Error in job Job-1: Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job Job-1 aborted due to errors.
+del mdb.jobs['Job-1']
+mdb.Job(name='Job-1', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=4, activateLoadBalancing=False, 
+    numThreadsPerMpiProcess=0, numCpus=4)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-1.inp" 已提交分析.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+#: Error in job Job-1: No density has been specified for material BACK-SCLERA.
+#: Error in job Job-1: No density has been specified for material CORNEA.
+#: Error in job Job-1: No density has been specified for material CRYSTALLINE.
+#: Error in job Job-1: No density has been specified for material FRONT-SCLERA.
+#: Error in job Job-1: No density has been specified for material TOUCH-LEN.
+#: Error in job Job-1: No density has been specified for material VITREOUS.
+#: Job Job-1: Abaqus/Explicit Packager aborted due to errors.
+#: Error in job Job-1: Abaqus/Explicit Packager exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job Job-1 aborted due to errors.
+p = mdb.models['Model-1'].parts['touch-len']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.models['Model-1'].materials['back-sclera'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['cornea'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['crystalline'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['front-sclera'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['touch-len'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['vitreous'].Density(table=((1e-09, ), ))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-1.inp" 已提交分析.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-1.odb')
+#* OdbError: 输出数据库 
+#* E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-1.odb 的 
+#* .lck 文件显示 Abaqus/Explicit Packager 目前正在修改数据库. 
+#* 这时数据库无法打开.
+#: Job Job-1: Abaqus/Explicit Packager completed successfully.
+mdb.Job(name='Job-2', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=16, activateLoadBalancing=False, 
+    numThreadsPerMpiProcess=0, numCpus=16)
+#* The number of cpus (16) exceeds the number of cpus available (8).
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+mdb.jobs['Job-1'].kill()
+mdb.jobs['Job-1'].kill()
+mdb.jobs['Job-1'].setValues(numDomains=4, activateLoadBalancing=False, 
+    numThreadsPerMpiProcess=1, numCpus=4)
+#* 作业正在运行, 此时无法修改.

@@ -1,0 +1,52 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-21.00.46 RELr427 198590
+# Run by Administrator on Fri May  8 11:05:15 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=213.427062988281, 
+    height=129.362701416016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('project.cae')
+#: 模型数据库 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae" 已打开.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Press')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, optimizationTasks=OFF, 
+    geometricRestrictions=OFF, stopConditions=OFF)
+del mdb.models['Model-1'].boundaryConditions['len-press']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.1075, 
+    farPlane=68.7329, width=34.361, height=15.6262, viewOffsetX=1.97181, 
+    viewOffsetY=3.9665)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.3541, 
+    farPlane=68.4864, width=34.5043, height=15.6914, viewOffsetX=2.85173, 
+    viewOffsetY=9.63194)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.7011, 
+    farPlane=67.1394, width=22.883, height=10.4357, viewOffsetX=0.858127, 
+    viewOffsetY=11.0571)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.8754, 
+    farPlane=66.9651, width=22.9487, height=10.4657, viewOffsetX=1.18358, 
+    viewOffsetY=10.1067)
+#: 
+#: 部件实例: touch-len-1
+#:   Number of elements :  148,   Analysis errors:  8 (5.40541%),  Analysis warnings:  0 (0%)

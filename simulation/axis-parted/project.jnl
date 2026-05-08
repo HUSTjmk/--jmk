@@ -1,0 +1,1937 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.openDxf('E:/study/research/back-sclera.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='back-sclera')
+mdb.openDxf('E:/study/research/cornea.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='cornea')
+mdb.openDxf('E:/study/research/crystalline.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='crystalline')
+mdb.openDxf('E:/study/research/front-sclera.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='front-sclera')
+mdb.openDxf('E:/study/research/touch-len.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='touch-len')
+mdb.openDxf('E:/study/research/vitreous.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='vitreous')
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['Model-1'].sketches['cornea'])
+del mdb.models['Model-1'].sketches['__profile__']
+del mdb.models['Model-1'].sketches['back-sclera']
+del mdb.models['Model-1'].sketches['cornea']
+del mdb.models['Model-1'].sketches['crystalline']
+del mdb.models['Model-1'].sketches['front-sclera']
+del mdb.models['Model-1'].sketches['touch-len']
+del mdb.models['Model-1'].sketches['vitreous']
+mdb.openDxf('E:/study/research/back-sclera.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='back-sclera')
+mdb.openDxf('E:/study/research/cornea.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='cornea')
+mdb.openDxf('E:/study/research/crystalline.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='crystalline')
+mdb.openDxf('E:/study/research/front-sclera.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='front-sclera')
+mdb.openDxf('E:/study/research/touch-len.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='touch-len')
+mdb.openDxf('E:/study/research/vitreous.DXF', scaleFromFile=OFF)
+mdb.models['Model-1'].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, 
+    name='vitreous')
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['Model-1'].sketches['cornea'])
+mdb.models['Model-1'].Part(dimensionality=AXISYMMETRIC, name='cornea', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['cornea'].BaseShell(sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['cornea'].setValues(geometryRefinement=EXTRA_FINE)
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['Model-1'].sketches['back-sclera'])
+mdb.models['Model-1'].Part(dimensionality=AXISYMMETRIC, name='back-sclera', 
+    type=DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['back-sclera'].BaseShell(sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['back-sclera'].setValues(geometryRefinement=
+    EXTRA_FINE)
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['Model-1'].sketches['front-sclera'])
+mdb.models['Model-1'].Part(dimensionality=AXISYMMETRIC, name='front-sclera', 
+    type=DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['front-sclera'].BaseShell(sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['front-sclera'].setValues(geometryRefinement=
+    EXTRA_FINE)
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['Model-1'].sketches['crystalline'])
+mdb.models['Model-1'].Part(dimensionality=AXISYMMETRIC, name='crystalline', 
+    type=DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['crystalline'].BaseShell(sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['crystalline'].setValues(geometryRefinement=
+    EXTRA_FINE)
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['Model-1'].sketches['vitreous'])
+mdb.models['Model-1'].Part(dimensionality=AXISYMMETRIC, name='vitreous', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['vitreous'].BaseShell(sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['vitreous'].setValues(geometryRefinement=
+    EXTRA_FINE)
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['Model-1'].sketches['touch-len'])
+mdb.models['Model-1'].Part(dimensionality=AXISYMMETRIC, name='touch-len', type=
+    DISCRETE_RIGID_SURFACE)
+mdb.models['Model-1'].parts['touch-len'].BaseWire(sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['touch-len'].setValues(geometryRefinement=
+    EXTRA_FINE)
+mdb.models['Model-1'].Material(name='cornea')
+mdb.models['Model-1'].materials['cornea'].Elastic(table=((0.25, 4.9), ))
+mdb.models['Model-1'].Material(name='front-sclera')
+mdb.models['Model-1'].materials['front-sclera'].Elastic(table=((4.3, 0.49), ))
+mdb.models['Model-1'].Material(name='back-sclera')
+mdb.models['Model-1'].materials['back-sclera'].Elastic(table=((8.2, 0.49), ))
+mdb.models['Model-1'].Material(name='crystalline')
+mdb.models['Model-1'].materials['crystalline'].Elastic(table=((0.16, 4.9), ))
+mdb.models['Model-1'].Material(name='vitreous')
+mdb.models['Model-1'].materials['vitreous'].Elastic(table=((0.42, 4.9), ))
+mdb.models['Model-1'].HomogeneousSolidSection(material='cornea', name='cornea', 
+    thickness=None)
+mdb.models['Model-1'].HomogeneousSolidSection(material='front-sclera', name=
+    'front-sclera', thickness=None)
+mdb.models['Model-1'].HomogeneousSolidSection(material='back-sclera', name=
+    'back-sclera', thickness=None)
+mdb.models['Model-1'].HomogeneousSolidSection(material='crystalline', name=
+    'crystalline', thickness=None)
+mdb.models['Model-1'].HomogeneousSolidSection(material='vitreous', name=
+    'vitreous', thickness=None)
+mdb.models['Model-1'].parts['cornea'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    faces=mdb.models['Model-1'].parts['cornea'].faces.getSequenceFromMask(
+    mask=('[#1 ]', ), )), sectionName='cornea', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].parts['front-sclera'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    faces=mdb.models['Model-1'].parts['front-sclera'].faces.getSequenceFromMask(
+    mask=('[#1 ]', ), )), sectionName='front-sclera', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].parts['back-sclera'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    faces=mdb.models['Model-1'].parts['back-sclera'].faces.getSequenceFromMask(
+    mask=('[#1 ]', ), )), sectionName='back-sclera', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].parts['vitreous'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    faces=mdb.models['Model-1'].parts['vitreous'].faces.getSequenceFromMask(
+    mask=('[#1 ]', ), )), sectionName='vitreous', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].parts['crystalline'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    faces=mdb.models['Model-1'].parts['crystalline'].faces.getSequenceFromMask(
+    mask=('[#1 ]', ), )), sectionName='crystalline', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.DatumCsysByThreePoints(coordSysType=
+    CYLINDRICAL, origin=(0.0, 0.0, 0.0), point1=(1.0, 0.0, 0.0), point2=(0.0, 
+    0.0, -1.0))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='back-sclera-1', 
+    part=mdb.models['Model-1'].parts['back-sclera'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='cornea-1', 
+    part=mdb.models['Model-1'].parts['cornea'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='crystalline-1', 
+    part=mdb.models['Model-1'].parts['crystalline'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='front-sclera-1'
+    , part=mdb.models['Model-1'].parts['front-sclera'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='touch-len-1', 
+    part=mdb.models['Model-1'].parts['touch-len'])
+mdb.models['Model-1'].rootAssembly.EdgeToEdge(clearance=0.0, fixedAxis=
+    mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'].edges[3], 
+    flip=OFF, movableAxis=
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].edges[1])
+mdb.models['Model-1'].rootAssembly.EdgeToEdge(clearance=0.0, fixedAxis=
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].edges[3], 
+    flip=OFF, movableAxis=
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].edges[3])
+del mdb.models['Model-1'].rootAssembly.features['Edge to Edge-2']
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('touch-len-1', ), 
+    vector=(0.0, 10.0, 0.0))
+mdb.models['Model-1'].rootAssembly.EdgeToEdge(clearance=0.0, fixedAxis=
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].edges[3], flip=OFF
+    , movableAxis=
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].edges[3])
+mdb.models['Model-1'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].vertices[3], 
+    movablePoint=
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].vertices[0])
+#* FeatureError: 该约束将创建一个循环依赖. 
+#* 请重选实体来定义约束.
+del mdb.models['Model-1'].rootAssembly.features['Edge to Edge-1']
+mdb.models['Model-1'].rootAssembly.features['Edge to Edge-2'].suppress()
+del mdb.models['Model-1'].rootAssembly.features['Edge to Edge-2']
+mdb.models['Model-1'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'].vertices[3], 
+    movablePoint=
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].vertices[2])
+mdb.models['Model-1'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].vertices[3], 
+    movablePoint=
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].vertices[0])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='vitreous-1', 
+    part=mdb.models['Model-1'].parts['vitreous'])
+mdb.models['Model-1'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'].vertices[1], 
+    movablePoint=
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].vertices[2])
+mdb.models['Model-1'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].vertices[1], 
+    movablePoint=
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'].vertices[2])
+mdb.models['Model-1'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].vertices[1], 
+    movablePoint=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].vertices[3])
+# Save by Administrator on 2026_05_07-22.39.35; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ExplicitDynamicsStep(improvedDtMethod=ON, name='Press', 
+    previous='Initial', timePeriod=0.01)
+mdb.models['Model-1'].ExplicitDynamicsStep(improvedDtMethod=ON, name='Resume', 
+    previous='Press', timePeriod=0.001)
+mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'S', 'SVAVG', 'E', 'LE', 'UT', 'CSTRESS', 'CDISP'))
+mdb.models['Model-1'].ContactProperty('global')
+mdb.models['Model-1'].interactionProperties['global'].TangentialBehavior(
+    formulation=FRICTIONLESS)
+mdb.models['Model-1'].interactionProperties['global'].NormalBehavior(
+    allowSeparation=ON, constraintEnforcementMethod=DEFAULT, 
+    pressureOverclosure=HARD)
+mdb.models['Model-1'].ContactExp(createStepName='Press', name='global')
+mdb.models['Model-1'].interactions['global'].includedPairs.setValuesInStep(
+    stepName='Press', useAllstar=ON)
+mdb.models['Model-1'].interactions['global'].contactPropertyAssignments.appendInStep(
+    assignments=((GLOBAL, SELF, ''), ), stepName='Press')
+mdb.models['Model-1'].interactions['global'].wearSurfacePropertyAssignments.appendInStep(
+    assignments=((GLOBAL, ''), ), stepName='Press')
+mdb.models['Model-1'].Tie(adjust=ON, main=Region(
+    side1Edges=mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#8 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].edges.getSequenceFromMask(
+    mask=('[#8 ]', ), )), name='cornea-front-sclera', positionToleranceMethod=
+    COMPUTED, secondary=Region(
+    side1Edges=mdb.models['Model-1'].rootAssembly.instances['cornea-1'].edges.getSequenceFromMask(
+    mask=('[#8 ]', ), )), thickness=ON, tieRotations=ON)
+mdb.models['Model-1'].Tie(adjust=ON, main=Region(
+    side1Edges=mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#8 ]', ), )), name='front-back-sclera', positionToleranceMethod=
+    COMPUTED, secondary=Region(
+    side1Edges=mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )), thickness=ON, tieRotations=ON)
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Press', 
+    distributionType=UNIFORM, field='', magnitude=0.0024, name='aqueous', 
+    region=Region(
+    side1Edges=mdb.models['Model-1'].rootAssembly.instances['cornea-1'].edges.getSequenceFromMask(
+    mask=('[#4 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#1 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].edges.getSequenceFromMask(
+    mask=('[#8 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'].edges.getSequenceFromMask(
+    mask=('[#9 ]', ), )))
+mdb.models['Model-1'].rootAssembly.makeIndependent(instances=(
+    mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'], ))
+mdb.models['Model-1'].rootAssembly.makeIndependent(instances=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.makeIndependent(instances=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ))
+mdb.models['Model-1'].rootAssembly.makeIndependent(instances=(
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'], ))
+mdb.models['Model-1'].rootAssembly.makeIndependent(instances=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.makeIndependent(instances=(
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'], ))
+# Save by Administrator on 2026_05_07-22.48.36; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=0.5, name='__profile__', 
+    sheetSize=20.38, transform=
+    mdb.models['Model-1'].rootAssembly.MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(9.514513, 2.868479, 
+    0.0)))
+mdb.models['Model-1'].rootAssembly.projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].Spot(point=(-0.37147876183305, 
+    0.360478603205825))
+mdb.models['Model-1'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Model-1'].sketches['__profile__'].vertices[26], entity2=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[29])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].rootAssembly.PartitionEdgeByParam(edges=
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].edges.getSequenceFromMask(
+    ('[#4 ]', ), ), parameter=0.999471804094107)
+del mdb.models['Model-1'].loads['aqueous']
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=0.99, name='__profile__', 
+    sheetSize=39.64, transform=
+    mdb.models['Model-1'].rootAssembly.MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(5.047343, 
+    -4.173423, 0.0)))
+mdb.models['Model-1'].rootAssembly.projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].ArcByStartEndTangent(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[29], point1=(
+    4.10133645663257, 7.39231962243119), point2=(1.77689503002254, 
+    10.2287281473424))
+mdb.models['Model-1'].sketches['__profile__'].ArcByStartEndTangent(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[29], point1=(
+    4.10133645663257, 7.39231962243119), point2=(-0.197703114134957, 
+    6.95083692045972))
+mdb.models['Model-1'].rootAssembly.PartitionFaceBySketch(faces=
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].faces.getSequenceFromMask(
+    mask=('[#1 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].faces.getSequenceFromMask(
+    mask=('[#1 ]', ), ), sketch=mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Press', 
+    distributionType=UNIFORM, field='', magnitude=0.0024, name='aqueous', 
+    region=Region(
+    side1Edges=mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].edges.getSequenceFromMask(
+    mask=('[#4 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'].edges.getSequenceFromMask(
+    mask=('[#9 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#10 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].edges.getSequenceFromMask(
+    mask=('[#4 ]', ), )))
+mdb.models['Model-1'].EncastreBC(createStepName='Press', localCsys=None, name=
+    'sclera-fixed', region=Region(
+    edges=mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#4 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#4 ]', ), )))
+mdb.models['Model-1'].ZsymmBC(createStepName='Press', localCsys=None, name=
+    'axis-fixed', region=Region(
+    edges=mdb.models['Model-1'].rootAssembly.instances['cornea-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges.getSequenceFromMask(
+    mask=('[#8 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].edges.getSequenceFromMask(
+    mask=('[#10 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )))
+mdb.models['Model-1'].boundaryConditions['axis-fixed'].setValues(typeName=
+    XSYMM)
+mdb.models['Model-1'].parts['touch-len'].DatumPointByCoordinate(coords=(0.0, 
+    0.0, 0.0))
+mdb.models['Model-1'].parts['touch-len'].DatumPointByCoordinate(coords=(0.0, 
+    10.0, 0.0))
+del mdb.models['Model-1'].parts['touch-len'].features['Datum pt-1']
+del mdb.models['Model-1'].parts['touch-len'].features['Datum pt-2']
+mdb.models['Model-1'].parts['touch-len'].DatumPointByCoordinate(coords=(0.0, 
+    10.0, 0.0))
+del mdb.models['Model-1'].parts['touch-len'].features['Datum pt-1']
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].InterestingPoint(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges[3], 
+    MIDDLE))
+mdb.models['Model-1'].RigidBody(bodyRegion=Region(
+    edges=mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges.getSequenceFromMask(
+    mask=('[#f ]', ), )), name='touch-len', refPointAtCOM=ON, refPointRegion=
+    Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[33], )))
+# Save by Administrator on 2026_05_07-23.30.08; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].TabularAmplitude(data=((0.0, 0.0), (0.01, 1.0)), name=
+    'len-press', smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['Model-1'].DisplacementBC(amplitude='len-press', createStepName=
+    'Press', distributionType=UNIFORM, fieldName='', fixed=OFF, localCsys=None, 
+    name='len-press', region=Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[33], )), u1=0.0, u2=0.06
+    , ur3=0.0)
+# Save by Administrator on 2026_05_07-23.32.40; build 2025 2024_09_20-21.00.46 RELr427 198590
+# Save by Administrator on 2026_05_07-23.33.01; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.1, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ), size=0.81)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.1, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ), size=0.081)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.1, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ), size=0.2)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.1, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ), size=0.18)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.1, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ), size=0.15)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ), size=0.2)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ), size=0.16)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.01, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ), size=0.5)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.01, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ), size=0.2)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.01, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ), size=
+    0.35)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.01, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ), size=
+    0.32)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.05, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.5)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.04, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.3)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.03, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.3)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.03, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.25)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].parts['touch-len'].setValues(geometryRefinement=
+    EXTRA_FINE)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.02, 
+    minSizeFactor=0.02, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'], ), size=0.7)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.03, 
+    minSizeFactor=0.03, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'], ), size=0.7)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.03, 
+    minSizeFactor=0.03, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'], ), size=
+    0.7)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.03, 
+    minSizeFactor=0.03, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'], ), size=
+    0.6)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['front-sclera-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.05, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'], ), size=0.6)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'], ))
+# Save by Administrator on 2026_05_08-00.25.31; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].boundaryConditions['len-press'].setValues(u2=-0.06)
+# Save by Administrator on 2026_05_08-00.43.46; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.03, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.4)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].vertices[0])
+del mdb.models['Model-1'].rootAssembly.features['RP-1']
+mdb.models['Model-1'].constraints['touch-len'].setValues(refPointRegion=Region(
+    referencePoints=(mdb.models['Model-1'].rootAssembly.referencePoints[58], 
+    )))
+mdb.models['Model-1'].boundaryConditions['len-press'].setValues(region=Region(
+    referencePoints=(mdb.models['Model-1'].rootAssembly.referencePoints[58], 
+    )))
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges.getSequenceFromMask(
+    ('[#8 ]', ), ))
+mdb.models['Model-1'].rootAssembly.seedEdgeBySize(constraint=FINER, 
+    deviationFactor=0.03, edges=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges.getSequenceFromMask(
+    ('[#8 ]', ), ), minSizeFactor=0.05, size=0.4)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges.getSequenceFromMask(
+    ('[#8 ]', ), ))
+mdb.models['Model-1'].rootAssembly.deleteSeeds(regions=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges.getSequenceFromMask(
+    ('[#8 ]', ), ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.03, 
+    minSizeFactor=0.01, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.4)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.01, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.1)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+# Save by Administrator on 2026_05_08-01.11.47; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].parts['touch-len'].setValues(space=AXISYMMETRIC, type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.deleteFeatures(('touch-len-1', 'RP-2', 
+    'Coincident Point-5'))
+del mdb.models['Model-1'].constraints['touch-len']
+mdb.models['Model-1'].Material(name='touch-len')
+mdb.models['Model-1'].materials['touch-len'].Elastic(table=((0.5, 0.49), ))
+mdb.models['Model-1'].HomogeneousSolidSection(material='touch-len', name=
+    'touch-len', thickness=None)
+mdb.models['Model-1'].parts['touch-len'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    edges=mdb.models['Model-1'].parts['touch-len'].edges.getSequenceFromMask(
+    mask=('[#d ]', ), )), sectionName='touch-len', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='touch-len-1', 
+    part=mdb.models['Model-1'].parts['touch-len'])
+mdb.models['Model-1'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].vertices[1], 
+    movablePoint=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].vertices[3])
+mdb.models['Model-1'].rootAssembly.deleteFeatures(('touch-len-1', 
+    'Coincident Point-5'))
+del mdb.models['Model-1'].parts['touch-len']
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].sketchOptions.setValues(
+    viewStyle=AXISYM)
+mdb.models['Model-1'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Model-1'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Model-1'].sketches['__profile__'].geometry[2])
+mdb.models['Model-1'].sketches['__profile__'].retrieveSketch(sketch=
+    mdb.models['Model-1'].sketches['touch-len'])
+mdb.models['Model-1'].Part(dimensionality=AXISYMMETRIC, name='touch-len', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['touch-len'].BaseShell(sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['touch-len'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=Region(
+    faces=mdb.models['Model-1'].parts['touch-len'].faces.getSequenceFromMask(
+    mask=('[#1 ]', ), )), sectionName='touch-len', thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='touch-len-1', 
+    part=mdb.models['Model-1'].parts['touch-len'])
+mdb.models['Model-1'].rootAssembly.CoincidentPoint(fixedPoint=
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].vertices[1], 
+    movablePoint=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].vertices[2])
+mdb.models['Model-1'].rootAssembly.makeIndependent(instances=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].InterestingPoint(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges[1], 
+    MIDDLE))
+del mdb.models['Model-1'].rootAssembly.features['RP-1']
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].InterestingPoint(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges[1], 
+    MIDDLE))
+mdb.models['Model-1'].rootAssembly.features.changeKey(fromName='RP-1', toName=
+    'touchc-len-center')
+mdb.models['Model-1'].rootAssembly.features.changeKey(fromName=
+    'touchc-len-center', toName='touch-len-center')
+mdb.models['Model-1'].Coupling(alpha=0.0, controlPoint=Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[72], )), couplingType=
+    KINEMATIC, influenceRadius=WHOLE_SURFACE, localCsys=None, name='touch-len', 
+    surface=Region(
+    side1Edges=mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges.getSequenceFromMask(
+    mask=('[#f ]', ), )), u1=ON, u2=ON, ur3=ON)
+del mdb.models['Model-1'].boundaryConditions['len-press']
+mdb.models['Model-1'].DisplacementBC(amplitude='len-press', createStepName=
+    'Press', distributionType=UNIFORM, fieldName='', fixed=OFF, localCsys=None, 
+    name='len-press', region=Region(referencePoints=(
+    mdb.models['Model-1'].rootAssembly.referencePoints[72], )), u1=0.0, u2=
+    -0.06, ur3=0.0)
+del mdb.models['Model-1'].boundaryConditions['axis-fixed']
+mdb.models['Model-1'].XsymmBC(createStepName='Press', localCsys=None, name=
+    'axis-fixed', region=Region(
+    edges=mdb.models['Model-1'].rootAssembly.instances['touch-len-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['cornea-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['crystalline-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['vitreous-1'].edges.getSequenceFromMask(
+    mask=('[#10 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['back-sclera-1'].edges.getSequenceFromMask(
+    mask=('[#2 ]', ), )))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.05, 
+    minSizeFactor=0.05, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.5)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.01, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.5)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.deleteMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+mdb.models['Model-1'].rootAssembly.seedPartInstance(deviationFactor=0.01, 
+    minSizeFactor=0.01, regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ), size=0.3)
+mdb.models['Model-1'].rootAssembly.generateMesh(regions=(
+    mdb.models['Model-1'].rootAssembly.instances['touch-len-1'], ))
+# Save by Administrator on 2026_05_08-11.32.15; build 2025 2024_09_20-21.00.46 RELr427 198590
+# Save by Administrator on 2026_05_08-11.32.40; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].materials['cornea'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['back-sclera'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['crystalline'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['front-sclera'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['touch-len'].Density(table=((1e-09, ), ))
+mdb.models['Model-1'].materials['vitreous'].Density(table=((1e-09, ), ))
+mdb.Job(activateLoadBalancing=False, atTime=None, contactPrint=OFF, 
+    description='', echoPrint=OFF, explicitPrecision=SINGLE, historyPrint=OFF, 
+    memory=50, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, name=
+    'Job-1', nodalOutputPrecision=SINGLE, numCpus=1, numDomains=1, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'AN INVALID POISSONS RATIO VALUE HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'AN INVALID POISSONS RATIO VALUE HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'AN INVALID POISSONS RATIO VALUE HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '11 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'The aspect ratio for 2 elements exceeds 100 to 1. The elements have been identified in element set WarnElemAspectRatio.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '12 nodes on reactivated axisymmetric elements have negative radial current coordinate values. These values are assumed small enough to be taken as zero. The nodes have been identified in node set WarnNodeRadCurCoord.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'AN INVALID POISSONS RATIO VALUE OF 4.9000 HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'AN INVALID POISSONS RATIO VALUE OF 4.9000 HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'AN INVALID POISSONS RATIO VALUE OF 4.9000 HAS BEEN SPECIFIED. THE POISSONS RATIO MUST BE LESS THAN THE VALUE OF .5', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {
+    'file': 'E:\\study\\research\\articles\\眼睛力学参数\\simulation\\axis-parted\\Job-1.odb', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {
+    'message': 'Analysis phase failed due to errors', 'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Analysis Input File Processor exited with an error - Please see the  Job-1.dat file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Analysis Input File Processor exited with an error - Please see the  Job-1.dat file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.models['Model-1'].materials['cornea'].elastic.setValues(table=((0.25, 
+    0.49), ))
+mdb.models['Model-1'].materials['crystalline'].elastic.setValues(table=((0.16, 
+    0.49), ))
+mdb.models['Model-1'].materials['vitreous'].elastic.setValues(table=((0.42, 
+    0.49), ))
+# Save by Administrator on 2026_05_08-13.02.17; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.jobs['Job-1']
+mdb.Job(activateLoadBalancing=False, atTime=None, contactPrint=OFF, 
+    description='', echoPrint=OFF, explicitPrecision=SINGLE, historyPrint=OFF, 
+    memory=50, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, name=
+    'Job-1', nodalOutputPrecision=SINGLE, numCpus=1, numDomains=1, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '11 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'The aspect ratio for 2 elements exceeds 100 to 1. The elements have been identified in element set WarnElemAspectRatio.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '12 nodes on reactivated axisymmetric elements have negative radial current coordinate values. These values are assumed small enough to be taken as zero. The nodes have been identified in node set WarnNodeRadCurCoord.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 11656})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'There are 41 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 27144})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 5.30060839665225e-09, 
+    'kineticEnergy': 7.35069647816999e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 7.35069647816999e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 35882, 
+    'stepTime': 0.000500011316034943, 'totalTime': 0.000500011316034943, 
+    'wallTime': 65.0, 'stableTimeIncrement': 1.39421585387822e-08, 
+    'kineticEnergy': 0.0140648363158107, 'externalWork': 0.0706578269600868, 
+    'internalEnergy': 0.0535860992968082, 
+    'artificialEnergy': 0.000465204095235094, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 4.09022686653771e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 71781, 
+    'stepTime': 0.0010000120382756, 'totalTime': 0.0010000120382756, 
+    'wallTime': 132.0, 'stableTimeIncrement': 1.39273650390237e-08, 
+    'kineticEnergy': 0.00987543910741806, 'externalWork': 0.0452228747308254, 
+    'internalEnergy': 0.0310836527496576, 
+    'artificialEnergy': 0.00217364425770938, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 3.98362089981674e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 2, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 107602, 
+    'stepTime': 0.0015000132843852, 'totalTime': 0.0015000132843852, 
+    'wallTime': 203.0, 'stableTimeIncrement': 1.39314355607212e-08, 
+    'kineticEnergy': 0.0102471960708499, 'externalWork': 0.0411124750971794, 
+    'internalEnergy': 0.0258231367915869, 
+    'artificialEnergy': 0.00334318331442773, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -1.34502181481366e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 3, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 143459, 
+    'stepTime': 0.00200000614859164, 'totalTime': 0.00200000614859164, 
+    'wallTime': 268.0, 'stableTimeIncrement': 1.39317437586328e-08, 
+    'kineticEnergy': 0.00950736179947853, 'externalWork': 0.0579902417957783, 
+    'internalEnergy': 0.0403809919953346, 
+    'artificialEnergy': 0.0040308590978384, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -5.19006243848708e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 4, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 179250, 
+    'stepTime': 0.00250000064261258, 'totalTime': 0.00250000064261258, 
+    'wallTime': 329.0, 'stableTimeIncrement': 1.39342848370916e-08, 
+    'kineticEnergy': 0.00615769252181053, 'externalWork': 0.0468174330890179, 
+    'internalEnergy': 0.0281900223344564, 
+    'artificialEnergy': 0.00480045471340418, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -6.59517581880209e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 5, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Process terminated by external request (SIGTERM or SIGINT received).', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(INTERRUPTED, {
+    'message': 'Analysis terminated by external signal', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'UT', 'CSTRESS', 'CDISP'))
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '11 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'The aspect ratio for 2 elements exceeds 100 to 1. The elements have been identified in element set WarnElemAspectRatio.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '12 nodes on reactivated axisymmetric elements have negative radial current coordinate values. These values are assumed small enough to be taken as zero. The nodes have been identified in node set WarnNodeRadCurCoord.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 1756})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'There are 25 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 16272})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 5.30060839665225e-09, 
+    'kineticEnergy': 7.35069647816999e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 7.35069647816999e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Process terminated by external request (SIGTERM or SIGINT received).', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(INTERRUPTED, {
+    'message': 'Analysis terminated by external signal', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+del mdb.jobs['Job-1']
+# Save by Administrator on 2026_05_08-13.12.44; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Job(activateLoadBalancing=False, atTime=None, contactPrint=OFF, 
+    description='', echoPrint=OFF, explicitPrecision=SINGLE, historyPrint=OFF, 
+    memory=70, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, name=
+    'Job-1', nodalOutputPrecision=SINGLE, numCpus=1, numDomains=1, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+# Save by Administrator on 2026_05_08-13.13.11; build 2025 2024_09_20-21.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.jobs['Job-1']
+mdb.Job(activateLoadBalancing=False, atTime=None, contactPrint=OFF, 
+    description='', echoPrint=OFF, explicitPrecision=SINGLE, historyPrint=OFF, 
+    memory=50, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, name=
+    'Job-1', nodalOutputPrecision=SINGLE, numCpus=1, numDomains=1, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF, datacheckJob=True)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '11 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'The aspect ratio for 2 elements exceeds 100 to 1. The elements have been identified in element set WarnElemAspectRatio.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '12 nodes on reactivated axisymmetric elements have negative radial current coordinate values. These values are assumed small enough to be taken as zero. The nodes have been identified in node set WarnNodeRadCurCoord.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 26084})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'There are 25 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 27456})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 5.30060839665225e-09, 
+    'kineticEnergy': 7.35069647816999e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 7.35069647816999e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_COMPLETED, {'time': 'Fri May  8 13:17:35 2026', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '11 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'The aspect ratio for 2 elements exceeds 100 to 1. The elements have been identified in element set WarnElemAspectRatio.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '12 nodes on reactivated axisymmetric elements have negative radial current coordinate values. These values are assumed small enough to be taken as zero. The nodes have been identified in node set WarnNodeRadCurCoord.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 27752})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'There are 25 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 11560})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 5.30060839665225e-09, 
+    'kineticEnergy': 7.35069647816999e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 7.35069647816999e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 35882, 
+    'stepTime': 0.000500011316034943, 'totalTime': 0.000500011316034943, 
+    'wallTime': 62.0, 'stableTimeIncrement': 1.39421585387822e-08, 
+    'kineticEnergy': 0.0140648363158107, 'externalWork': 0.0706578269600868, 
+    'internalEnergy': 0.0535860992968082, 
+    'artificialEnergy': 0.000465204095235094, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 4.09022686653771e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 71781, 
+    'stepTime': 0.0010000120382756, 'totalTime': 0.0010000120382756, 
+    'wallTime': 123.0, 'stableTimeIncrement': 1.39273650390237e-08, 
+    'kineticEnergy': 0.00987543910741806, 'externalWork': 0.0452228747308254, 
+    'internalEnergy': 0.0310836527496576, 
+    'artificialEnergy': 0.00217364425770938, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 3.98362089981674e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 2, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 107602, 
+    'stepTime': 0.0015000132843852, 'totalTime': 0.0015000132843852, 
+    'wallTime': 185.0, 'stableTimeIncrement': 1.39314355607212e-08, 
+    'kineticEnergy': 0.0102471960708499, 'externalWork': 0.0411124750971794, 
+    'internalEnergy': 0.0258231367915869, 
+    'artificialEnergy': 0.00334318331442773, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -1.34502181481366e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 3, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 143459, 
+    'stepTime': 0.00200000614859164, 'totalTime': 0.00200000614859164, 
+    'wallTime': 248.0, 'stableTimeIncrement': 1.39317437586328e-08, 
+    'kineticEnergy': 0.00950736179947853, 'externalWork': 0.0579902417957783, 
+    'internalEnergy': 0.0403809919953346, 
+    'artificialEnergy': 0.0040308590978384, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -5.19006243848708e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 4, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 179250, 
+    'stepTime': 0.00250000064261258, 'totalTime': 0.00250000064261258, 
+    'wallTime': 309.0, 'stableTimeIncrement': 1.39342848370916e-08, 
+    'kineticEnergy': 0.00615769252181053, 'externalWork': 0.0468174330890179, 
+    'internalEnergy': 0.0281900223344564, 
+    'artificialEnergy': 0.00480045471340418, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -6.59517581880209e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 5, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 215042, 
+    'stepTime': 0.00300000910647213, 'totalTime': 0.00300000910647213, 
+    'wallTime': 371.0, 'stableTimeIncrement': 1.3916655383639e-08, 
+    'kineticEnergy': 0.00450299773365259, 'externalWork': 0.0628385543823242, 
+    'internalEnergy': 0.0423561707139015, 
+    'artificialEnergy': 0.00562929920852184, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -1.4554104382114e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 6, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 250833, 
+    'stepTime': 0.00350000360049307, 'totalTime': 0.00350000360049307, 
+    'wallTime': 432.0, 'stableTimeIncrement': 1.39191227432889e-08, 
+    'kineticEnergy': 0.00373314903117716, 'externalWork': 0.0469067953526974, 
+    'internalEnergy': 0.0255133807659149, 
+    'artificialEnergy': 0.00661386689171195, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -2.95158697554143e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 7, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 286625, 
+    'stepTime': 0.00400001183152199, 'totalTime': 0.00400001183152199, 
+    'wallTime': 491.0, 'stableTimeIncrement': 1.39288056644205e-08, 
+    'kineticEnergy': 0.00409673526883125, 'externalWork': 0.0563016086816788, 
+    'internalEnergy': 0.0342065542936325, 
+    'artificialEnergy': 0.007462153211236, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -4.56697234767489e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 8, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 322416, 
+    'stepTime': 0.00450000632554293, 'totalTime': 0.00450000632554293, 
+    'wallTime': 552.0, 'stableTimeIncrement': 1.39214391126075e-08, 
+    'kineticEnergy': 0.00398997217416763, 'externalWork': 0.0559486001729965, 
+    'internalEnergy': 0.0327480882406235, 
+    'artificialEnergy': 0.00796809606254101, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -7.83341674832627e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 9, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 358207, 
+    'stepTime': 0.00500000081956387, 'totalTime': 0.00500000081956387, 
+    'wallTime': 621.0, 'stableTimeIncrement': 1.3902618611894e-08, 
+    'kineticEnergy': 0.00199085916392505, 'externalWork': 0.050203200429678, 
+    'internalEnergy': 0.0283292587846518, 
+    'artificialEnergy': 0.00828265864402056, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000162613650900312, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 10, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 393999, 
+    'stepTime': 0.00550000928342342, 'totalTime': 0.00550000928342342, 
+    'wallTime': 692.0, 'stableTimeIncrement': 1.39232936291478e-08, 
+    'kineticEnergy': 0.00201241648755968, 'externalWork': 0.0589526258409023, 
+    'internalEnergy': 0.0367584154009819, 
+    'artificialEnergy': 0.00853877142071724, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000242168709519319, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 11, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 429790, 
+    'stepTime': 0.00600000377744436, 'totalTime': 0.00600000377744436, 
+    'wallTime': 766.0, 'stableTimeIncrement': 1.38865265952859e-08, 
+    'kineticEnergy': 0.00213983515277505, 'externalWork': 0.0471437647938728, 
+    'internalEnergy': 0.0245121773332357, 
+    'artificialEnergy': 0.00875847134739161, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000471691630082205, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 12, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 465582, 
+    'stepTime': 0.00650001224130392, 'totalTime': 0.00650001224130392, 
+    'wallTime': 839.0, 'stableTimeIncrement': 1.38647253677959e-08, 
+    'kineticEnergy': 0.00144934107083827, 'externalWork': 0.0583124086260796, 
+    'internalEnergy': 0.0356519669294357, 
+    'artificialEnergy': 0.00896366592496634, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.00110262737143785, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 13, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 501373, 
+    'stepTime': 0.00700000673532486, 'totalTime': 0.00700000673532486, 
+    'wallTime': 901.0, 'stableTimeIncrement': 1.38348257294751e-08, 
+    'kineticEnergy': 0.00233740615658462, 'externalWork': 0.0518293380737305, 
+    'internalEnergy': 0.0235855877399445, 
+    'artificialEnergy': 0.00913286954164505, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.0059202378615737, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 14, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'The ratio of deformation speed to wave speed in the elements in element set WarnElemDeformRateExceedsRatio-Step1 exceed the warning ratio.  Refer to the status file for further details. This message is printed during the first applicable increment, but will not be printed during subsequent increments for the remainder of the step.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'There is only one excessively distorted element', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'The ratio of deformation speed to wave speed exceeds 1.0000 in at least one element. This usually indicates an error with the model definition. Additional diagnostic information may be found in the message file.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 517385, 
+    'stepTime': 0.00721998466178775, 'totalTime': 0.00721998466178775, 
+    'wallTime': 929.0, 'stableTimeIncrement': 9.9999998245167e-15, 
+    'kineticEnergy': 0.0292734298855066, 'externalWork': 0.0491814874112606, 
+    'internalEnergy': 0.0279388781636953, 
+    'artificialEnergy': 0.00921476818621159, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 0.0283233281224966, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 15, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {
+    'message': 'Analysis failed due to Errors', 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+del mdb.models['Model-1'].rootAssembly.features['Coincident Point-5']
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('touch-len-1', ), 
+    vector=(0.0, 2.2, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('touch-len-1', ), 
+    vector=(0.0, -0.210173, 0.0))
+mdb.models['Model-1'].rootAssembly.translate(instanceList=('touch-len-1', ), 
+    vector=(0.0, 0.02, 0.0))
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '11 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'The aspect ratio for 2 elements exceeds 100 to 1. The elements have been identified in element set WarnElemAspectRatio.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': '8 nodes on reactivated axisymmetric elements have negative radial current coordinate values. These values are assumed small enough to be taken as zero. The nodes have been identified in node set WarnNodeRadCurCoord.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 9300})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'There are 19 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1', 'clientHost': 'WIN-DPN366VMB32', 'handle': 26732})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 5.30076871285701e-09, 
+    'kineticEnergy': 7.35069363599905e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 7.35069363599905e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': ' The elements in the element set WarnElemSurfaceIntersect-Step1 are involved in surface intersections. Refer to the status and message file for further details.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 36317, 
+    'stepTime': 0.000500007008668035, 'totalTime': 0.000500007008668035, 
+    'wallTime': 71.0, 'stableTimeIncrement': 1.37520190790497e-08, 
+    'kineticEnergy': 0.0146811716258526, 'externalWork': 0.0752547979354858, 
+    'internalEnergy': 0.0567197240889072, 
+    'artificialEnergy': 0.000419934251112863, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 3.78818231183686e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 72638, 
+    'stepTime': 0.00100000703241676, 'totalTime': 0.00100000703241676, 
+    'wallTime': 140.0, 'stableTimeIncrement': 1.37651374743086e-08, 
+    'kineticEnergy': 0.0147593375295401, 'externalWork': 0.049462616443634, 
+    'internalEnergy': 0.0299519523978233, 
+    'artificialEnergy': 0.00213790964335203, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 8.05506897449959e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 2, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['Model-1'].sketches['back-sclera'])
+del mdb.models['Model-1'].sketches['__edit__']
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 109031, 
+    'stepTime': 0.00150000362191349, 'totalTime': 0.00150000362191349, 
+    'wallTime': 209.0, 'stableTimeIncrement': 1.37527855770259e-08, 
+    'kineticEnergy': 0.0114243803545833, 'externalWork': 0.0442511215806007, 
+    'internalEnergy': 0.0267742685973644, 
+    'artificialEnergy': 0.0034301511477679, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 9.42569840844953e-07, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 3, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 145429, 
+    'stepTime': 0.00200000428594649, 'totalTime': 0.00200000428594649, 
+    'wallTime': 283.0, 'stableTimeIncrement': 1.3751158434161e-08, 
+    'kineticEnergy': 0.00953051261603832, 'externalWork': 0.0622584670782089, 
+    'internalEnergy': 0.0436309352517128, 
+    'artificialEnergy': 0.0042547439225018, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -1.91883287925521e-07, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 4, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 181827, 
+    'stepTime': 0.00250000390224159, 'totalTime': 0.00250000390224159, 
+    'wallTime': 349.0, 'stableTimeIncrement': 1.37562237156885e-08, 
+    'kineticEnergy': 0.00762716494500637, 'externalWork': 0.047845583409071, 
+    'internalEnergy': 0.026687990874052, 
+    'artificialEnergy': 0.00521123502403498, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -6.29016994935228e-07, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 5, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 218225, 
+    'stepTime': 0.00300000351853669, 'totalTime': 0.00300000351853669, 
+    'wallTime': 422.0, 'stableTimeIncrement': 1.3760399930618e-08, 
+    'kineticEnergy': 0.00475191045552492, 'externalWork': 0.0670410394668579, 
+    'internalEnergy': 0.0456738173961639, 
+    'artificialEnergy': 0.00625851284712553, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -2.62085654867406e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 6, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 254623, 
+    'stepTime': 0.00350000313483179, 'totalTime': 0.00350000313483179, 
+    'wallTime': 486.0, 'stableTimeIncrement': 1.37613005435355e-08, 
+    'kineticEnergy': 0.0051032449118793, 'externalWork': 0.0516263097524643, 
+    'internalEnergy': 0.0285841412842274, 
+    'artificialEnergy': 0.00732484506443143, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -6.77257867209846e-06, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 7, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 290946, 
+    'stepTime': 0.00400001276284456, 'totalTime': 0.00400001276284456, 
+    'wallTime': 550.0, 'stableTimeIncrement': 1.37534685862306e-08, 
+    'kineticEnergy': 0.00411861296743155, 'externalWork': 0.055495772510767, 
+    'internalEnergy': 0.033056914806366, 
+    'artificialEnergy': 0.00834491662681103, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -1.29402469610795e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 8, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 326837, 
+    'stepTime': 0.00450000772252679, 'totalTime': 0.00450000772252679, 
+    'wallTime': 613.0, 'stableTimeIncrement': 1.37580462578057e-08, 
+    'kineticEnergy': 0.00430214870721102, 'externalWork': 0.063180610537529, 
+    'internalEnergy': 0.0394370406866074, 
+    'artificialEnergy': 0.00890955608338118, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -1.73358894244302e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 9, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 362871, 
+    'stepTime': 0.0050000031478703, 'totalTime': 0.0050000031478703, 
+    'wallTime': 677.0, 'stableTimeIncrement': 1.3749653859918e-08, 
+    'kineticEnergy': 0.00209086015820503, 'externalWork': 0.052018828690052, 
+    'internalEnergy': 0.0298427492380142, 
+    'artificialEnergy': 0.00931346509605646, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -2.33725095313275e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 10, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 398854, 
+    'stepTime': 0.00550001114606857, 'totalTime': 0.00550001114606857, 
+    'wallTime': 740.0, 'stableTimeIncrement': 1.37359474905452e-08, 
+    'kineticEnergy': 0.00179898657370359, 'externalWork': 0.0624715387821198, 
+    'internalEnergy': 0.0403237976133823, 
+    'artificialEnergy': 0.00961296819150448, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -3.02132211800199e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 11, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 434766, 
+    'stepTime': 0.00600001309067011, 'totalTime': 0.00600001309067011, 
+    'wallTime': 803.0, 'stableTimeIncrement': 1.37522393472977e-08, 
+    'kineticEnergy': 0.00297749438323081, 'externalWork': 0.0517048910260201, 
+    'internalEnergy': 0.0284092463552952, 
+    'artificialEnergy': 0.00987006351351738, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -3.59599507646635e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 12, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 470807, 
+    'stepTime': 0.00650000711902976, 'totalTime': 0.00650000711902976, 
+    'wallTime': 866.0, 'stableTimeIncrement': 1.37657218957088e-08, 
+    'kineticEnergy': 0.00205114134587348, 'externalWork': 0.0584774874150753, 
+    'internalEnergy': 0.0360514894127846, 
+    'artificialEnergy': 0.0100713977590203, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -4.13038142141886e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 13, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 506715, 
+    'stepTime': 0.00700001139193773, 'totalTime': 0.00700001139193773, 
+    'wallTime': 930.0, 'stableTimeIncrement': 1.3776902285656e-08, 
+    'kineticEnergy': 0.00201192428357899, 'externalWork': 0.06036626547575, 
+    'internalEnergy': 0.0379002280533314, 
+    'artificialEnergy': 0.0102701969444752, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -4.76714521937538e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 14, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 542654, 
+    'stepTime': 0.00750001054257154, 'totalTime': 0.00750001054257154, 
+    'wallTime': 993.0, 'stableTimeIncrement': 1.37646489761778e-08, 
+    'kineticEnergy': 0.00264097051694989, 'externalWork': 0.0517453737556934, 
+    'internalEnergy': 0.0286601856350899, 
+    'artificialEnergy': 0.0104230884462595, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -5.78118924750015e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 15, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 578566, 
+    'stepTime': 0.00800001248717308, 'totalTime': 0.00800001248717308, 
+    'wallTime': 1056.0, 'stableTimeIncrement': 1.37439783998161e-08, 
+    'kineticEnergy': 0.00127708225045353, 'externalWork': 0.0592029094696045, 
+    'internalEnergy': 0.0375166870653629, 
+    'artificialEnergy': 0.0105707887560129, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -6.75932533340529e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 16, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 614357, 
+    'stepTime': 0.00850000698119402, 'totalTime': 0.00850000698119402, 
+    'wallTime': 1120.0, 'stableTimeIncrement': 1.37502214059282e-08, 
+    'kineticEnergy': 0.00150959065649658, 'externalWork': 0.0526489093899727, 
+    'internalEnergy': 0.0306365024298429, 
+    'artificialEnergy': 0.0107271941378713, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -7.40430186851881e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 17, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 650148, 
+    'stepTime': 0.00900000147521496, 'totalTime': 0.00900000147521496, 
+    'wallTime': 1184.0, 'stableTimeIncrement': 1.37466003025111e-08, 
+    'kineticEnergy': 0.00261988374404609, 'externalWork': 0.0600362308323383, 
+    'internalEnergy': 0.0370856001973152, 
+    'artificialEnergy': 0.0108616920188069, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -8.16415486042388e-05, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 18, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 685940, 
+    'stepTime': 0.00950000993907452, 'totalTime': 0.00950000993907452, 
+    'wallTime': 1247.0, 'stableTimeIncrement': 1.37293154622853e-08, 
+    'kineticEnergy': 0.00145797757431865, 'externalWork': 0.0534325055778027, 
+    'internalEnergy': 0.0315955951809883, 
+    'artificialEnergy': 0.0109916310757399, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000100211538665462, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 19, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 1, 'increment': 721731, 
+    'stepTime': 0.00999999977648258, 'totalTime': 0.00999999977648258, 
+    'wallTime': 1310.0, 'stableTimeIncrement': 1.37681182010851e-08, 
+    'kineticEnergy': 0.0021633910946548, 'externalWork': 0.0523491650819778, 
+    'internalEnergy': 0.029815224930644, 
+    'artificialEnergy': 0.0110952965915203, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000131678054458462, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 0, 'frame': 20, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.00999999977648258, 'wallTime': 1310.0, 
+    'stableTimeIncrement': 5.30728572201156e-09, 
+    'kineticEnergy': 0.0021633910946548, 'externalWork': 0.0523491650819778, 
+    'internalEnergy': 0.029815224930644, 
+    'artificialEnergy': 0.0110952965915203, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000131429638713598, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {
+    'message': 'The option *BOUNDARY,TYPE=DISPLACEMENT has been used with a jump in displacements at the nodes in node set WarnNodeDispBCJump-Step2 at the beginning of the next step; all jumps in displacement across steps are ignored. See the status file for further details.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 3638, 
+    'stepTime': 5.00125643156935e-05, 'totalTime': 0.010050012730062, 
+    'wallTime': 1316.0, 'stableTimeIncrement': 1.37625510987505e-08, 
+    'kineticEnergy': 0.00265312870033085, 'externalWork': 0.0528349801898003, 
+    'internalEnergy': 0.0298185404390097, 
+    'artificialEnergy': 0.0111058866605163, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000136258197017014, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 1, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 7274, 
+    'stepTime': 0.000100009623565711, 'totalTime': 0.0101000098511577, 
+    'wallTime': 1323.0, 'stableTimeIncrement': 1.37528521904073e-08, 
+    'kineticEnergy': 0.00240323902107775, 'externalWork': 0.0537481717765331, 
+    'internalEnergy': 0.0309678856283426, 
+    'artificialEnergy': 0.0111163780093193, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000140904172440059, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 2, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 10911, 
+    'stepTime': 0.000150008214404806, 'totalTime': 0.0101500079035759, 
+    'wallTime': 1329.0, 'stableTimeIncrement': 1.37483731066368e-08, 
+    'kineticEnergy': 0.00155225279740989, 'externalWork': 0.0550468042492867, 
+    'internalEnergy': 0.0330863744020462, 
+    'artificialEnergy': 0.0111260088160634, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000144426332553849, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 3, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 14546, 
+    'stepTime': 0.000200003414647654, 'totalTime': 0.0102000031620264, 
+    'wallTime': 1335.0, 'stableTimeIncrement': 1.37504434505331e-08, 
+    'kineticEnergy': 0.00109313079155982, 'externalWork': 0.0565086156129837, 
+    'internalEnergy': 0.0350105464458466, 
+    'artificialEnergy': 0.0111494744196534, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000148597959196195, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 4, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 18189, 
+    'stepTime': 0.000250001845415682, 'totalTime': 0.0102500012144446, 
+    'wallTime': 1342.0, 'stableTimeIncrement': 1.37375772979453e-08, 
+    'kineticEnergy': 0.00167196744587272, 'externalWork': 0.0581287145614624, 
+    'internalEnergy': 0.0360751822590828, 
+    'artificialEnergy': 0.0111693860962987, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000152270382386632, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 5, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 21828, 
+    'stepTime': 0.00030000731931068, 'totalTime': 0.0103000067174435, 
+    'wallTime': 1348.0, 'stableTimeIncrement': 1.37621034568269e-08, 
+    'kineticEnergy': 0.00217419350519776, 'externalWork': 0.0595429502427578, 
+    'internalEnergy': 0.0370147190988064, 
+    'artificialEnergy': 0.0111841661855578, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000154076042235829, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 6, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 25463, 
+    'stepTime': 0.000350002170307562, 'totalTime': 0.010350001975894, 
+    'wallTime': 1354.0, 'stableTimeIncrement': 1.37363418417635e-08, 
+    'kineticEnergy': 0.00180361710954458, 'externalWork': 0.0606032311916351, 
+    'internalEnergy': 0.0384701900184155, 
+    'artificialEnergy': 0.0111927781254053, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000157088070409372, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 7, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 29102, 
+    'stepTime': 0.000400004617404193, 'totalTime': 0.0104000046849251, 
+    'wallTime': 1361.0, 'stableTimeIncrement': 1.37449562842562e-08, 
+    'kineticEnergy': 0.00132696656510234, 'externalWork': 0.0615748278796673, 
+    'internalEnergy': 0.0399028472602367, 
+    'artificialEnergy': 0.011198503896594, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000159580667968839, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 8, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 32741, 
+    'stepTime': 0.000450004648882896, 'totalTime': 0.0104500045999885, 
+    'wallTime': 1367.0, 'stableTimeIncrement': 1.37519391429919e-08, 
+    'kineticEnergy': 0.00156840297859162, 'externalWork': 0.062094260007143, 
+    'internalEnergy': 0.0400849543511868, 
+    'artificialEnergy': 0.0112116327509284, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000159819624968804, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 9, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 36382, 
+    'stepTime': 0.000500008114613593, 'totalTime': 0.0105000082403421, 
+    'wallTime': 1374.0, 'stableTimeIncrement': 1.3739904325405e-08, 
+    'kineticEnergy': 0.00171067367773503, 'externalWork': 0.0619529783725739, 
+    'internalEnergy': 0.0398767180740833, 
+    'artificialEnergy': 0.0112283462658525, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000162934200488962, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 10, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 40022, 
+    'stepTime': 0.000550010881852359, 'totalTime': 0.0105500109493732, 
+    'wallTime': 1380.0, 'stableTimeIncrement': 1.37414071232911e-08, 
+    'kineticEnergy': 0.00151255761738867, 'externalWork': 0.0610344111919403, 
+    'internalEnergy': 0.0391340292990208, 
+    'artificialEnergy': 0.0112400893121958, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000166148049174808, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 11, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 43661, 
+    'stepTime': 0.000600000901613384, 'totalTime': 0.0106000006198883, 
+    'wallTime': 1387.0, 'stableTimeIncrement': 1.37567361946367e-08, 
+    'kineticEnergy': 0.00145798060111701, 'externalWork': 0.0592212304472923, 
+    'internalEnergy': 0.0373884476721287, 
+    'artificialEnergy': 0.0112503943964839, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000171647814568132, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 12, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 47301, 
+    'stepTime': 0.000650004716590047, 'totalTime': 0.010650004260242, 
+    'wallTime': 1393.0, 'stableTimeIncrement': 1.37348221684874e-08, 
+    'kineticEnergy': 0.00209474214352667, 'externalWork': 0.0568733625113964, 
+    'internalEnergy': 0.0342910252511501, 
+    'artificialEnergy': 0.011256261728704, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000178283051354811, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 13, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 50941, 
+    'stepTime': 0.000700007425621152, 'totalTime': 0.0107000069692731, 
+    'wallTime': 1399.0, 'stableTimeIncrement': 1.37456872550956e-08, 
+    'kineticEnergy': 0.00253984052687883, 'externalWork': 0.0544738322496414, 
+    'internalEnergy': 0.0315087623894215, 
+    'artificialEnergy': 0.0112628201022744, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000183098905836232, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 14, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 54578, 
+    'stepTime': 0.000750004313886166, 'totalTime': 0.0107500040903687, 
+    'wallTime': 1406.0, 'stableTimeIncrement': 1.37505402619809e-08, 
+    'kineticEnergy': 0.00220007984898984, 'externalWork': 0.0521713718771935, 
+    'internalEnergy': 0.0295142624527216, 
+    'artificialEnergy': 0.0112712047994137, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000191529674339108, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 15, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 58218, 
+    'stepTime': 0.000800008012447506, 'totalTime': 0.0108000077307224, 
+    'wallTime': 1412.0, 'stableTimeIncrement': 1.3764856809928e-08, 
+    'kineticEnergy': 0.00143315293826163, 'externalWork': 0.0502846352756023, 
+    'internalEnergy': 0.0284175742417574, 
+    'artificialEnergy': 0.0112817138433456, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000197528992430307, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 16, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 61857, 
+    'stepTime': 0.000850000360514969, 'totalTime': 0.0108500001952052, 
+    'wallTime': 1418.0, 'stableTimeIncrement': 1.37394398080914e-08, 
+    'kineticEnergy': 0.00129724247381091, 'externalWork': 0.0490082129836082, 
+    'internalEnergy': 0.0272875428199768, 
+    'artificialEnergy': 0.0112906098365784, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000205925432965159, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 17, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 65498, 
+    'stepTime': 0.000900013605132699, 'totalTime': 0.0109000131487846, 
+    'wallTime': 1425.0, 'stableTimeIncrement': 1.3720088176683e-08, 
+    'kineticEnergy': 0.00160716404207051, 'externalWork': 0.0486059673130512, 
+    'internalEnergy': 0.0266212094575167, 
+    'artificialEnergy': 0.0112994080409408, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000213690873351879, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 18, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 69137, 
+    'stepTime': 0.000950000714510679, 'totalTime': 0.0109500009566545, 
+    'wallTime': 1431.0, 'stableTimeIncrement': 1.37510545172859e-08, 
+    'kineticEnergy': 0.00160073488950729, 'externalWork': 0.0488269925117493, 
+    'internalEnergy': 0.0268398020416498, 
+    'artificialEnergy': 0.0113081308081746, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000220534449908882, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 19, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'step': 2, 'increment': 72777, 
+    'stepTime': 0.00100000004749745, 'totalTime': 0.0109999999403954, 
+    'wallTime': 1438.0, 'stableTimeIncrement': 1.37429045921067e-08, 
+    'kineticEnergy': 0.00123904459178448, 'externalWork': 0.0495112091302872, 
+    'internalEnergy': 0.0278646107763052, 
+    'artificialEnergy': 0.0113179991021752, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.000228247081395239, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'step': 1, 'frame': 20, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_COMPLETED, {'time': 'Fri May  8 14:25:57 2026', 
+    'jobName': 'Job-1'})
+# Save by Administrator on 2026_05_08-14.45.15; build 2025 2024_09_20-21.00.46 RELr427 198590

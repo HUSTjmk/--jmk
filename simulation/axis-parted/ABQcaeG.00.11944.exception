@@ -1,0 +1,36 @@
+<Description>
+   ABAQUS/ABQcaeG rank 0 received the ABORT signal
+
+</Description>
+
+<Context>
+   ABQcaeG
+</Context>
+
+<Callstack>
+</Callstack>
+
+<Memory>
+   <Current>            0 GB </Current>
+   <Resident>           0 GB </Resident>
+   <Physical>          23 GB </Physical>
+   <Limit>              0 GB </Limit>
+   <Accessible>        23 GB </Accessible>
+   <Free>              15 GB </Free>
+   <Allocator>            DL </Allocator>
+</Memory>
+
+<Swap>
+       <Size>          26 GB </Size>
+       <Used>          11 GB </Used>
+       <Free>          15 GB </Free>
+</Swap>
+
+<Directories>
+  <current> E:\study\research\articles\眼睛力学参数\simulation\axis-parted </current> <free>    172 GB </free>   <used>    103 GB </used> 
+     <temp> C:\Users\Administrator\AppData\Local\Temp </temp>    <free>    244 GB </free>
+</Directories>
+
+<Installation>
+</Installation>
+
