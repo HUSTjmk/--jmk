@@ -1,0 +1,1198 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-21.00.46 RELr427 198590
+# Run by Administrator on Sun May 10 15:25:45 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=195.439361572266, 
+    height=129.362701416016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('project.cae')
+#: 模型数据库 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae" 已打开.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['assembly-improved'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+#--- Recover file: 'project.rec' ---
+# -*- coding: mbcs -*- 
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='yangs-changed', objectToCopy=mdb.models['assembly-improved'])
+#: 模型 "yangs-changed" 已创建.
+mdb.models['yangs-changed'].rootAssembly.deleteMesh(
+    regions=mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'].faces.getSequenceFromMask(
+    ('[#3 ]', ), ))
+mdb.models['yangs-changed'].ConstrainedSketch(gridSpacing=0.63, 
+    name='__profile__', sheetSize=25.53, 
+    transform=mdb.models['yangs-changed'].rootAssembly.MakeSketchTransform(
+    sketchPlane=mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(7.16857, 3.967337, 
+    0.0)))
+mdb.models['yangs-changed'].rootAssembly.projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, 
+    sketch=mdb.models['yangs-changed'].sketches['__profile__'])
+del mdb.models['yangs-changed'].sketches['__profile__']
+mdb.models['yangs-changed'].rootAssembly.generateMesh(regions=(
+    mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'], ))
+mdb.models['yangs-changed'].steps['Press'].setValues(improvedDtMethod=ON, 
+    timePeriod=0.1)
+mdb.models['yangs-changed'].steps['Resume'].setValues(improvedDtMethod=ON, 
+    timePeriod=0.5)
+mdb.models['yangs-changed'].amplitudes['len-press'].setValues(data=((0.0, 0.0), 
+    (0.1, 1.0)), smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['yangs-changed'].materials['vitreous'].elastic.setValues(table=((
+    5.7e-05, 0.49), ))
+mdb.Job(activateLoadBalancing=False, atTime=None, contactPrint=OFF, 
+    description='', echoPrint=OFF, explicitPrecision=SINGLE, historyPrint=OFF, 
+    memory=50, memoryUnits=PERCENTAGE, model='yangs-changed', modelPrint=OFF, 
+    name='57yangs', nodalOutputPrecision=SINGLE, numCpus=1, numDomains=1, 
+    queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.jobs['57yangs'].submit(consistencyChecking=OFF)
+mdb.jobs['57yangs']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': '57yangs', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['57yangs']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': '57yangs', 'clientHost': 'WIN-DPN366VMB32', 'handle': 25964})
+mdb.jobs['57yangs']._Message(WARNING, {
+    'message': 'There are 2 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': '57yangs', 'clientHost': 'WIN-DPN366VMB32', 'handle': 28892})
+mdb.jobs['57yangs']._Message(STATUS, {'step': 1, 'increment': 0, 
+    'stepTime': 0.0, 'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 3.56655618816148e-07, 
+    'kineticEnergy': 6.12558039847499e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 6.12558039847499e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(ERROR, {
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'phase': EXPLICIT_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(ERROR, {
+    'message': 'There is only one excessively distorted element', 
+    'phase': EXPLICIT_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(ERROR, {
+    'message': 'The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.', 
+    'phase': EXPLICIT_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(STATUS, {'step': 1, 'increment': 6255, 
+    'stepTime': 0.00366115127690136, 'totalTime': 0.00366115127690136, 
+    'wallTime': 14.0, 'stableTimeIncrement': 9.9999998245167e-15, 
+    'kineticEnergy': 1.60509860515594, 'externalWork': 2.91380476951599, 
+    'internalEnergy': 0.124985091388226, 
+    'artificialEnergy': 0.0244756788015366, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': -0.559571266174316, 'phase': EXPLICIT_PHASE, 
+    'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': EXPLICIT_PHASE, 'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(ABORTED, {
+    'message': 'Analysis failed due to Errors', 'phase': EXPLICIT_PHASE, 
+    'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': '57yangs'})
+mdb.jobs['57yangs']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': '57yangs'})
+mdb.models['yangs-changed'].rootAssembly.deleteFeatures(('Partition face-1', 
+    'Partition face-3', 'Partition face-2'))
+#: 警告: Mesh deleted in 2 regions of instance 'cornea-1' due to geometry association failure.
+#: 警告: 附加网格到几何体实例化失败'front-sclera-1'.
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+mdb.models['yangs-changed'].ConstrainedSketch(gridSpacing=1.28, 
+    name='__profile__', sheetSize=51.25, 
+    transform=mdb.models['yangs-changed'].rootAssembly.MakeSketchTransform(
+    sketchPlane=mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(5.047343, -3.59923, 
+    0.0)))
+mdb.models['yangs-changed'].rootAssembly.projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, 
+    sketch=mdb.models['yangs-changed'].sketches['__profile__'])
+mdb.models['yangs-changed'].sketches['__profile__'].Line(point1=(
+    3.75510132081104, 7.86520499278063), point2=(2.046341163367, 
+    6.25100706625341))
+mdb.models['yangs-changed'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].geometry[31], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[38])
+mdb.models['yangs-changed'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[29], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[31])
+mdb.models['yangs-changed'].sketches['__profile__'].Line(point1=(
+    2.046341163367, 6.25100706625341), point2=(0.300700863073392, 
+    7.82524852284888))
+mdb.models['yangs-changed'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[30], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[31])
+mdb.models['yangs-changed'].sketches['__profile__'].undo()
+mdb.models['yangs-changed'].sketches['__profile__'].undo()
+mdb.models['yangs-changed'].sketches['__profile__'].Line(point1=(
+    3.50580420181812, 8.09368551380415), point2=(2.046341163367, 
+    6.25100706625341))
+mdb.models['yangs-changed'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].geometry[31], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[38])
+mdb.models['yangs-changed'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[29], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[31])
+mdb.models['yangs-changed'].sketches['__profile__'].Line(point1=(
+    2.046341163367, 6.25100706625341), point2=(0.203662715852261, 
+    7.71047010470647))
+mdb.models['yangs-changed'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].geometry[38], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[39])
+mdb.models['yangs-changed'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[30], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[31])
+mdb.models['yangs-changed'].rootAssembly.PartitionFaceBySketch(
+    faces=mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'].faces.getSequenceFromMask(
+    ('[#1 ]', ), ), sketch=mdb.models['yangs-changed'].sketches['__profile__'])
+del mdb.models['yangs-changed'].sketches['__profile__']
+mdb.models['yangs-changed'].rootAssembly.generateMesh(regions=(
+    mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'], ))
+del mdb.models['yangs-changed'].rootAssembly.features['Partition face-1']
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+mdb.models['yangs-changed'].ConstrainedSketch(gridSpacing=1.28, 
+    name='__profile__', sheetSize=51.25, 
+    transform=mdb.models['yangs-changed'].rootAssembly.MakeSketchTransform(
+    sketchPlane=mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(5.047343, -3.59923, 
+    0.0)))
+mdb.models['yangs-changed'].rootAssembly.projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, 
+    sketch=mdb.models['yangs-changed'].sketches['__profile__'])
+mdb.models['yangs-changed'].sketches['__profile__'].Line(point1=(
+    4.09569123823395, 7.40238037335923), point2=(2.046341163367, 
+    6.25100706625341))
+mdb.models['yangs-changed'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].geometry[30], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[38])
+mdb.models['yangs-changed'].sketches['__profile__'].Line(point1=(
+    2.046341163367, 6.25100706625341), point2=(0.32, 7.84638865362916))
+mdb.models['yangs-changed'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[29], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[31])
+mdb.models['yangs-changed'].sketches['__profile__'].Line(point1=(
+    1.80047660210942, 8.58875102981969), point2=(3.07101620080047, 
+    6.82669371980632))
+mdb.models['yangs-changed'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[30], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[31])
+mdb.models['yangs-changed'].sketches['__profile__'].EqualDistanceConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[22], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].vertices[19], 
+    midpoint=mdb.models['yangs-changed'].sketches['__profile__'].vertices[30])
+mdb.models['yangs-changed'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[31], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[38])
+mdb.models['yangs-changed'].sketches['__profile__'].EqualDistanceConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[22], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].vertices[23], 
+    midpoint=mdb.models['yangs-changed'].sketches['__profile__'].vertices[31])
+mdb.models['yangs-changed'].rootAssembly.PartitionFaceBySketch(
+    faces=mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'].faces.getSequenceFromMask(
+    ('[#1 ]', ), ), sketch=mdb.models['yangs-changed'].sketches['__profile__'])
+del mdb.models['yangs-changed'].sketches['__profile__']
+mdb.models['yangs-changed'].rootAssembly.generateMesh(regions=(
+    mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'], ))
+del mdb.models['yangs-changed'].rootAssembly.features['Partition face-1']
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+mdb.models['yangs-changed'].ConstrainedSketch(gridSpacing=1.28, 
+    name='__profile__', sheetSize=51.25, 
+    transform=mdb.models['yangs-changed'].rootAssembly.MakeSketchTransform(
+    sketchPlane=mdb.models['yangs-changed'].rootAssembly.instances['vitreous-1'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(5.047343, -3.59923, 
+    0.0)))
+mdb.models['yangs-changed'].rootAssembly.projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, 
+    sketch=mdb.models['yangs-changed'].sketches['__profile__'])
+mdb.models['yangs-changed'].sketches['__profile__'].Line(point1=(
+    4.09569123823395, 7.40238037335923), point2=(4.92364155044757, 
+    8.00995873096907))
+mdb.models['yangs-changed'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['yangs-changed'].sketches['__profile__'].vertices[29], 
+    entity2=mdb.models['yangs-changed'].sketches['__profile__'].geometry[25])
+del mdb.models['yangs-changed'].sketches['__profile__']
+del mdb.models['yangs-changed']
+mdb.Model(name='vitreous-yangs', objectToCopy=mdb.models['assembly-improved'])
+#: 模型 "vitreous-yangs" 已创建.
+mdb.models['vitreous-yangs'].rootAssembly.deleteMesh(
+    regions=mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'].faces.getSequenceFromMask(
+    ('[#3 ]', ), ))
+mdb.models['vitreous-yangs'].ConstrainedSketch(gridSpacing=0.63, 
+    name='__profile__', sheetSize=25.53, 
+    transform=mdb.models['vitreous-yangs'].rootAssembly.MakeSketchTransform(
+    sketchPlane=mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(7.16857, 3.967337, 
+    0.0)))
+mdb.models['vitreous-yangs'].rootAssembly.projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, 
+    sketch=mdb.models['vitreous-yangs'].sketches['__profile__'])
+del mdb.models['vitreous-yangs'].sketches['__profile__']
+del mdb.models['vitreous-yangs'].rootAssembly.features['Partition face-2']
+mdb.models['vitreous-yangs'].ConstrainedSketch(gridSpacing=1.28, 
+    name='__profile__', sheetSize=51.25, 
+    transform=mdb.models['vitreous-yangs'].rootAssembly.MakeSketchTransform(
+    sketchPlane=mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'].faces[0], 
+    sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(5.047343, -3.59923, 
+    0.0)))
+mdb.models['vitreous-yangs'].rootAssembly.projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, 
+    sketch=mdb.models['vitreous-yangs'].sketches['__profile__'])
+mdb.models['vitreous-yangs'].sketches['__profile__'].Line(point1=(
+    4.37089316173305, 6.87845240092462), point2=(2.046341163367, 
+    6.25100706625341))
+mdb.models['vitreous-yangs'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['vitreous-yangs'].sketches['__profile__'].vertices[31], 
+    entity2=mdb.models['vitreous-yangs'].sketches['__profile__'].geometry[27])
+mdb.models['vitreous-yangs'].sketches['__profile__'].Line(point1=(
+    2.046341163367, 6.25100706625341), point2=(0.874458935810087, 
+    8.28869896308404))
+mdb.models['vitreous-yangs'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, 
+    entity1=mdb.models['vitreous-yangs'].sketches['__profile__'].vertices[32], 
+    entity2=mdb.models['vitreous-yangs'].sketches['__profile__'].geometry[38])
+mdb.models['vitreous-yangs'].rootAssembly.PartitionFaceBySketch(
+    faces=mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'].faces.getSequenceFromMask(
+    ('[#1 ]', ), ), 
+    sketch=mdb.models['vitreous-yangs'].sketches['__profile__'])
+del mdb.models['vitreous-yangs'].sketches['__profile__']
+mdb.models['vitreous-yangs'].rootAssembly.generateMesh(regions=(
+    mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'], ))
+mdb.models['vitreous-yangs'].rootAssembly.deleteMesh(
+    regions=mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'].faces.getSequenceFromMask(
+    ('[#2 ]', ), ))
+mdb.models['vitreous-yangs'].rootAssembly.seedEdgeByBias(biasMethod=SINGLE, 
+    constraint=FINER, 
+    end1Edges=mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'].edges.getSequenceFromMask(
+    ('[#80 ]', ), ), maxSize=0.928991, minSize=0.185798)
+mdb.models['vitreous-yangs'].rootAssembly.generateMesh(regions=(
+    mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'], ))
+mdb.models['vitreous-yangs'].steps['Press'].setValues(improvedDtMethod=ON, 
+    timePeriod=0.1)
+mdb.models['vitreous-yangs'].steps['Resume'].setValues(improvedDtMethod=ON, 
+    timePeriod=0.5)
+mdb.models['vitreous-yangs'].amplitudes['len-press'].setValues(data=((0.0, 
+    0.0), (0.1, 1.0)), smooth=SOLVER_DEFAULT, timeSpan=STEP)
+del mdb.jobs['57yangs']
+mdb.Job(activateLoadBalancing=False, atTime=None, contactPrint=OFF, 
+    description='', echoPrint=OFF, explicitPrecision=SINGLE, historyPrint=OFF, 
+    memory=50, memoryUnits=PERCENTAGE, model='vitreous-yangs', modelPrint=OFF, 
+    name='Job-4', nodalOutputPrecision=SINGLE, numCpus=1, numDomains=1, 
+    queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-4']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 4708})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'There are 2 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 26320})
+mdb.jobs['Job-4']._Message(STATUS, {'step': 1, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 3.56654084043839e-07, 
+    'kineticEnergy': 6.12558039847499e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 6.12558039847499e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STATUS, {'step': 1, 'increment': 8752, 
+    'stepTime': 0.00500041944906116, 'totalTime': 0.00500041944906116, 
+    'wallTime': 15.0, 'stableTimeIncrement': 5.371261977416e-07, 
+    'kineticEnergy': 0.0322528779506683, 'externalWork': 0.128213450312614, 
+    'internalEnergy': 0.0695236027240753, 
+    'artificialEnergy': 0.0043616802431643, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 0.000144115314469673, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STATUS, {'step': 1, 'increment': 11856, 
+    'stepTime': 0.00666666682809591, 'totalTime': 0.00666666682809591, 
+    'wallTime': 21.0, 'stableTimeIncrement': 5.21513470630453e-07, 
+    'kineticEnergy': 0.00837833434343338, 'externalWork': 0.274933993816376, 
+    'internalEnergy': 0.232008844614029, 
+    'artificialEnergy': 0.00585305504500866, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 0.000258812127867714, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.models['vitreous-yangs'].materials['vitreous'].elastic.setValues(table=((
+    5.7e-05, 0.49), ))
+mdb.jobs['Job-4']._Message(STATUS, {'step': 1, 'increment': 21435, 
+    'stepTime': 0.0116668352857232, 'totalTime': 0.0116668352857232, 
+    'wallTime': 40.0, 'stableTimeIncrement': 5.31182706708933e-07, 
+    'kineticEnergy': 0.0298383422195911, 'externalWork': 0.225812211632729, 
+    'internalEnergy': 0.154761105775833, 
+    'artificialEnergy': 0.00981729943305254, 'distortionContrEnergy': 0.0, 
+    'totalEnergy': 0.000224884686758742, 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ERROR, {
+    'message': 'Process terminated by external request (SIGTERM or SIGINT received).', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(INTERRUPTED, {
+    'message': 'Analysis terminated by external signal', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-4'})
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-4']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 23448})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'There are 2 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 25592})
+mdb.jobs['Job-4']._Message(STATUS, {'step': 1, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 3.56654084043839e-07, 
+    'kineticEnergy': 6.12558039847499e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 6.12558039847499e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'The ratio of deformation speed to wave speed in the elements in element set WarnElemDeformRateExceedsRatio-Step1 exceed the warning ratio.  Refer to the status file for further details. This message is printed during the first applicable increment, but will not be printed during subsequent increments for the remainder of the step.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ERROR, {
+    'message': 'The ratio of deformation speed to wave speed exceeds 1.0000 in at least one element. This usually indicates an error with the model definition. Additional diagnostic information may be found in the message file.', 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STATUS, {'step': 1, 'increment': 3692, 
+    'stepTime': 0.00226840353570879, 'totalTime': 0.00226840353570879, 
+    'wallTime': 6.0, 'stableTimeIncrement': 9.9999998245167e-15, 
+    'kineticEnergy': 0.986356019973755, 'externalWork': 1.98047316074371, 
+    'internalEnergy': 0.521654963493347, 'artificialEnergy': 0.109979905188084, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 0.114936791360378, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ABORTED, {
+    'message': 'Analysis failed due to Errors', 'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ERROR, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.', 
+    'jobName': 'Job-4'})
+mdb.models['vitreous-yangs'].rootAssembly.deleteMesh(regions=(
+    mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'], ))
+mdb.models['vitreous-yangs'].rootAssembly.seedPartInstance(
+    deviationFactor=0.05, minSizeFactor=0.05, regions=(
+    mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'], ), 
+    size=0.9)
+mdb.models['vitreous-yangs'].rootAssembly.deleteSeeds(
+    regions=mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'].edges.getSequenceFromMask(
+    ('[#80 ]', ), ))
+mdb.models['vitreous-yangs'].rootAssembly.generateMesh(regions=(
+    mdb.models['vitreous-yangs'].rootAssembly.instances['vitreous-1'], ))
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-4']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 0})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 10656})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'There are 2 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(WARNING, {
+    'message': 'Disconnected surfaces in the general contact domains are tied together, but the the surface connectivity is not altered, creating a seam in the contact surface.  Nodes along the tied surface perimeters have been added to node set WarnNodePerimTieSeam.', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(COMPLETED, {'message': 'Phase complete', 
+    'phase': PACKAGER_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'jobName': 'Job-4', 'clientHost': 'WIN-DPN366VMB32', 'handle': 20936})
+mdb.jobs['Job-4']._Message(STATUS, {'step': 1, 'increment': 0, 'stepTime': 0.0, 
+    'totalTime': 0.0, 'wallTime': 0.0, 
+    'stableTimeIncrement': 3.56654084043839e-07, 
+    'kineticEnergy': 6.12558039847499e-07, 'externalWork': 0.0, 
+    'internalEnergy': 0.0, 'artificialEnergy': 0.0, 
+    'distortionContrEnergy': 0.0, 'totalEnergy': 6.12558039847499e-07, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+mdb.jobs['Job-4']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': EXPLICIT_PHASE, 'jobName': 'Job-4'})
+#--- End of Recover file ------
+session.viewports['Viewport: 1'].view.setValues(nearPlane=30.5154, 
+    farPlane=39.0931, width=32.0949, height=15.568, viewOffsetX=-0.418352, 
+    viewOffsetY=0.162788)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=30.3112, 
+    farPlane=39.2973, width=31.8801, height=15.4638, viewOffsetX=3.59333, 
+    viewOffsetY=2.20767)
+a = mdb.models['assembly-improved'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+mdb.jobs['Job-4'].kill()
+mdb.jobs['Job-4'].kill()
+mdb.Job(name='Job-5', model='assembly-improved', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=50, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=1, activateLoadBalancing=False, numCpus=1)
+mdb.jobs['Job-5'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-5.inp" 已提交分析.
+mdb.jobs['Job-5'].kill()
+#: Error in job Job-5: Process terminated by external request (SIGTERM or SIGINT received).
+#: Job Job-5: Analysis Input File Processor was terminated prior to analysis completion.
+#: Error in job Job-5: Analysis Input File Processor exited with an error - Please see the  Job-5.dat file for possible error messages if the file exists.
+del mdb.jobs['Job-5']
+mdb.Job(name='Job-5', model='vitreous-yangs', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=50, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=1, activateLoadBalancing=False, numCpus=1)
+mdb.jobs['Job-5'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-5.inp" 已提交分析.
+#: Job Job-5: Analysis Input File Processor completed successfully.
+mdb.jobs['Job-4'].kill()
+#: Job Job-5: Abaqus/Explicit Packager completed successfully.
+#: Error in job Job-5: The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.
+#: Error in job Job-5: There is only one excessively distorted element
+#: Error in job Job-5: The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.
+#: Job Job-5: Abaqus/Explicit aborted due to errors.
+#: Error in job Job-5: Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job Job-5 aborted due to errors.
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       4
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.7564, 
+    farPlane=95.0158, width=29.6672, height=15.0103, viewOffsetX=3.73324, 
+    viewOffsetY=3.27956)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['assembly-improved'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+p1 = mdb.models['vitreous-yangs'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['vitreous-yangs'].materials['vitreous'].elastic.setValues(table=((
+    0.0057, 0.49), ))
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['Job-5'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-5.inp" 已提交分析.
+#: Job Job-5: Analysis Input File Processor completed successfully.
+#: Job Job-5: Abaqus/Explicit Packager completed successfully.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+mdb.models['vitreous-yangs'].amplitudes['len-press'].setValues(timeSpan=STEP, 
+    smooth=SOLVER_DEFAULT, data=((0.0, 0.0), (0.01, 1.0)))
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF, adaptiveMeshConstraints=ON)
+mdb.models['vitreous-yangs'].steps['Press'].setValues(timePeriod=0.01, 
+    improvedDtMethod=ON)
+mdb.models['vitreous-yangs'].steps['Resume'].setValues(timePeriod=0.1, 
+    improvedDtMethod=ON)
+mdb.jobs['Job-5'].kill()
+#: Error in job Job-5: Process terminated by external request (SIGTERM or SIGINT received).
+#: Job Job-5: Abaqus/Explicit was terminated prior to analysis completion.
+#: Error in job Job-5: Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, 
+    adaptiveMeshConstraints=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.jobs['Job-5'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-5.inp" 已提交分析.
+#: Job Job-5: Analysis Input File Processor completed successfully.
+#: Job Job-5: Abaqus/Explicit Packager completed successfully.
+#: Job Job-5: Abaqus/Explicit completed successfully.
+#: Job Job-5 completed successfully. 
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       0
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.7917, 
+    farPlane=95.9805, width=32.8988, height=16.6453, viewOffsetX=-0.535617, 
+    viewOffsetY=1.62608)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.4192, 
+    farPlane=94.353, width=26.3967, height=13.3555, viewOffsetX=-1.13737, 
+    viewOffsetY=2.80385)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='UT', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='UT', outputPosition=NODAL, refinement=(COMPONENT, 'U2'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.4204, 
+    farPlane=94.3518, width=26.3972, height=13.3558, viewOffsetX=-1.11947, 
+    viewOffsetY=2.81392)
+session.viewports['Viewport: 1'].odbDisplay.contourOptions.setValues(
+    spectrum='Reversed rainbow')
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.6647, 
+    farPlane=96.1074, width=39.5237, height=19.9972, viewOffsetX=-2.73965, 
+    viewOffsetY=2.50107)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.8899, 
+    farPlane=97.8152, width=37.6542, height=19.0513, cameraPosition=(23.2903, 
+    6.46931, 74.5137), cameraUpVector=(0.0949749, 0.989169, -0.111912), 
+    cameraTarget=(5.23951, -0.277007, -0.434698), viewOffsetX=-2.61006, 
+    viewOffsetY=2.38277)
+session.viewports['Viewport: 1'].view.setValues(width=35.5434, height=17.9834, 
+    viewOffsetX=-2.10307, viewOffsetY=2.59423)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.3955, 
+    farPlane=97.3095, width=35.7152, height=18.0703, cameraPosition=(23.7818, 
+    6.84383, 74.3616), cameraUpVector=(-0.0402878, 0.995985, -0.0799484), 
+    cameraTarget=(5.731, 0.0975111, -0.58678), viewOffsetX=-2.11323, 
+    viewOffsetY=2.60677)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.446, 
+    farPlane=96.259, width=26.6998, height=13.5089, viewOffsetX=-0.164125, 
+    viewOffsetY=3.33306)
+odb = session.mdbData['assembly-improved']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+odb = session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+odb = session.mdbData['assembly-improved']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+odb = session.mdbData['origin']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+odb = session.mdbData['vitreous-yangs']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.9215, 
+    farPlane=106.309, width=53.3006, height=26.9677, cameraPosition=(54.6315, 
+    -15.0852, 64.1508), cameraUpVector=(-0.219553, 0.975029, -0.0333944), 
+    cameraTarget=(5.42135, -0.466624, 0.828631))
+odb = session.mdbData['origin']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+odb = session.mdbData['assembly-improved']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.2457, 
+    farPlane=107.788, width=50.8384, height=25.7219, cameraPosition=(52.4853, 
+    46.5973, 47.8925), cameraUpVector=(-0.493839, 0.571692, -0.655204))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.2425, 
+    farPlane=106.076, width=53.5961, height=27.1172, cameraPosition=(19.1738, 
+    15.8145, 79.5105), cameraUpVector=(0.0297419, 0.849733, -0.526373), 
+    cameraTarget=(5.42135, -0.466629, 0.828631))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.0153, 
+    farPlane=107.149, width=52.4668, height=26.5458, cameraPosition=(12.6751, 
+    27.2842, 77.1419), cameraUpVector=(-0.110463, 0.772492, -0.625343), 
+    cameraTarget=(5.37057, -0.377005, 0.810123))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+#: 警告: Boundary conditions are shown in the local co-ordinate system, in which they were defined.
+#: 警告: 选中的主变量在当前帧中对当前显示组中所有单元均不可用.
+odb = session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.6086, 
+    farPlane=96.0529, width=26.7754, height=13.5471, viewOffsetX=-0.250905, 
+    viewOffsetY=3.62511)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='UT', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=1, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='UT', outputPosition=NODAL, refinement=(COMPONENT, 'U2'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.4738, 
+    farPlane=96.4221, width=26.7128, height=13.5155, cameraPosition=(25.8575, 
+    8.37472, 73.7637), cameraUpVector=(-0.0276846, 0.99425, -0.103439), 
+    cameraTarget=(5.65297, 0.0883106, -0.477243), viewOffsetX=-0.250318, 
+    viewOffsetY=3.61663)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.2757, 
+    farPlane=96.6203, width=26.6208, height=13.4689, viewOffsetX=2.11505, 
+    viewOffsetY=2.49839)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.4843, 
+    farPlane=96.4116, width=26.7178, height=13.518, viewOffsetX=2.28274, 
+    viewOffsetY=3.84334)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.8502, 
+    farPlane=95.1592, width=26.8879, height=13.6041, cameraPosition=(24.0581, 
+    3.14035, 74.1902), cameraUpVector=(0.00273034, 0.999166, -0.0407522), 
+    cameraTarget=(5.48785, 0.129499, -0.874346), viewOffsetX=2.29727, 
+    viewOffsetY=3.86781)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.8279, 
+    farPlane=95.1816, width=26.8776, height=13.5989, viewOffsetX=2.19579, 
+    viewOffsetY=4.24741)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.8278, 
+    farPlane=95.1817, width=26.8776, height=13.5989, viewOffsetX=1.41118, 
+    viewOffsetY=3.64568)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.8278, 
+    farPlane=95.1817, width=26.8777, height=13.5989, cameraPosition=(24.3293, 
+    3.03785, 74.1272), cameraUpVector=(-0.052933, 0.998234, -0.0269442), 
+    cameraTarget=(5.75901, 0.0270004, -0.937318), viewOffsetX=1.41118, 
+    viewOffsetY=3.64568)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.8277, 
+    width=26.8777, height=13.5989, cameraPosition=(24.2619, 3.06167, 74.1429), 
+    cameraUpVector=(-0.0392021, 0.99877, -0.0303626), cameraTarget=(5.69157, 
+    0.0508156, -0.921588), viewOffsetX=1.41118, viewOffsetY=3.64568)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.8665, 
+    farPlane=95.0076, width=26.8957, height=13.608, cameraPosition=(5.7801, 
+    9.00125, 75.8894), cameraUpVector=(-0.0220217, 0.993013, -0.115931), 
+    cameraTarget=(5.76444, 0.0272666, -0.974539), viewOffsetX=1.41213, 
+    viewOffsetY=3.64812)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.382, 
+    farPlane=95.492, width=32.1106, height=16.2465, viewOffsetX=1.83525, 
+    viewOffsetY=3.76687)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.3889, 
+    farPlane=95.0176, width=32.1144, height=16.2485, cameraPosition=(5.95416, 
+    5.57319, 75.9891), cameraUpVector=(-0.0228223, 0.997191, -0.0713398), 
+    cameraTarget=(5.7664, 0.0467702, -1.1991), viewOffsetX=1.83547, 
+    viewOffsetY=3.76732)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.6401, 
+    farPlane=94.7663, width=28.5006, height=14.42, viewOffsetX=2.22996, 
+    viewOffsetY=3.52072)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.8838, 
+    farPlane=94.5933, width=28.6211, height=14.481, cameraPosition=(9.53827, 
+    3.99959, 76.0286), cameraUpVector=(-0.00860735, 0.99872, -0.0498468), 
+    cameraTarget=(5.64669, 0.113403, -1.16177), viewOffsetX=2.23938, 
+    viewOffsetY=3.5356)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.5204, 
+    farPlane=95.9568, width=40.5105, height=20.4965, viewOffsetX=2.06945, 
+    viewOffsetY=2.69429)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.2376, 
+    farPlane=96.2396, width=40.3078, height=20.3939, viewOffsetX=7.24843, 
+    viewOffsetY=-0.507625)
+session.printOptions.setValues(vpBackground=ON, compass=ON)
+session.printToPrinter(printCommand='PRINTER[13]:导出为WPS PDF', numCopies=1, 
+    canvasObjects=(session.viewports['Viewport: 1'], ))
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb'])
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-3.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-3.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       0
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+p = mdb.models['vitreous-yangs'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+odb = session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-3.odb']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='UT', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='UT', outputPosition=NODAL, refinement=(COMPONENT, 'U2'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.3567, 
+    farPlane=96.4155, width=41.8256, height=21.1619, viewOffsetX=0.561003, 
+    viewOffsetY=0.49256)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.0644, 
+    farPlane=96.7078, width=41.6161, height=21.0559, viewOffsetX=7.1308, 
+    viewOffsetY=-1.00059)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.2043, 
+    farPlane=97.268, width=40.9997, height=20.744, cameraPosition=(4.02081, 
+    -3.66223, 77.1386), cameraUpVector=(0.0057577, 0.998745, 0.0497468), 
+    cameraTarget=(5.67936, 0.177119, -0.134375), viewOffsetX=7.02517, 
+    viewOffsetY=-0.985769)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.2822, 
+    farPlane=97.1901, width=41.0555, height=20.7722, cameraPosition=(4.00303, 
+    -3.78967, 77.1319), cameraUpVector=(-0.00769133, 0.998747, 0.0494582), 
+    cameraTarget=(5.66158, 0.0496811, -0.141088), viewOffsetX=7.03473, 
+    viewOffsetY=-0.987111)
+session.printToPrinter(printCommand='PRINTER[13]:导出为WPS PDF', numCopies=1, 
+    canvasObjects=(session.viewports['Viewport: 1'], ))
+session.printToFile(fileName='001Mpa', format=PNG, canvasObjects=(
+    session.viewports['Viewport: 1'], ))
+o7 = session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb']
+session.viewports['Viewport: 1'].setValues(displayedObject=o7)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.8815, 
+    farPlane=95.5322, width=40.0525, height=20.2648, cameraPosition=(5.44881, 
+    2.74202, 75.6614), cameraUpVector=(-0.0413702, 0.998407, -0.0383741), 
+    cameraTarget=(5.68163, -0.220529, -1.66758), viewOffsetX=7.20253, 
+    viewOffsetY=-0.50441)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.733, 
+    farPlane=96.8971, width=39.9461, height=20.2109, cameraPosition=(9.69757, 
+    -5.76639, 75.9823), cameraUpVector=(0.0216605, 0.996509, 0.080623), 
+    cameraTarget=(5.63891, 0.553199, -1.03848), viewOffsetX=7.18339, 
+    viewOffsetY=-0.503069)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='UT', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(
+    plotState=CONTOURS_ON_DEF)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='UT', outputPosition=NODAL, refinement=(COMPONENT, 'U2'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.2783, 
+    farPlane=96.3041, width=40.3369, height=20.4087, cameraPosition=(9.73079, 
+    -3.57958, 76.107), cameraUpVector=(0.0131402, 0.998587, 0.0514959), 
+    cameraTarget=(5.63128, 0.454005, -1.06508), viewOffsetX=7.25367, 
+    viewOffsetY=-0.507991)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.5317, 
+    farPlane=96.0507, width=40.5186, height=20.5006, viewOffsetX=7.28633, 
+    viewOffsetY=-0.510279)
+session.printToFile(fileName='00057Mpa', format=PNG, canvasObjects=(
+    session.viewports['Viewport: 1'], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.6051, 
+    farPlane=98.6367, width=40.5713, height=20.5272, cameraPosition=(20.0407, 
+    -6.87269, 75.9817), cameraUpVector=(-0.00311068, 0.995615, 0.0934993), 
+    cameraTarget=(5.63157, 0.191701, 0.2778), viewOffsetX=7.2958, 
+    viewOffsetY=-0.510942)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.5703, 
+    farPlane=98.6715, width=40.5464, height=20.5146, cameraPosition=(20.076, 
+    -6.46319, 76.0132), cameraUpVector=(0.0372672, 0.995614, 0.0858139), 
+    cameraTarget=(5.66688, 0.601197, 0.309291), viewOffsetX=7.29132, 
+    viewOffsetY=-0.510628)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.8528, 
+    farPlane=98.389, width=40.7489, height=20.6171, viewOffsetX=7.32773, 
+    viewOffsetY=-0.513179)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.6523, 
+    farPlane=94.8559, width=39.8884, height=20.1817, cameraPosition=(1.41844, 
+    -0.782187, 75.1328), cameraUpVector=(-0.0206281, 0.999717, 0.0118709), 
+    cameraTarget=(5.40388, 0.217626, -2.14419), viewOffsetX=7.17299, 
+    viewOffsetY=-0.502342)
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['Job-4'].kill()
+del mdb.jobs['Job-4']
+mdb.jobs.changeKey(fromName='Job-5', toName='00057Mpa')
+mdb.jobs.changeKey(fromName='Job-3', toName='001Mpa')
+p1 = mdb.models['vitreous-yangs'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['vitreous-yangs'].materials['vitreous'].elastic.setValues(table=((
+    0.001, 0.49), ))
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='0001Mpa', model='vitreous-yangs', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=50, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=1, activateLoadBalancing=False, numCpus=1)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=ON)
+mdb.models['vitreous-yangs'].fieldOutputRequests['F-Output-1'].setValues(
+    variables=('UT', ))
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+mdb.jobs['0001Mpa'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "0001Mpa.inp" 已提交分析.
+#: Job 0001Mpa: Analysis Input File Processor completed successfully.
+#: Job 0001Mpa: Abaqus/Explicit Packager completed successfully.
+#: Error in job 0001Mpa: The elements contained in element set ErrElemExcessDistortion-Step2 have distorted excessively.
+#: Error in job 0001Mpa: There is only one excessively distorted element
+#: Error in job 0001Mpa: The elements contained in element set ErrElemExcessDistortion-Step2 have distorted excessively.
+#: Job 0001Mpa: Abaqus/Explicit aborted due to errors.
+#: Error in job 0001Mpa: Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job 0001Mpa aborted due to errors.
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb'])
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/0001Mpa.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/0001Mpa.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       2
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.5055, 
+    farPlane=96.2666, width=34.8283, height=17.6216, viewOffsetX=0.420765, 
+    viewOffsetY=1.78935)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.7677, 
+    farPlane=96.0045, width=34.9844, height=17.7005, viewOffsetX=3.19836, 
+    viewOffsetY=3.18103)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.7995, 
+    farPlane=94.9726, width=26.126, height=13.2186, viewOffsetX=4.37287, 
+    viewOffsetY=2.6508)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.006, 
+    farPlane=94.7661, width=26.2162, height=13.2642, viewOffsetX=0.188659, 
+    viewOffsetY=2.30781)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9558, 
+    farPlane=93.8164, width=18.372, height=9.29542, viewOffsetX=0.288563, 
+    viewOffsetY=1.53462)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.107, 
+    farPlane=93.6652, width=18.4176, height=9.31847, viewOffsetX=1.26806, 
+    viewOffsetY=1.40099)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.7814, 
+    farPlane=92.9907, width=12.846, height=6.49949, viewOffsetX=-0.496424, 
+    viewOffsetY=1.08525)
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.3746, 
+    farPlane=68.4658, width=27.4241, height=13.3423, viewOffsetX=3.10381, 
+    viewOffsetY=-0.346325)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.9956, 
+    farPlane=67.8449, width=27.7109, height=13.4818, viewOffsetX=3.05305, 
+    viewOffsetY=0.521185)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.0022, 
+    farPlane=66.8383, width=19.4376, height=9.45674, viewOffsetX=1.95283, 
+    viewOffsetY=0.194553)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#3 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[0], sketchPlaneSide=SIDE1, origin=(
+    4.940245, -3.912001, 0.0))
+s = mdb.models['vitreous-yangs'].ConstrainedSketch(name='__profile__', 
+    sheetSize=39.1, gridSpacing=0.97, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['vitreous-yangs'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=34.8323, 
+    farPlane=43.3761, width=28.4588, height=14.3988, cameraPosition=(4.35754, 
+    -3.17149, 39.1042), cameraTarget=(4.35754, -3.17149, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(6.84981, 
+    0.417607, 39.1042), cameraTarget=(6.84981, 0.417607, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=36.1571, 
+    farPlane=42.0513, width=19.6328, height=9.93333, cameraPosition=(6.19469, 
+    0.348087, 39.1042), cameraTarget=(6.19469, 0.348087, 0))
+s.Line(point1=(-3.0605457788436, 4.05657886277704), point2=(-3.06054577884361, 
+    1.94))
+s.VerticalConstraint(entity=g[51], addUndoState=False)
+s.CoincidentConstraint(entity1=v[33], entity2=g[23], addUndoState=False)
+s.Line(point1=(-3.06054577884361, 1.94), point2=(-4.94024499997351, 1.94))
+s.HorizontalConstraint(entity=g[52], addUndoState=False)
+s.PerpendicularConstraint(entity1=g[51], entity2=g[52], addUndoState=False)
+s.CoincidentConstraint(entity1=v[35], entity2=g[6], addUndoState=False)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s)
+s.unsetPrimaryObject()
+del mdb.models['vitreous-yangs'].sketches['__profile__']
+a = mdb.models['vitreous-yangs'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#200 ]', ), )
+pickedEdges2 = e1.getSequenceFromMask(mask=('[#100 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, 
+    end2Edges=pickedEdges2, ratio=5.0, number=5, constraint=FINER)
+a = mdb.models['vitreous-yangs'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#200 ]', ), )
+pickedEdges2 = e1.getSequenceFromMask(mask=('[#100 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, 
+    end2Edges=pickedEdges2, ratio=5.0, number=3, constraint=FINER)
+a = mdb.models['vitreous-yangs'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#200 ]', ), )
+pickedEdges2 = e1.getSequenceFromMask(mask=('[#100 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, 
+    end2Edges=pickedEdges2, ratio=5.0, number=4, constraint=FINER)
+a = mdb.models['vitreous-yangs'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#200 ]', ), )
+pickedEdges2 = e1.getSequenceFromMask(mask=('[#100 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, 
+    end2Edges=pickedEdges2, ratio=5.0, number=5, constraint=FINER)
+a = mdb.models['vitreous-yangs'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+#: 
+#: 部件实例: vitreous-1
+#:  四边形 elements:  266
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  78.02,  最差 min angle on quad faces:  56.52
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  102.31,  最差 max angle on quad faces:  135.53
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.36,  最差 长宽比:  5.48
+#:  三角形 elements:  10
+#:    Min angle on Tri Faces < 5:  0 (0%)
+#:    平均 min angle on tri faces:  48.87,  最差 min angle on tri faces:  39.46
+#:    Max angle on Tri faces > 170:  0 (0%)
+#:    平均 max angle on tri faces:  69.79,  最差 max angle on tri faces:  77.98
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.26,  最差 长宽比:  1.50
+#:    形状因子 < 0.01:  0 (0%)
+#:    平均 形状因子:  0.939691,  最差 形状因子:  0.865527
+#:   Number of elements :  276,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.4189, 
+    farPlane=67.4215, width=26.2321, height=12.7623, viewOffsetX=0.971279, 
+    viewOffsetY=1.37896)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.2207, 
+    farPlane=67.6198, width=26.146, height=12.7205, viewOffsetX=2.55805, 
+    viewOffsetY=-0.0150281)
+session.viewports['Viewport: 1'].view.setValues(width=24.577, height=11.9571, 
+    viewOffsetX=2.71348, viewOffsetY=-0.0185505)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF, 
+    adaptiveMeshConstraints=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.models['vitreous-yangs'].fieldOutputRequests['F-Output-1'].setValues(
+    numIntervals=5)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+mdb.jobs['0001Mpa'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "0001Mpa.inp" 已提交分析.
+#: Job 0001Mpa: Analysis Input File Processor completed successfully.
+#: Job 0001Mpa: Abaqus/Explicit Packager completed successfully.
+#: Error in job 0001Mpa: The elements contained in element set ErrElemExcessDistortion-Step2 have distorted excessively.
+#: Error in job 0001Mpa: There is only one excessively distorted element
+#: Error in job 0001Mpa: The elements contained in element set ErrElemExcessDistortion-Step2 have distorted excessively.
+#: Job 0001Mpa: Abaqus/Explicit aborted due to errors.
+#: Error in job 0001Mpa: Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job 0001Mpa aborted due to errors.
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/0001Mpa.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/0001Mpa.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       2
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.064, 
+    farPlane=95.7082, width=31.068, height=15.719, viewOffsetX=-0.259713, 
+    viewOffsetY=-0.792987)
+session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-5.odb'].close(
+    )
+session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-3.odb'].close(
+    )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.2629, 
+    farPlane=93.5093, width=16.3153, height=8.25482, viewOffsetX=-0.0846403, 
+    viewOffsetY=1.23699)
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.9952, 
+    farPlane=65.8452, width=12.8486, height=6.23234, viewOffsetX=-1.55048, 
+    viewOffsetY=1.58623)
+a1 = mdb.models['vitreous-yangs'].rootAssembly
+p1 = a1.instances['crystalline-1']
+p1.ConvertConstraints()
+#: "crystalline-1" 的位置约束已全部转换为绝对位置
+a1 = mdb.models['vitreous-yangs'].rootAssembly
+a1.translate(instanceList=('crystalline-1', ), vector=(0.0, 0.01, 0.0))
+#: The instance crystalline-1 was translated by 0., 10.E-03, 0. (相对于装配坐标系)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=63.7633, 
+    farPlane=64.0771, width=1.04547, height=0.507114, viewOffsetX=-5.24576, 
+    viewOffsetY=-0.114183)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=63.7727, 
+    farPlane=64.0678, width=1.04562, height=0.507189, viewOffsetX=-5.27706, 
+    viewOffsetY=-0.181305)
+a1 = mdb.models['vitreous-yangs'].rootAssembly
+v11 = a1.instances['crystalline-1'].vertices
+v12 = a1.instances['vitreous-1'].vertices
+a1.CoincidentPoint(movablePoint=v11[2], fixedPoint=v12[8])
+#: 实例 "crystalline-1"  是完全约束的
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.5985, 
+    farPlane=66.242, width=17.4663, height=8.47222, viewOffsetX=-4.27662, 
+    viewOffsetY=1.32356)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.4614, 
+    farPlane=66.3791, width=17.4275, height=8.45336, viewOffsetX=-1.69733, 
+    viewOffsetY=1.41165)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.1444, 
+    farPlane=66.6961, width=20.874, height=10.1251, viewOffsetX=-1.54128, 
+    viewOffsetY=1.73424)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Press')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(interactions=ON, 
+    constraints=ON, connectors=ON, engineeringFeatures=ON, 
+    adaptiveMeshConstraints=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, interactions=OFF, constraints=OFF, 
+    engineeringFeatures=OFF)
+a = mdb.models['vitreous-yangs'].rootAssembly
+del a.features['Partition face-5']
+#: 警告: Mesh deleted in 2 regions of instance 'vitreous-1' due to geometry association failure.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.9582, 
+    farPlane=67.8823, width=29.6709, height=14.4354, viewOffsetX=-1.04586, 
+    viewOffsetY=2.5152)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.7376, 
+    farPlane=68.1028, width=29.5617, height=14.3823, viewOffsetX=0.866624, 
+    viewOffsetY=-2.25127)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f11 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f11[0], sketchPlaneSide=SIDE1, origin=(
+    4.940245, -3.912001, 0.0))
+s1 = mdb.models['vitreous-yangs'].ConstrainedSketch(name='__profile__', 
+    sheetSize=39.1, gridSpacing=0.97, transform=t)
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['vitreous-yangs'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s1, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.3295, 
+    farPlane=42.8788, width=25.1462, height=12.7228, cameraPosition=(5.33227, 
+    -3.13105, 39.1042), cameraTarget=(5.33227, -3.13105, 0))
+s1.Line(point1=(-4.940244999933, 3.69602065585341), point2=(3.65634826727536, 
+    -3.42829208491722))
+s1.CoincidentConstraint(entity1=v[33], entity2=g[2], addUndoState=False)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s1)
+s1.unsetPrimaryObject()
+del mdb.models['vitreous-yangs'].sketches['__profile__']
+a = mdb.models['vitreous-yangs'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+#: 
+#: 部件实例: vitreous-1
+#:  四边形 elements:  195
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  78.57,  最差 min angle on quad faces:  44.84
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  102.13,  最差 max angle on quad faces:  141.10
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.31,  最差 长宽比:  2.54
+#:  三角形 elements:  6
+#:    Min angle on Tri Faces < 5:  0 (0%)
+#:    平均 min angle on tri faces:  51.10,  最差 min angle on tri faces:  47.54
+#:    Max angle on Tri faces > 170:  0 (0%)
+#:    平均 max angle on tri faces:  69.49,  最差 max angle on tri faces:  77.98
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.20,  最差 长宽比:  1.31
+#:    形状因子 < 0.01:  0 (0%)
+#:    平均 形状因子:  0.960168,  最差 形状因子:  0.906801
+#:   Number of elements :  201,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.9991, 
+    farPlane=69.8414, width=44.2598, height=21.5331, viewOffsetX=0.326807, 
+    viewOffsetY=-1.43734)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.6934, 
+    farPlane=70.1471, width=44.0265, height=21.4196, viewOffsetX=1.77941, 
+    viewOffsetY=-0.540027)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.3793, 
+    farPlane=69.4612, width=37.0024, height=18.0023, viewOffsetX=1.09228, 
+    viewOffsetY=-0.484306)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF, 
+    optimizationTasks=ON, geometricRestrictions=ON, stopConditions=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+mdb.jobs['0001Mpa'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "0001Mpa.inp" 已提交分析.
+#: Job 0001Mpa: Analysis Input File Processor completed successfully.
+#: Job 0001Mpa: Abaqus/Explicit Packager completed successfully.
+#: Error in job 0001Mpa: The ratio of deformation speed to wave speed exceeds 1.0000 in at least one element. This usually indicates an error with the model definition. Additional diagnostic information may be found in the message file.
+#: Job 0001Mpa: Abaqus/Explicit aborted due to errors.
+#: Error in job 0001Mpa: Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job 0001Mpa aborted due to errors.
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.5701, 
+    farPlane=65.2703, width=10.166, height=5.14355, viewOffsetX=-2.98663, 
+    viewOffsetY=0.417765)
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/0001Mpa.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/0001Mpa.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       2
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.1267, 
+    farPlane=97.6455, width=49.2956, height=24.9413, viewOffsetX=0.988048, 
+    viewOffsetY=1.06241)

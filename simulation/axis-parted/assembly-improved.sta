@@ -1,0 +1,304 @@
+Abaqus/Explicit 2025                             DATE 12-5ÔÂ-2026  TIME 05:30:53
+-------------------------------------------------------------------------------
+ PREPROCESSOR WARNING MESSAGES
+-------------------------------------------------------------------------------
+
+
+***WARNING: There are 2 warning messages in the data (.dat) file.  Please
+            check the data file for possible errors in the input file.
+
+
+-------------------------------------------------------------------------------
+ NUMERICAL PRECISION USED FOR THIS Abaqus/Explicit ANALYSIS
+-------------------------------------------------------------------------------
+
+Single precision package and explicit executables will be used in this analysis.
+
+-------------------------------------------------------------------------------
+
+***WARNING: In step 1, portions of main surfaces in the general contact domain
+            have been tied together.  Joining disconnected surfaces with *TIE
+            does not alter the surface connectivity and results in a seam in
+            the contact surface.  The nodes along the tied surface perimeters
+            have been added to the node set named  "WarnNodePerimTieSeam".
+
+-------------------------------------------------------------------------------
+ MODEL INFORMATION (IN GLOBAL X-Y COORDINATES)
+-------------------------------------------------------------------------------
+
+   Total mass in model = 6.26843E-06
+   Center of mass of model = ( 6.901401E+00,-1.176077E+00)
+   For the axisymmetric body, the center of mass is located at the center of mass
+   of the circumferential slice.
+
+   Moments of Inertia :
+                 About Center of Mass              About Origin
+      I(XX)          1.729123E-04                  1.815825E-04
+      I(YY)          4.516371E-05                  3.437247E-04
+      I(XY)         -1.763412E-06                  4.911475E-05
+      I(ZZ)          2.180760E-04                  5.253072E-04
+
+-------------------------------------------------------------------------------
+ STABLE TIME INCREMENT INFORMATION
+-------------------------------------------------------------------------------
+
+
+  The stable time increment estimate for each element is based on
+  linearization about the initial state.
+
+
+   Initial time increment = 3.56654E-07
+
+   Statistics over 1158 deformable elements:
+      Mean = 2.92475E-06
+      Standard deviation = 1.71362E-06
+
+   Most critical elements:
+    Element number   Rank    Time increment   Increment ratio
+    (Instance name)
+   ----------------------------------------------------------
+           6          1       3.566541E-07      1.000000E+00
+    CORNEA-1
+          12          2       3.959686E-07      9.007131E-01
+    CORNEA-1
+          18          3       4.294736E-07      8.304446E-01
+    CORNEA-1
+           5          4       4.397008E-07      8.111291E-01
+    CORNEA-1
+          24          5       4.561990E-07      7.817950E-01
+    CORNEA-1
+           4          6       4.676534E-07      7.626461E-01
+    CORNEA-1
+          30          7       4.763390E-07      7.487401E-01
+    CORNEA-1
+           3          8       4.866605E-07      7.328601E-01
+    CORNEA-1
+          36          9       4.908593E-07      7.265912E-01
+    CORNEA-1
+           2         10       5.022716E-07      7.100822E-01
+    CORNEA-1
+
+
+  Instance name for the most critical element will be printed if the critical
+  element changes or at the beginning of a new page.
+
+
+-------------------------------------------------------------------------------
+
+  INFORMATION REGARDING INITIAL CONTACT OVERCLOSURES FOR NEWLY DEFINED GENERAL
+  CONTACT INTERACTIONS IN STEP 1
+
+-------------------------------------------------------------------------------
+
+  Abaqus/Explicit will attempt to resolve 50 initial node-face overclosure(s).
+
+
+  Maximum initial overclosure for node-face contact is 2.08170E-02 at node 11
+  of instance CRYSTALLINE-1 and face S2 of element 89 of instance VITREOUS-1.
+
+
+  Maximum initial contact adjustment is: 2.08387E-02 at node 11 of instance
+  CRYSTALLINE-1.
+
+
+  No unresolved initial node-face overclosures found.
+
+
+***NOTE: You can view the deformed configuration due to the resolution of
+         initial overclosures.  In increment 0, draw the deformed shape or
+         draw a symbol plot of vector displacements.
+
+------------------------------------------------------------------------------
+
+Abaqus/Explicit 2025                             DATE 12-5ÔÂ-2026  TIME 05:31:00
+The entire model is considered 1 domain.
+Only 1 MPI rank is used.
+
+-------------------------------------------------------------------------------
+ SOLUTION PROGRESS
+-------------------------------------------------------------------------------
+
+ STEP 1  ORIGIN 0.0000
+
+  Total memory used for step 1 is approximately 3.2 megabytes.
+  Global time estimation algorithm will be used.
+  Scaling factor:  1.0000
+              STEP     TOTAL      WALL        STABLE    CRITICAL    KINETIC      TOTAL
+INCREMENT     TIME      TIME      TIME     INCREMENT     ELEMENT     ENERGY     ENERGY
+        0  0.000E+00 0.000E+00  00:00:00 3.56654E-07           6  6.126E-05  6.126E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     0, of     15, at step time 0.000E+00
+      792  5.002E-04 5.002E-04  00:00:02 6.32511E-07           6  2.283E-02  8.782E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+     1056  6.667E-04 6.667E-04  00:00:02 6.32039E-07           6  1.183E-02  9.639E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     1, of     15, at step time 6.667E-04
+     1860  1.167E-03 1.167E-03  00:00:03 6.18771E-07           6  1.178E-02  9.866E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+     2131  1.333E-03 1.333E-03  00:00:04 6.14579E-07           6  1.463E-02  9.341E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     2, of     15, at step time 1.333E-03
+     2950  1.833E-03 1.833E-03  00:00:05 6.03893E-07           6  1.365E-02  9.960E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+     3225  2.000E-03 2.000E-03  00:00:06 6.08413E-07           6  1.376E-02  1.073E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     3, of     15, at step time 2.000E-03
+     4120  2.500E-03 2.500E-03  00:00:07 4.91979E-07           6  9.784E-03  1.173E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+     4469  2.667E-03 2.667E-03  00:00:08 4.64741E-07           6  9.174E-03  1.205E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     4, of     15, at step time 2.667E-03
+     5529  3.167E-03 3.167E-03  00:00:09 4.77889E-07           6  8.527E-03  1.342E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+     5881  3.333E-03 3.333E-03  00:00:10 4.75485E-07           6  7.907E-03  1.344E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     5, of     15, at step time 3.333E-03
+     6938  3.833E-03 3.833E-03  00:00:12 4.77559E-07           6  5.988E-03  1.372E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+     7290  4.000E-03 4.000E-03  00:00:12 4.66394E-07           6  5.763E-03  1.368E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     6, of     15, at step time 4.000E-03
+     8349  4.500E-03 4.500E-03  00:00:14 4.69603E-07           6  6.735E-03  1.407E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+     8702  4.667E-03 4.667E-03  00:00:14 4.66168E-07           6  5.324E-03  1.386E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     7, of     15, at step time 4.667E-03
+     9751  5.167E-03 5.167E-03  00:00:16 4.86876E-07           6  4.465E-03  1.411E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    10104  5.333E-03 5.333E-03  00:00:17 4.81218E-07           6  4.780E-03  1.402E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     8, of     15, at step time 5.333E-03
+    11152  5.834E-03 5.834E-03  00:00:18 4.78993E-07           6  3.286E-03  1.386E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    11501  6.000E-03 6.000E-03  00:00:19 4.76902E-07           6  4.581E-03  1.355E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     9, of     15, at step time 6.000E-03
+    12545  6.500E-03 6.500E-03  00:00:21 4.73963E-07           6  2.980E-03  1.315E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    12891  6.667E-03 6.667E-03  00:00:21 4.76501E-07           6  3.545E-03  1.259E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    10, of     15, at step time 6.667E-03
+    13935  7.167E-03 7.167E-03  00:00:23 4.83399E-07           6  3.648E-03  1.220E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    14281  7.333E-03 7.333E-03  00:00:23 4.81780E-07           6  3.342E-03  1.176E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    11, of     15, at step time 7.333E-03
+    15321  7.834E-03 7.834E-03  00:00:25 4.64145E-07           6  2.583E-03  1.086E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    15668  8.000E-03 8.000E-03  00:00:25 4.80708E-07           6  3.637E-03  1.010E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    12, of     15, at step time 8.000E-03
+    16705  8.500E-03 8.500E-03  00:00:27 4.77706E-07           6  3.152E-03  9.022E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    17050  8.667E-03 8.667E-03  00:00:28 4.73330E-07           6  2.696E-03  8.366E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    13, of     15, at step time 8.667E-03
+    18085  9.167E-03 9.167E-03  00:00:29 4.90450E-07           6  2.321E-03  7.810E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    18429  9.333E-03 9.333E-03  00:00:30 4.83301E-07           6  3.729E-03  7.046E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    14, of     15, at step time 9.333E-03
+    19459  9.834E-03 9.834E-03  00:00:32 4.85194E-07           6  1.993E-03  6.315E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    19802  1.000E-02 1.000E-02  00:00:32 4.89374E-07           6  3.251E-03  5.824E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Restart Number  1 at 1.00000E-02
+Output Field Frame Number    15, of     15, at step time 1.000E-02
+
+Abaqus/Explicit 2025                             DATE 12-5ÔÂ-2026  TIME 05:31:32
+
+ STEP 2  ORIGIN 1.00000E-02
+
+  Total memory used for step 2 is approximately 3.3 megabytes.
+  Global time estimation algorithm will be used.
+  Scaling factor:  1.0000
+              STEP     TOTAL      WALL        STABLE    CRITICAL    KINETIC      TOTAL
+INCREMENT     TIME      TIME      TIME     INCREMENT     ELEMENT     ENERGY     ENERGY
+        0  0.000E+00 1.000E-02  00:00:32 3.71388E-07           6  3.251E-03  5.833E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     0, of     15, at step time 0.000E+00
+    10260  5.000E-03 1.500E-02  00:00:53 4.88375E-07           6  2.209E-03 -2.990E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    13676  6.667E-03 1.667E-02  00:01:00 4.89102E-07           6  2.006E-03 -3.417E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     1, of     15, at step time 6.667E-03
+    23922  1.167E-02 2.167E-02  00:01:21 4.91465E-07           6  1.993E-03 -3.930E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    27342  1.333E-02 2.333E-02  00:01:27 4.84674E-07           6  1.721E-03 -3.984E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     2, of     15, at step time 1.333E-02
+    37598  1.833E-02 2.833E-02  00:01:48 4.89743E-07           6  1.509E-03 -4.033E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    41014  2.000E-02 3.000E-02  00:01:54 4.87878E-07           6  1.747E-03 -3.974E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     3, of     15, at step time 2.000E-02
+    51268  2.500E-02 3.500E-02  00:02:15 4.87221E-07           6  1.340E-03 -4.995E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    54686  2.667E-02 3.667E-02  00:02:21 4.84881E-07           6  1.134E-03 -4.511E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     4, of     15, at step time 2.667E-02
+    64943  3.167E-02 4.167E-02  00:02:42 4.86551E-07           6  6.264E-04 -5.337E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    68360  3.333E-02 4.333E-02  00:02:47 4.86920E-07           6  8.668E-04 -5.310E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     5, of     15, at step time 3.333E-02
+    78612  3.833E-02 4.833E-02  00:03:02 4.85238E-07           6  8.358E-04 -5.711E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    82029  4.000E-02 5.000E-02  00:03:07 4.87185E-07           6  6.971E-04 -5.894E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     6, of     15, at step time 4.000E-02
+    92279  4.500E-02 5.500E-02  00:03:23 4.88450E-07           6  1.064E-03 -6.436E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+    95696  4.667E-02 5.667E-02  00:03:28 4.87219E-07           6  8.994E-04 -6.759E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     7, of     15, at step time 4.667E-02
+   105944  5.167E-02 6.167E-02  00:03:45 4.87929E-07           6  1.023E-03 -7.199E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+   109361  5.333E-02 6.333E-02  00:03:51 4.87514E-07           6  9.783E-04 -7.401E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     8, of     15, at step time 5.333E-02
+   119610  5.833E-02 6.833E-02  00:04:07 4.88237E-07           6  1.280E-03 -8.248E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+   123026  6.000E-02 7.000E-02  00:04:13 4.87649E-07           6  1.223E-03 -8.244E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number     9, of     15, at step time 6.000E-02
+   133285  6.500E-02 7.500E-02  00:04:29 4.87078E-07           6  8.880E-04 -9.143E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+   136706  6.667E-02 7.667E-02  00:04:35 4.88822E-07           6  1.112E-03 -9.388E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    10, of     15, at step time 6.667E-02
+   146978  7.167E-02 8.167E-02  00:04:51 4.88509E-07           6  5.591E-04 -9.799E-05
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+   150399  7.333E-02 8.333E-02  00:04:57 4.88386E-07           6  4.275E-04 -1.025E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    11, of     15, at step time 7.333E-02
+   160662  7.833E-02 8.833E-02  00:05:14 4.87508E-07           6  5.292E-04 -1.074E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+   164090  8.000E-02 9.000E-02  00:05:20 4.88339E-07           6  5.417E-04 -1.102E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    12, of     15, at step time 8.000E-02
+   174356  8.500E-02 9.500E-02  00:05:38 4.88458E-07           6  5.928E-04 -1.162E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+   177780  8.667E-02 9.667E-02  00:05:44 4.88350E-07           6  8.864E-04 -1.187E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    13, of     15, at step time 8.667E-02
+   188047  9.167E-02 1.017E-01  00:06:01 4.87691E-07           6  8.691E-04 -1.230E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+   191469  9.333E-02 1.033E-01  00:06:06 4.87624E-07           6  8.864E-04 -1.257E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Output Field Frame Number    14, of     15, at step time 9.333E-02
+   201743  9.833E-02 1.083E-01  00:06:23 4.87941E-07           6  9.363E-04 -1.308E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+   205167  1.000E-01 1.100E-01  00:06:29 4.87663E-07           6  8.791E-04 -1.331E-04
+INSTANCE WITH CRITICAL ELEMENT: CORNEA-1
+Restart Number  1 at 0.11000
+Output Field Frame Number    15, of     15, at step time 1.000E-01
+  EXPLICIT EXECUTABLE TIME SUMMARY
+       USER TIME (SEC)      =   354.70
+       SYSTEM TIME (SEC)    =   353.20
+       WALLCLOCK TIME (SEC) =          389
+              INIT (SEC) =          0
+              MAIN (SEC) =        389
+
+  THE ANALYSIS HAS COMPLETED SUCCESSFULLY
+

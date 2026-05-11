@@ -1,0 +1,25 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB 00057Mpa
+Abaqus 2025
+USING MEMORY DOUG-LEA ALLOCATOR
+Abaqus License Manager checked out the following licenses:
+Abaqus/Explicit checked out 5 tokens from Flexnet server localhost.
+<9984 out of 9999 licenses remain available>.
+Begin Analysis Input File Processor
+2026/5/12 4:47:09
+Run pre.exe
+2026/5/12 4:47:17
+End Analysis Input File Processor
+Begin Abaqus/Explicit Packager
+2026/5/12 4:47:17
+PAC_NUM_THREADS VALUE: 1
+Run package.exe
+2026/5/12 4:47:24
+End Abaqus/Explicit Packager
+Begin Abaqus/Explicit Analysis
+2026/5/12 4:47:24
+Run explicit.exe
+2026/5/12 4:48:20
+Abaqus Error: Abaqus/Explicit Analysis exited with an error - Please see the 
+status file for possible error messages if the file exists.
+Abaqus/Analysis exited with errors

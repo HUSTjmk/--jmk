@@ -1,0 +1,434 @@
+1
+
+   Abaqus 2025                                  Date 12-5ÔÂ-2026   Time 04:57:56
+   For use by Supplied by Team-SolidSQUAD under license from Dassault Systemes or its subsidiary.
+
+
+
+                         The Abaqus Software is a product of:
+
+                           Dassault Systemes Americas Corp.
+                           1301 Atwood Avenue, Suite 101W
+                              Johnston, RI 02919, USA
+ 
+
+
+                   The Abaqus Software is available only under license
+                   from Dassault Systemes or its subsidiary and may be
+                   used or reproduced only in accordance with the terms
+                   of such license.
+ 
+                          On machine WIN-DPN366VMB32 
+                          you are authorized to run
+                          Abaqus/Explicit until 31-Dec-2055
+
+                          Your site id is:  
+
+
+ 
+                    For assistance or any other information you may
+                    obtain contact information for your local office
+                    from the world wide web at:
+
+                      https://www.3ds.com/products-services/simulia/services-support/
+
+ 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                *                                                         * 
+                *                   *****************                     * 
+                *                   *  N O T I C E  *                     * 
+                *                   *****************                     * 
+                *                                                         * 
+                *                                                         * 
+                *                       Abaqus 2025                       * 
+                *                                                         * 
+                *       BUILD ID: 2024_09_20-21.00.46 RELr427 198590      * 
+                *                                                         * 
+                *                                                         * 
+                *  Please make sure you are using                         * 
+                *  release Abaqus 2025 manuals                            * 
+                *  plus the notes accompanying this release.              * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+ 
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *Element, type=CAX4R
+  *Elset, elset=ASSEMBLY_BACK-SCLERA-1__PICKEDSET2
+  *Element, type=CAX3
+  *Element, type=CAX4R
+  *Element, type=CAX3
+  *Element, type=CAX4R
+  *Elset, elset=ASSEMBLY_CORNEA-1__PICKEDSET2
+  *Element, type=CAX3
+  *Element, type=CAX4R
+  *Elset, elset=ASSEMBLY_CRYSTALLINE-1__PICKEDSET2
+  *Element, type=CAX4R
+  *Elset, elset=ASSEMBLY_FRONT-SCLERA-1__PICKEDSET2
+  *Element, type=CAX3
+  *Element, type=CAX4R
+  *Element, type=CAX3
+  *Element, type=CAX4R
+  *Elset, elset=ASSEMBLY_VITREOUS-1__PICKEDSET2
+  *Element, type=CAX4R
+  *Elset, elset=ASSEMBLY_TOUCH-LEN-1__PICKEDSET2
+  *Elset, elset=ASSEMBLY__PICKEDSET31
+  *Elset, elset=ASSEMBLY__PICKEDSET76
+  *Elset, elset=ASSEMBLY___PICKEDSURF109_S1
+  *Elset, elset=ASSEMBLY___PICKEDSURF109_S2
+  *Elset, elset=ASSEMBLY___PICKEDSURF109_S3
+  *Elset, elset=ASSEMBLY___PICKEDSURF109_S4
+  *Elset, elset=ASSEMBLY___PICKEDSURF23_S1
+  *Elset, elset=ASSEMBLY___PICKEDSURF23_S2
+  *Elset, elset=ASSEMBLY___PICKEDSURF23_S3
+  *Elset, elset=ASSEMBLY___PICKEDSURF23_S4
+  *Elset, elset=ASSEMBLY___PICKEDSURF24_S1
+  *Elset, elset=ASSEMBLY___PICKEDSURF24_S2
+  *Elset, elset=ASSEMBLY___PICKEDSURF24_S4
+  *Elset, elset=ASSEMBLY___PICKEDSURF25_S4
+  *Elset, elset=ASSEMBLY___PICKEDSURF26_S3
+  *Elset, elset=ASSEMBLY___PICKEDSURF73_S1
+  *Elset, elset=ASSEMBLY___PICKEDSURF73_S2
+  *Elset, elset=ASSEMBLY___PICKEDSURF73_S3
+  *Elset, elset=ASSEMBLY___PICKEDSURF73_S4
+  *heading
+  *material, name=BACK-SCLERA
+  *density
+  *elastic
+  *material, name=CORNEA
+  *density
+  *elastic
+  *material, name=CRYSTALLINE
+  *density
+  *elastic
+  *material, name=FRONT-SCLERA
+  *density
+  *elastic
+  *material, name=TOUCH-LEN
+  *density
+  *elastic
+  *material, name=VITREOUS
+  *density
+  *elastic
+  *solidsection, elset=ASSEMBLY_BACK-SCLERA-1__PICKEDSET2, material=BACK-SCLERA
+  *solidsection, elset=ASSEMBLY_CORNEA-1__PICKEDSET2, material=CORNEA
+  *solidsection, elset=ASSEMBLY_CRYSTALLINE-1__PICKEDSET2, material=CRYSTALLINE
+  *solidsection, elset=ASSEMBLY_FRONT-SCLERA-1__PICKEDSET2, material=FRONT-SCLERA
+  *solidsection, elset=ASSEMBLY_VITREOUS-1__PICKEDSET2, material=VITREOUS
+  *solidsection, elset=ASSEMBLY_TOUCH-LEN-1__PICKEDSET2, material=TOUCH-LEN
+  *solidsection, elset=ASSEMBLY_BACK-SCLERA-1__PICKEDSET2, material=BACK-SCLERA
+  *solidsection, elset=ASSEMBLY_CORNEA-1__PICKEDSET2, material=CORNEA
+  *solidsection, elset=ASSEMBLY_CRYSTALLINE-1__PICKEDSET2, material=CRYSTALLINE
+  *solidsection, elset=ASSEMBLY_FRONT-SCLERA-1__PICKEDSET2, material=FRONT-SCLERA
+  *solidsection, elset=ASSEMBLY_VITREOUS-1__PICKEDSET2, material=VITREOUS
+  *solidsection, elset=ASSEMBLY_TOUCH-LEN-1__PICKEDSET2, material=TOUCH-LEN
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF23
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF24
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF25
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF26
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF73
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF109
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF23
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF24
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF25
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF26
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF73
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF109
+  *coupling, constraintname=ASSEMBLY_TOUCH-LEN, refnode=ASSEMBLY__PICKEDSET74, surfa
+  *tie, name=ASSEMBLY_CORNEA-FRONT-SCLERA, adjust=YES
+  *tie, name=ASSEMBLY_FRONT-BACK-SCLERA, adjust=YES
+  *coupling, constraintname=ASSEMBLY_TOUCH-LEN, refnode=ASSEMBLY__PICKEDSET74, surfa
+  *coupling, constraintname=ASSEMBLY_TOUCH-LEN, refnode=ASSEMBLY__PICKEDSET74, surfa
+  *kinematic
+  *coupling, constraintname=ASSEMBLY_TOUCH-LEN, refnode=ASSEMBLY__PICKEDSET74, surfa
+  *coupling, constraintname=ASSEMBLY_TOUCH-LEN, refnode=ASSEMBLY__PICKEDSET74, surfa
+  *surfaceinteraction, name=GLOBAL
+  *friction
+  *boundary
+  *boundary, amplitude=LEN-PRESS
+  *boundary
+  *solidsection, elset=ASSEMBLY_BACK-SCLERA-1__PICKEDSET2, material=BACK-SCLERA
+  *solidsection, elset=ASSEMBLY_CORNEA-1__PICKEDSET2, material=CORNEA
+  *solidsection, elset=ASSEMBLY_CRYSTALLINE-1__PICKEDSET2, material=CRYSTALLINE
+  *solidsection, elset=ASSEMBLY_FRONT-SCLERA-1__PICKEDSET2, material=FRONT-SCLERA
+  *solidsection, elset=ASSEMBLY_VITREOUS-1__PICKEDSET2, material=VITREOUS
+  *solidsection, elset=ASSEMBLY_TOUCH-LEN-1__PICKEDSET2, material=TOUCH-LEN
+  *tie, name=ASSEMBLY_CORNEA-FRONT-SCLERA, adjust=YES
+  *tie, name=ASSEMBLY_FRONT-BACK-SCLERA, adjust=YES
+  *tie, name=ASSEMBLY_CORNEA-FRONT-SCLERA, adjust=YES
+  *tie, name=ASSEMBLY_FRONT-BACK-SCLERA, adjust=YES
+
+ ***WARNING: Total of 9 secondary nodes for tie definition 
+             ASSEMBLY_CORNEA-FRONT-SCLERA with main surface 
+             ASSEMBLY__PICKEDSURF23 and secondary surface 
+             ASSEMBLY__PICKEDSURF24 are common between the main and secondary 
+             surfaces. The adjustment of these secondary nodes may cause 
+             undesirable mesh distortion. Internal nodesets starting with the 
+             name TIE_SLV_MST_COMNOD have been created to identify all such 
+             nodes.
+
+ ***NOTE:  Total of 9 secondary nodes for tie definition 
+          ASSEMBLY_CORNEA-FRONT-SCLERA with main surface ASSEMBLY__PICKEDSURF23 
+          and secondary surface ASSEMBLY__PICKEDSURF24 were tied.
+
+ ***NOTE:  Total of 3 secondary nodes for tie definition 
+          ASSEMBLY_FRONT-BACK-SCLERA with main surface ASSEMBLY__PICKEDSURF25 
+          and secondary surface ASSEMBLY__PICKEDSURF26 were tied.
+  *solidsection, elset=ASSEMBLY_BACK-SCLERA-1__PICKEDSET2, material=BACK-SCLERA
+  *solidsection, elset=ASSEMBLY_CORNEA-1__PICKEDSET2, material=CORNEA
+  *solidsection, elset=ASSEMBLY_CRYSTALLINE-1__PICKEDSET2, material=CRYSTALLINE
+  *solidsection, elset=ASSEMBLY_FRONT-SCLERA-1__PICKEDSET2, material=FRONT-SCLERA
+  *solidsection, elset=ASSEMBLY_VITREOUS-1__PICKEDSET2, material=VITREOUS
+  *solidsection, elset=ASSEMBLY_TOUCH-LEN-1__PICKEDSET2, material=TOUCH-LEN
+  *friction
+  *elementoutput, directions=YES
+  *elementoutput, directions=YES
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 74 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 69 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 4 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 69 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 75 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 71 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 76 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 71 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 74 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 181 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 75 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 181 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 77 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 182 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 76 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 182 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 5 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 183 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 78 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 183 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 77 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 197 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+
+ ***WARNING: THE RADIAL CURRENT COORDINATE OF NODE NUMBER 78 INSTANCE CORNEA-1 
+             RESIDING ON AXYSYMMETRIC ELEMENT 197 INSTANCE CORNEA-1 HAS A 
+             NEGATIVE VALUE -7.74598E-11. THIS VALUE HAS BEEN ASSUMED SMALL 
+             ENOUGH TO BE TAKEN AS ZERO. THE SMALL NEGATIVE RADIUS CAN APPEAR 
+             DUE TO NODAL COORDINATE ADJUSTMENTS (*TIE, FOR EXAMPLE).
+  *output, field, numberinterval=25, timemarks=YES
+  *output, history, variable=PRESELECT
+  *output, field, numberinterval=25, timemarks=YES
+  *output, history, variable=PRESELECT
+  *step, name=Press, nlgeom=YES
+  *step, name=Resume, nlgeom=YES
+  *step, name=Press, nlgeom=YES
+  *dynamic, explicit
+  *boundary
+  *boundary, amplitude=LEN-PRESS
+  *boundary
+  *dsload
+  *output, field, numberinterval=25, timemarks=YES
+  *nodeoutput
+  *elementoutput, directions=YES
+  *output, history, variable=PRESELECT
+  *endstep
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+  *step, name=Resume, nlgeom=YES
+  *dynamic, explicit
+  *output, field, numberinterval=25, timemarks=YES
+  *nodeoutput
+  *elementoutput, directions=YES
+  *output, history, variable=PRESELECT
+  *endstep
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF23
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF24
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF25
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF26
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF73
+  *surface, type=ELEMENT, name=ASSEMBLY__PICKEDSURF109
+  *tie, name=ASSEMBLY_CORNEA-FRONT-SCLERA, adjust=YES
+  *tie, name=ASSEMBLY_FRONT-BACK-SCLERA, adjust=YES
+  *surfaceinteraction, name=GLOBAL
+  *friction
+  *surfacebehavior, pressure-overclosure=HARD
+  *step, name=Press, nlgeom=YES
+  *dynamic, explicit
+  *boundary
+
+ ***WARNING: THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS 
+             FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE 
+             STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL 
+             DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN 
+             DISPLACEMENTS ACROSS STEPS ARE IGNORED
+  *boundary, amplitude=LEN-PRESS
+  *boundary
+  *contact, op=NEW
+  *contactinclusions, allexterior
+  *endstep
+  *step, name=Resume, nlgeom=YES
+  *dynamic, explicit
+  *endstep
+
+ ***WARNING: 7 nodes on reactivated axisymmetric elements have negative radial 
+             current coordinate values. These values are assumed small enough 
+             to be taken as zero. The nodes have been identified in node set 
+             WarnNodeRadCurCoord.
+
+     - (RAMP) OR (STEP) - INDICATE USE OF DEFAULT AMPLITUDES ASSOCIATED WITH THE STEP
+
+     - (RAMP) OR (STEP) - INDICATE USE OF DEFAULT AMPLITUDES ASSOCIATED WITH THE STEP
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                  1052
+          NUMBER OF NODES IS                                     1241
+          NUMBER OF NODES DEFINED BY THE USER                    1241
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                 2531
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =     0.10    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.20    
+       WALLCLOCK TIME (SEC) =            0
+
+
+
+
+     ***NOTE:       10 SECONDARY NODES INVOLVED IN *TIE CONSTRAINT
+               HAVE BEEN ADJUSTED. FOR MORE DETAILED INFORMATION ON
+               NODAL COORDINATE ADJUSTMENTS, USE THE *PREPRINT,MODEL=YES
+               OPTION.
+
+
+
+
+     ***WARNING: THE FOLLOWING SECONDARY NODES INVOLVED IN *TIE,
+          ARE WITHIN COMBINED MAIN AND SECONDARY THICKNESS AWAY FROM 
+          THEIR PROJECTION POINTS ON THE MAIN SURFACE. THE 
+          COORDINATES OF THESE NODES HAVE THEREFORE NOT BEEN 
+          ADJUSTED.
+        62        61

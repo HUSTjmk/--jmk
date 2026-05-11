@@ -1,0 +1,38 @@
+<Description>
+   ABQcaeG.exe / rank 0 / thread 0  encountered an unhandled exception
+
+</Description>
+
+<Context>
+   ABQcaeG
+</Context>
+
+<Callstack>
+  1)  KERNELBASE.dll                  RaiseException                          
+  2)  VCRUNTIME140_1.dll            unknown                                 
+</Callstack>
+
+<Memory>
+   <Current>            0 GB </Current>
+   <Resident>           0 GB </Resident>
+   <Physical>          23 GB </Physical>
+   <Limit>              0 GB </Limit>
+   <Accessible>        23 GB </Accessible>
+   <Free>              11 GB </Free>
+   <Allocator>            DL </Allocator>
+</Memory>
+
+<Swap>
+       <Size>          26 GB </Size>
+       <Used>          18 GB </Used>
+       <Free>           8 GB </Free>
+</Swap>
+
+<Directories>
+  <current> E:\study\research\articles\眼睛力学参数\simulation\axis-parted </current> <free>    172 GB </free>   <used>    103 GB </used> 
+     <temp> C:\Users\Administrator\AppData\Local\Temp </temp>    <free>    243 GB </free>
+</Directories>
+
+<Installation>
+</Installation>
+

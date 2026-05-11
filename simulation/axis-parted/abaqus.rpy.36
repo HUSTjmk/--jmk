@@ -1,0 +1,562 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-21.00.46 RELr427 198590
+# Run by Administrator on Sun May 10 15:12:19 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=195.439361572266, 
+    height=129.362701416016)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('project.cae')
+#: 模型数据库 "E:\study\research\articles\眼睛力学参数\simulation\axis-parted\project.cae" 已打开.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['assembly-improved'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.Model(name='yangs-changed', objectToCopy=mdb.models['assembly-improved'])
+#: 模型 "yangs-changed" 已创建.
+p = mdb.models['yangs-changed'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+a = mdb.models['yangs-changed'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, 
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.89, 
+    farPlane=69.9504, width=40.2907, height=19.6021, viewOffsetX=2.71531, 
+    viewOffsetY=0.570096)
+a = mdb.models['yangs-changed'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#3 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['yangs-changed'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[0], sketchPlaneSide=SIDE1, origin=(
+    7.16857, 3.967337, 0.0))
+s = mdb.models['yangs-changed'].ConstrainedSketch(name='__profile__', 
+    sheetSize=25.53, gridSpacing=0.63, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['yangs-changed'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=6.81889, 
+    farPlane=11.576, width=17.9328, height=9.0732, cameraPosition=(7.01348, 
+    3.86469, 9.19742), cameraTarget=(7.01348, 3.86469, 0))
+s.unsetPrimaryObject()
+del mdb.models['yangs-changed'].sketches['__profile__']
+a = mdb.models['yangs-changed'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.5298, 
+    farPlane=69.3106, width=35.9943, height=17.5118, viewOffsetX=2.89483, 
+    viewOffsetY=0.665124)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF, 
+    adaptiveMeshConstraints=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.models['yangs-changed'].steps['Press'].setValues(timePeriod=0.1, 
+    improvedDtMethod=ON)
+mdb.models['yangs-changed'].steps['Resume'].setValues(timePeriod=0.5, 
+    improvedDtMethod=ON)
+mdb.models['yangs-changed'].amplitudes['len-press'].setValues(timeSpan=STEP, 
+    smooth=SOLVER_DEFAULT, data=((0.0, 0.0), (0.1, 1.0)))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.1043, 
+    farPlane=70.7362, width=45.1145, height=21.8832, viewOffsetX=4.13714, 
+    viewOffsetY=1.21455)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON, mesh=OFF)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+p1 = mdb.models['yangs-changed'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['yangs-changed'].materials['vitreous'].elastic.setValues(table=((
+    5.7e-05, 0.49), ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=30.7893, 
+    farPlane=38.8192, width=30.44, height=14.7652, viewOffsetX=0.245599, 
+    viewOffsetY=-0.0230905)
+a = mdb.models['yangs-changed'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='57yangs', model='yangs-changed', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=50, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=1, activateLoadBalancing=False, numCpus=1)
+mdb.jobs['57yangs'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "57yangs.inp" 已提交分析.
+#: Job 57yangs: Analysis Input File Processor completed successfully.
+#: Job 57yangs: Abaqus/Explicit Packager completed successfully.
+#: Error in job 57yangs: The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.
+#: Error in job 57yangs: There is only one excessively distorted element
+#: Error in job 57yangs: The elements contained in element set ErrElemExcessDistortion-Step1 have distorted excessively.
+#: Job 57yangs: Abaqus/Explicit aborted due to errors.
+#: Error in job 57yangs: Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job 57yangs aborted due to errors.
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/57yangs.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/57yangs.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       2
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.6628, 
+    farPlane=93.1094, width=13.6397, height=6.90106, viewOffsetX=3.60676, 
+    viewOffsetY=2.43635)
+a = mdb.models['yangs-changed'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.6682, 
+    farPlane=66.1722, width=15.0362, height=7.29346, viewOffsetX=4.05944, 
+    viewOffsetY=3.72544)
+a = mdb.models['yangs-changed'].rootAssembly
+a.deleteFeatures(('Partition face-1', 'Partition face-3', 'Partition face-2', 
+    ))
+#: 警告: Mesh deleted in 2 regions of instance 'cornea-1' due to geometry association failure.
+#: 警告: 附加网格到几何体实例化失败'front-sclera-1'.
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+a = mdb.models['yangs-changed'].rootAssembly
+f11 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f11[0], sketchPlaneSide=SIDE1, origin=(
+    5.047343, -3.59923, 0.0))
+s1 = mdb.models['yangs-changed'].ConstrainedSketch(name='__profile__', 
+    sheetSize=51.25, gridSpacing=1.28, transform=t)
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['yangs-changed'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s1, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=36.0262, 
+    farPlane=43.2551, width=24.0791, height=12.1829, cameraPosition=(8.02722, 
+    -1.80422, 39.6406), cameraTarget=(8.02722, -1.80422, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(8.62199, 
+    4.26928, 39.6406), cameraTarget=(8.62199, 4.26928, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=37.2967, 
+    farPlane=41.9845, width=15.6147, height=7.90035, cameraPosition=(9.58635, 
+    4.58505, 39.6406), cameraTarget=(9.58635, 4.58505, 0))
+s1.Line(point1=(3.75510132081104, 7.86520499278063), point2=(2.046341163367, 
+    6.25100706625341))
+s1.PerpendicularConstraint(entity1=g[31], entity2=g[38], addUndoState=False)
+s1.CoincidentConstraint(entity1=v[29], entity2=g[31], addUndoState=False)
+s1.Line(point1=(2.046341163367, 6.25100706625341), point2=(0.300700863073392, 
+    7.82524852284888))
+s1.CoincidentConstraint(entity1=v[30], entity2=g[31], addUndoState=False)
+s1.undo()
+s1.undo()
+s1.Line(point1=(3.50580420181812, 8.09368551380415), point2=(2.046341163367, 
+    6.25100706625341))
+s1.PerpendicularConstraint(entity1=g[31], entity2=g[38], addUndoState=False)
+s1.CoincidentConstraint(entity1=v[29], entity2=g[31], addUndoState=False)
+s1.Line(point1=(2.046341163367, 6.25100706625341), point2=(0.203662715852261, 
+    7.71047010470647))
+s1.PerpendicularConstraint(entity1=g[38], entity2=g[39], addUndoState=False)
+s1.CoincidentConstraint(entity1=v[30], entity2=g[31], addUndoState=False)
+a = mdb.models['yangs-changed'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s1)
+s1.unsetPrimaryObject()
+del mdb.models['yangs-changed'].sketches['__profile__']
+session.viewports['Viewport: 1'].view.setValues(width=14.1625, height=6.89027, 
+    viewOffsetX=4.02417, viewOffsetY=3.82969)
+a = mdb.models['yangs-changed'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['yangs-changed'].rootAssembly
+del a.features['Partition face-1']
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+a = mdb.models['yangs-changed'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[0], sketchPlaneSide=SIDE1, origin=(
+    5.047343, -3.59923, 0.0))
+s = mdb.models['yangs-changed'].ConstrainedSketch(name='__profile__', 
+    sheetSize=51.25, gridSpacing=1.28, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['yangs-changed'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.2889, 
+    farPlane=43.9924, width=28.9905, height=14.6679, cameraPosition=(6.89876, 
+    -2.50681, 39.6406), cameraTarget=(6.89876, -2.50681, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.55, 
+    farPlane=43.7313, cameraPosition=(10.8264, 4.28628, 39.6406), 
+    cameraTarget=(10.8264, 4.28628, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=37.1471, 
+    farPlane=42.1341, width=16.6114, height=8.40463, cameraPosition=(10.6406, 
+    4.92613, 39.6406), cameraTarget=(10.6406, 4.92613, 0))
+s.Line(point1=(4.09569123823395, 7.40238037335923), point2=(2.046341163367, 
+    6.25100706625341))
+s.PerpendicularConstraint(entity1=g[30], entity2=g[38], addUndoState=False)
+s.Line(point1=(2.046341163367, 6.25100706625341), point2=(0.32, 
+    7.84638865362916))
+s.CoincidentConstraint(entity1=v[29], entity2=g[31], addUndoState=False)
+s.Line(point1=(1.80047660210942, 8.58875102981969), point2=(3.07101620080047, 
+    6.82669371980632))
+s.CoincidentConstraint(entity1=v[30], entity2=g[31], addUndoState=False)
+s.EqualDistanceConstraint(entity1=v[22], entity2=v[19], midpoint=v[30], 
+    addUndoState=False)
+s.CoincidentConstraint(entity1=v[31], entity2=g[38], addUndoState=False)
+s.EqualDistanceConstraint(entity1=v[22], entity2=v[23], midpoint=v[31], 
+    addUndoState=False)
+a = mdb.models['yangs-changed'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s)
+s.unsetPrimaryObject()
+del mdb.models['yangs-changed'].sketches['__profile__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.7837, 
+    farPlane=66.0568, width=16.0259, height=7.79687, viewOffsetX=4.20707, 
+    viewOffsetY=3.80542)
+a = mdb.models['yangs-changed'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+a = mdb.models['yangs-changed'].rootAssembly
+del a.features['Partition face-1']
+#: 警告: 附加网格到几何体实例化失败'vitreous-1'.
+session.viewports['Viewport: 1'].view.setValues(width=17.0125, height=8.27689, 
+    viewOffsetX=4.28471, viewOffsetY=3.8233)
+a = mdb.models['yangs-changed'].rootAssembly
+f11 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f11[0], sketchPlaneSide=SIDE1, origin=(
+    5.047343, -3.59923, 0.0))
+s1 = mdb.models['yangs-changed'].ConstrainedSketch(name='__profile__', 
+    sheetSize=51.25, gridSpacing=1.28, transform=t)
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['yangs-changed'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s1, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.2889, 
+    farPlane=43.9924, width=28.9905, height=14.6679, cameraPosition=(6.48713, 
+    -2.85983, 39.6406), cameraTarget=(6.48713, -2.85983, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.55, 
+    farPlane=43.7313, cameraPosition=(9.89395, 3.99817, 39.6406), 
+    cameraTarget=(9.89395, 3.99817, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=36.8186, 
+    farPlane=42.4626, width=18.7997, height=9.51181, cameraPosition=(9.61907, 
+    4.44117, 39.6406), cameraTarget=(9.61907, 4.44117, 0))
+s1.Line(point1=(4.09569123823395, 7.40238037335923), point2=(4.92364155044757, 
+    8.00995873096907))
+s1.CoincidentConstraint(entity1=v[29], entity2=g[25], addUndoState=False)
+s1.unsetPrimaryObject()
+del mdb.models['yangs-changed'].sketches['__profile__']
+del mdb.models['yangs-changed']
+a = mdb.models['assembly-improved'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Model(name='vitreous-yangs', objectToCopy=mdb.models['assembly-improved'])
+#: 模型 "vitreous-yangs" 已创建.
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.5298, 
+    farPlane=69.3106, width=35.9943, height=17.5118, viewOffsetX=3.78397, 
+    viewOffsetY=-0.763652)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#3 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f1[0], sketchPlaneSide=SIDE1, origin=(
+    7.16857, 3.967337, 0.0))
+s = mdb.models['vitreous-yangs'].ConstrainedSketch(name='__profile__', 
+    sheetSize=25.53, gridSpacing=0.63, transform=t)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['vitreous-yangs'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=7.45181, 
+    farPlane=10.943, width=13.161, height=6.65886, cameraPosition=(6.43646, 
+    3.8814, 9.19742), cameraTarget=(6.43646, 3.8814, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(7.84516, 
+    3.36087, 9.19742), cameraTarget=(7.84516, 3.36087, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=7.4518, 
+    farPlane=10.943, width=13.161, height=6.65886, cameraPosition=(7.84516, 
+    3.36087, 9.19742), cameraTarget=(7.84516, 3.36087, 0))
+s.unsetPrimaryObject()
+del mdb.models['vitreous-yangs'].sketches['__profile__']
+a = mdb.models['vitreous-yangs'].rootAssembly
+del a.features['Partition face-2']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.1075, 
+    farPlane=68.7329, width=32.1185, height=15.6262, viewOffsetX=3.85309, 
+    viewOffsetY=-0.590675)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f11 = a.instances['vitreous-1'].faces
+t = a.MakeSketchTransform(sketchPlane=f11[0], sketchPlaneSide=SIDE1, origin=(
+    5.047343, -3.59923, 0.0))
+s1 = mdb.models['vitreous-yangs'].ConstrainedSketch(name='__profile__', 
+    sheetSize=51.25, gridSpacing=1.28, transform=t)
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+a = mdb.models['vitreous-yangs'].rootAssembly
+a.projectReferencesOntoSketch(sketch=s1, filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.2889, 
+    farPlane=43.9924, width=28.9905, height=14.6679, cameraPosition=(6.57566, 
+    -2.73628, 39.6406), cameraTarget=(6.57566, -2.73628, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=35.55, 
+    farPlane=43.7313, cameraPosition=(8.09462, 0.984784, 39.6406), 
+    cameraTarget=(8.09462, 0.984784, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=36.6385, 
+    farPlane=42.6427, width=19.9997, height=10.1189, cameraPosition=(9.64343, 
+    1.72133, 39.6406), cameraTarget=(9.64343, 1.72133, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(10.5416, 
+    4.57195, 39.6406), cameraTarget=(10.5416, 4.57195, 0))
+s1.Line(point1=(4.37089316173305, 6.87845240092462), point2=(2.046341163367, 
+    6.25100706625341))
+s1.CoincidentConstraint(entity1=v[31], entity2=g[27], addUndoState=False)
+s1.Line(point1=(2.046341163367, 6.25100706625341), point2=(0.874458935810087, 
+    8.28869896308404))
+s1.CoincidentConstraint(entity1=v[32], entity2=g[38], addUndoState=False)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedFaces = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+a.PartitionFaceBySketch(faces=pickedFaces, sketch=s1)
+s1.unsetPrimaryObject()
+del mdb.models['vitreous-yangs'].sketches['__profile__']
+a = mdb.models['vitreous-yangs'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.6281, 
+    farPlane=68.2124, width=32.4014, height=15.7638, viewOffsetX=3.88702, 
+    viewOffsetY=-0.595877)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.3572, 
+    farPlane=68.4833, width=32.2542, height=15.6922, viewOffsetX=5.68547, 
+    viewOffsetY=5.75613)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.9217, 
+    farPlane=65.9188, width=13.3007, height=6.47099, viewOffsetX=4.57592, 
+    viewOffsetY=4.36963)
+a = mdb.models['vitreous-yangs'].rootAssembly
+f1 = a.instances['vitreous-1'].faces
+pickedRegions = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+a.deleteMesh(regions=pickedRegions)
+a = mdb.models['vitreous-yangs'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges1 = e1.getSequenceFromMask(mask=('[#80 ]', ), )
+a.seedEdgeByBias(biasMethod=SINGLE, end1Edges=pickedEdges1, minSize=0.185798, 
+    maxSize=0.928991, constraint=FINER)
+a = mdb.models['vitreous-yangs'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+#: 
+#: 部件实例: vitreous-1
+#:  四边形 elements:  209
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  77.72,  最差 min angle on quad faces:  43.53
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  103.33,  最差 max angle on quad faces:  148.61
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.27,  最差 长宽比:  2.88
+#:  三角形 elements:  2
+#:    Min angle on Tri Faces < 5:  0 (0%)
+#:    平均 min angle on tri faces:  51.97,  最差 min angle on tri faces:  51.30
+#:    Max angle on Tri faces > 170:  0 (0%)
+#:    平均 max angle on tri faces:  67.44,  最差 max angle on tri faces:  70.61
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.17,  最差 长宽比:  1.21
+#:    形状因子 < 0.01:  0 (0%)
+#:    平均 形状因子:  0.972591,  最差 形状因子:  0.962124
+#:   Number of elements :  211,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+#: 
+#: 部件实例: vitreous-1
+#:  四边形 elements:  209
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  77.72,  最差 min angle on quad faces:  43.53
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  103.33,  最差 max angle on quad faces:  148.61
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.27,  最差 长宽比:  2.88
+#:    稳定时间增量步 < 0.0001:  209 (100%)
+#:    平均稳定时间增量:  3.78e-05,  最小稳定时间增量:  8.84e-06
+#:    几何偏心因子 > 0.2:  0 (0%)
+#:    平均 几何偏心因子:  0.00340,  最差 几何偏心因子:  0.0478
+#:    最小边长 < 0.01:  0 (0%)
+#:    平均最小边长:  0.696,  最短边:  0.134
+#:    最大边长 > 1:  19 (9.09091%)
+#:    平均最大边长:  0.861,  最长边:  1.21
+#:  三角形 elements:  2
+#:    Min angle on Tri Faces < 5:  0 (0%)
+#:    平均 min angle on tri faces:  51.97,  最差 min angle on tri faces:  51.30
+#:    Max angle on Tri faces > 170:  0 (0%)
+#:    平均 max angle on tri faces:  67.44,  最差 max angle on tri faces:  70.61
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.17,  最差 长宽比:  1.21
+#:    形状因子 < 0.01:  0 (0%)
+#:    平均 形状因子:  0.972591,  最差 形状因子:  0.962124
+#:    稳定时间增量步 < 0.0001:  2 (100%)
+#:    平均稳定时间增量:  2.54e-05,  最小稳定时间增量:  2.53e-05
+#:    几何偏心因子 > 0.2:  0 (0%)
+#:    平均 几何偏心因子:  0.00e+00,  最差 几何偏心因子:  0.00e+00
+#:    最小边长 < 0.01:  0 (0%)
+#:    平均最小边长:  0.657,  最短边:  0.654
+#:    最大边长 > 1:  0 (0%)
+#:    平均最大边长:  0.769,  最长边:  0.790
+#:   Number of elements :  211,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.1973, 
+    farPlane=71.6432, width=57.6291, height=28.0375, viewOffsetX=-2.49195, 
+    viewOffsetY=6.23034)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=55.8271, 
+    farPlane=72.0134, width=57.2495, height=27.8528, viewOffsetX=1.82248, 
+    viewOffsetY=7.26056)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.3536, 
+    farPlane=70.4868, width=49.0506, height=23.8639, viewOffsetX=2.70369, 
+    viewOffsetY=8.08178)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=57.0237, 
+    farPlane=70.8167, width=48.7685, height=23.7267, viewOffsetX=4.70184, 
+    viewOffsetY=1.0268)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.5834, 
+    farPlane=71.257, width=54.7669, height=26.645, viewOffsetX=4.55285, 
+    viewOffsetY=0.429379)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.226, 
+    farPlane=71.6144, width=54.421, height=26.4767, viewOffsetX=4.97352, 
+    viewOffsetY=1.03767)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Press')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF, 
+    adaptiveMeshConstraints=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.models['vitreous-yangs'].steps['Press'].setValues(timePeriod=0.1, 
+    improvedDtMethod=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Resume')
+mdb.models['vitreous-yangs'].steps['Resume'].setValues(timePeriod=0.5, 
+    improvedDtMethod=ON)
+mdb.models['vitreous-yangs'].amplitudes['len-press'].setValues(timeSpan=STEP, 
+    smooth=SOLVER_DEFAULT, data=((0.0, 0.0), (0.1, 1.0)))
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+del mdb.jobs['57yangs']
+mdb.Job(name='Job-4', model='vitreous-yangs', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=50, 
+    memoryUnits=PERCENTAGE, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numDomains=1, activateLoadBalancing=False, numCpus=1)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-4.inp" 已提交分析.
+#: Job Job-4: Analysis Input File Processor completed successfully.
+#: Job Job-4: Abaqus/Explicit Packager completed successfully.
+p1 = mdb.models['vitreous-yangs'].parts['back-sclera']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+#: 视口 "Viewport: 1" 的内容已复制到剪贴板.
+mdb.models['vitreous-yangs'].materials['vitreous'].elastic.setValues(table=((
+    5.7e-05, 0.49), ))
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['Job-4'].kill()
+#: Error in job Job-4: Process terminated by external request (SIGTERM or SIGINT received).
+#: Job Job-4: Abaqus/Explicit was terminated prior to analysis completion.
+#: Error in job Job-4: Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-4.inp" 已提交分析.
+#: Job Job-4: Analysis Input File Processor completed successfully.
+#: Job Job-4: Abaqus/Explicit Packager completed successfully.
+#: Error in job Job-4: The ratio of deformation speed to wave speed exceeds 1.0000 in at least one element. This usually indicates an error with the model definition. Additional diagnostic information may be found in the message file.
+#: Job Job-4: Abaqus/Explicit aborted due to errors.
+#: Error in job Job-4: Abaqus/Explicit Analysis exited with an error - Please see the  status file for possible error messages if the file exists.
+#: Job Job-4 aborted due to errors.
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.3904, 
+    farPlane=69.4501, width=41.4773, height=20.9856, viewOffsetX=8.17315, 
+    viewOffsetY=0.758497)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+a = mdb.models['vitreous-yangs'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.deleteMesh(regions=partInstances)
+a = mdb.models['vitreous-yangs'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.seedPartInstance(regions=partInstances, size=0.9, deviationFactor=0.05, 
+    minSizeFactor=0.05)
+a = mdb.models['vitreous-yangs'].rootAssembly
+e1 = a.instances['vitreous-1'].edges
+pickedEdges = e1.getSequenceFromMask(mask=('[#80 ]', ), )
+a.deleteSeeds(regions=pickedEdges)
+a = mdb.models['vitreous-yangs'].rootAssembly
+partInstances =(a.instances['vitreous-1'], )
+a.generateMesh(regions=partInstances)
+#: 
+#: 部件实例: vitreous-1
+#:  四边形 elements:  199
+#:    Min angle on Quad Faces < 10:  0 (0%)
+#:    平均 min angle on quad faces:  78.25,  最差 min angle on quad faces:  59.55
+#:    Max angle on Quad faces > 160:  0 (0%)
+#:    平均 max angle on quad faces:  102.82,  最差 max angle on quad faces:  127.57
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.24,  最差 长宽比:  1.87
+#:  三角形 elements:  3
+#:    Min angle on Tri Faces < 5:  0 (0%)
+#:    平均 min angle on tri faces:  50.81,  最差 min angle on tri faces:  48.49
+#:    Max angle on Tri faces > 170:  0 (0%)
+#:    平均 max angle on tri faces:  70.95,  最差 max angle on tri faces:  77.98
+#:    长宽比 > 10:  0 (0%)
+#:    平均 长宽比:  1.22,  最差 长宽比:  1.31
+#:    形状因子 < 0.01:  0 (0%)
+#:    平均 形状因子:  0.950661,  最差 形状因子:  0.906801
+#:   Number of elements :  202,   Analysis errors:  0 (0%),  Analysis warnings:  0 (0%)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.1726, 
+    farPlane=69.6679, width=42.9735, height=20.9073, viewOffsetX=8.59369, 
+    viewOffsetY=0.769177)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+#: 作业输入文件 "Job-4.inp" 已提交分析.
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/57yangs.odb'])
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-4.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-4.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       2
+#: 结点集合数:          4
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+#: Job Job-4: Analysis Input File Processor completed successfully.
+session.odbs['E:/study/research/articles/眼睛力学参数/simulation/axis-parted/57yangs.odb'].close(
+    )
+#: 警告: 输出数据库 'E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-4.odb' 的磁盘文件已更改. 
+#: 
+#: 当前绘图操作已取消, 请重新打开文件以观察结果
+a = mdb.models['vitreous-yangs'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+#: Job Job-4: Abaqus/Explicit Packager completed successfully.
+o3 = session.openOdb(
+    name='E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-4.odb')
+#: 模型: E:/study/research/articles/眼睛力学参数/simulation/axis-parted/Job-4.odb
+#: 装配件个数:         1
+#: 装配件实例个数: 0
+#: 部件实例的个数:     6
+#: 网格数:             7
+#: 单元集合数:       0
+#: 结点集合数:          3
+#: 分析步的个数:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
